@@ -1,0 +1,199 @@
+.card{
+  background-color: white;
+  width: auto;
+  min-width: 15rem;
+  height: 100%;
+  font-family: 'Montserrat';
+  letter-spacing: 0.5px;
+  box-shadow: 0px 0px 8px 5px rgba(255,255,255,0.1);
+  $card-margin-bottom: 0.7rem;
+
+  &.car{
+    .header-img{
+      width: 100%;
+    }
+    p{
+      font-weight: 500;
+      font-size: 0.6rem;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-body{
+      padding: 0.7rem 1rem;
+    }
+
+    .titre-marque{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: nowrap;
+       h1{
+         font-size: 0.8rem;
+         margin-top: 0;
+         margin-bottom: 0;
+       }
+       img{
+         height: 1.2rem;
+         cursor: pointer;
+       }
+    }
+
+    ul.info-voiture{
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 0;
+      margin: 0;
+
+      li{
+        width: 45%;
+        display: flex;
+        justify-content: left;
+        flex-wrap: nowrap;
+        align-items: center;
+        list-style-type: none;
+        img{
+          height: 0.8rem;
+        }
+        p{
+          margin-left: $card-margin-bottom / 2;
+        }
+        a{
+          text-transform: lowercase;
+          font-size: 0.6rem;
+        }
+      }
+    }
+
+    .info-vente{
+      position: relative;
+      width: 100%;
+      min-height: 2.5rem;
+      padding: $card-margin-bottom 0;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      flex-wrap: wrap;
+      text-transform: uppercase;
+
+      &.forthcoming{
+        .left p, .right p{
+          color: rgb(218 172 0);
+        }
+
+        .title-block{
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: nowrap;
+          align-items: center;
+          h6{
+            text-align: center;
+            font-size: 0.5rem;
+            margin: 0;
+            margin-bottom: .5rem;
+          }
+          .left {
+            width: 50%;
+            h6{
+              margin-right: $card-margin-bottom * 2;
+              text-align: right;
+            }
+          }
+          .right {
+            width: 50%;
+            h6{
+              margin-left: $card-margin-bottom * 2;
+              text-align: left;
+            }
+          }
+        }
+      }
+      .separation-bar-desc{
+        position: absolute;
+        left: 50%;
+        height: 1.5rem;
+        width: 1px;
+        background-color: black;
+      }
+      p{
+        display: block;
+        font-size: 0.6rem;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 0;
+        line-height: 1.2rem;
+      }
+      .left{
+        width: 50%;
+        p{
+          margin-right: $card-margin-bottom * 2;
+          color: #443ce3;
+          text-align: right;
+        }
+      }
+      .right{
+        width: 50%;
+        p{
+          margin-left: $card-margin-bottom * 2;
+          color: #00da33;
+          text-align: left;
+        }
+      }
+    }
+
+    button.see-vente{
+      display: block;
+      font-size: 0.7rem;
+      width: 70%;
+      padding: 10px;
+      border: 0;
+      outline: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-family: 'Montserrat';
+      font-weight: 700;
+      box-shadow: 0px 0px 8px 5px rgba(0,0,0,0.05);
+      color: #ffffff;
+      background: linear-gradient(90deg, #aa1abb, #0552fa);
+      transition: transform 0.4s;
+      margin: 0 auto;
+    }
+  }
+
+  &.see-all{
+    box-shadow: none;
+    button{
+      position: relative;
+      font-size: 0.7rem;
+      width: 100%;
+      padding: 20px;
+      border: 0;
+      outline: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-family: 'Montserrat';
+      font-weight: 700;
+      box-shadow: 0px 0px 8px 5px rgba(0,0,0,0.05);
+      color: #ffffff;
+      background: linear-gradient(90deg, #aa1abb, #0552fa);
+      transition: transform 0.4s;
+
+      .arrow{
+        display: inline-block;
+        margin-left: 0.3rem;
+        transition: transform 0.4s;
+      }
+      &:hover{
+        cursor: pointer;
+        outline: none;
+        transform: scale(1.05);
+        & .arrow{
+          transform: translateX(30%);
+        }
+      }
+    }
+  }
+}

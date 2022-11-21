@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}Inscription{% endblock %}
+{% block head %}
+    {{ parent() }}
+    <link href="../css/connexion.css" rel="stylesheet">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{% endblock %}
+{% block content %}
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            {% if alertMessage is defined %}
+            <div class="alert {{alertMessage['code']}}">
+                {{alertMessage['message']}}
+            </div>
+            {% endif %}
+            <h3>Créez votre compte</h3>
+            <form action="{{ path_for('validInscription') }}" method="post">
+                <input type="text" id="_username" class="fadeIn second" name="username" placeholder="Nom d'utilisateur" required autofocus>
+                <input type="email" id="_mail" class="fadeIn second" name="mail" placeholder="Adresse mail" required autofocus>
+                <input type="password" id="_password" class="fadeIn third" name="mdp" placeholder="Mot de passe" required>
+                <input type="password" id="_Confirmpassword" class="fadeIn third" name="confirmmdp" placeholder="Confirmer mot de passe" required>
+                <br><br>
+                <input type="submit" class="fadeIn fourth" value="S'inscrire">
+                {% if message %}
+                <div class="error_message"><p>{{message}}</p></div>
+                {% endif %}
+            </form>
+
+            <div id="formFooter">
+                <a class="underlineHover" href="{{ path_for('home') }}">Retour accueil</a><br>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

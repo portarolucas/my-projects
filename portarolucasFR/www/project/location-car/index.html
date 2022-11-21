@@ -1,0 +1,115 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <title>PORTARO Lucas - Portfolio</title>
+    <meta content="" name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link href="https://www.portarolucas.fr/humans.txt" rel="author" type="text/plain" />
+
+    <link rel="icon" href="icon.png">
+    <link href="site.webmanifest" rel="manifest">
+    <link href="icon.png" rel="apple-touch-icon">
+
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Handlee&display=swap" rel="stylesheet">
+
+    <link href="../style.css" rel="stylesheet">
+    <meta content="#fafafa" name="theme-color">
+</head>
+
+<body>
+<!--[if IE]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<![endif]-->
+<div id="_content1">
+    <img src="./image/ResponsiveDesign.png" />
+    <div class="title">
+        <h1>Location de voiture : Thème Wordpress</h1>
+        <p>Création d'un thème Wordpress pour les agences de location de véhicule de sport et de luxe.</p>
+    </div>
+    <a href="#_content2"><button>Découvrir le thème</button></a>
+</div>
+<div id="_content2">
+    <h2>Présentation du thème</h2>
+    <p>Une présentation sous forme de vidéo et d'image sera faite pour ce site Web, actuellement pas hébérgé sur Internet</p>
+    <div class="video-block">
+        <div class="nav">
+            <ul id="nav-site-list">
+                <li class="active" data-group="1">SITE WEB</li>
+                <li data-group="2">ADMINISTRATION WEB</li>
+            </ul>
+            <ul class="nav-site-video" data-group="1">
+                <li data-id="1" class="active">Accueil</li>
+                <li data-id="2">[Véhicule] Page</li>
+                <li data-id="3">Nous contacter</li>
+            </ul>
+            <ul class="nav-site-video" data-group="2" style="display: none;">
+                <li data-id="1">Connexion</li>
+                <li data-id="2">Ajout/Modification véhicule</li>
+                <li data-id="3">Modification page d'accueil</li>
+                <li data-id="4">Modification page de contact</li>
+                <li data-id="5">Gestion du site</li>
+            </ul>
+        </div>
+        <video controls>
+            <source src="./video/site/1.mp4" type="video/mp4">
+        </video>
+    </div>
+</div>
+
+
+
+
+<script src="../../js/vendor/modernizr-3.7.1.min.js"></script>
+<script crossorigin="anonymous" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
+<script>
+    $('a[href^="#"]').bind('click.smoothscroll',function (e) {
+        e.preventDefault();
+        var target = this.hash,
+            $target = $(target);
+
+        $('html, body').stop().animate( {
+            'scrollTop': $target.offset().top
+        }, 900, 'swing');
+    } );
+
+    $('#nav-site-list li').click(function(elem){
+        let group = this.dataset.group;
+        $(this).addClass('active');
+        $("#nav-site-list li:not([data-group='" + group +"'])").removeClass('active');
+        $(".nav-site-video li").removeClass('active');
+        $(".nav-site-video[data-group='" + group +"'] li[data-id='1']").addClass('active');
+        $("ul.nav-site-video[data-group='" + group +"']").css('display', 'initial');
+        $("ul.nav-site-video:not([data-group='" + group +"'])").css('display', 'none');
+
+        if(group == '1'){
+            $('.video-block video source').attr("src", "./video/site/1.mp4");
+            $(".video-block video")[0].load();
+        }
+        else if(group == '2'){
+            $('.video-block video source').attr("src", "./video/administration/1.mp4");
+            $(".video-block video")[0].load();
+        }
+    });
+    $(".nav-site-video[data-group='1'] li").click(function(){
+        //site web
+        $(this).addClass('active');
+        $(".nav-site-video li:not([data-id='" + this.dataset.id +"'])").removeClass('active');
+        $('.video-block video source').attr("src", "./video/site/" + this.dataset.id + ".mp4");
+        $(".video-block video")[0].load();
+    });
+    $(".nav-site-video[data-group='2'] li").click(function(){
+        //administration
+        $(this).addClass('active');
+        $(".nav-site-video li:not([data-id='" + this.dataset.id +"'])").removeClass('active');
+        $('.video-block video source').attr("src", "./video/administration/" + this.dataset.id + ".mp4");
+        $(".video-block video")[0].load();
+    });
+</script>
+</body>
+
+</html>

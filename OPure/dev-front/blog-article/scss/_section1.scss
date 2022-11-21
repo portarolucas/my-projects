@@ -1,0 +1,101 @@
+@import '_var.scss';
+
+.section1{
+  margin-top: $margin-y-medium-size-xs;
+  @include sm{
+    margin-top: $margin-y-medium-size-sm;
+  }
+  @include md{
+    width: $max-size-md;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: $margin-y-medium-size-md;
+  }
+  @include lg{
+    width: $max-size-lg;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: $margin-y-medium-size-md;
+  }
+  @include xl{
+    width: $max-size-xl;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: $margin-y-medium-size-md;
+  }
+
+
+  .desc{
+    margin-top: $margin-y-medium-size-xs;
+    @include sm{
+      margin-top: $margin-y-medium-size-sm;
+    }
+    @include md{
+      margin-top: $margin-y-medium-size-md;
+    }
+    @include lg{
+      margin-top: $margin-y-medium-size-md;
+    }
+    @include xl{
+      margin-top: $margin-y-medium-size-md;
+    }
+    p{
+      font-family: $font-raleway;
+      font-size: $font-medium-size-xs;
+      color: #000000;
+      overflow: auto;
+      @include sm{
+        font-size: $font-medium-size-sm;
+      }
+      @include md{
+        font-size: $font-medium-size-md;
+      }
+      @include lg{
+        font-size: $font-medium-size-lg;
+      }
+      @include xl{
+        font-size: $font-medium-size-lg;
+      }
+      &:after{
+        clear: both;
+        display: table;
+        content: ' ';
+      }
+    }
+    .img-shadow{
+      display: none;
+      float: right;
+      margin-left: 1rem;
+      margin-bottom: 1rem;
+      position: relative;
+      @include sm{
+        display: block;
+      }
+      @include md{
+        display: block;
+      }
+      @include lg{
+        display: block;
+      }
+      @include xl{
+        display: block;
+      }
+      &:before{
+        content: ' ';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        box-shadow: inset 20px 0px 20px 6px rgb(255 255 255 / 60%);
+        -moz-box-shadow: inset 20px 0px 20px 6px rgb(255 255 255 / 60%);
+        -webkit-box-shadow: inset 20px 0px 20px 6px rgb(255 255 255 / 60%);
+      }
+      img{
+        height: 40vw;
+        max-height: 480px;
+      }
+    }
+
+  }
+}

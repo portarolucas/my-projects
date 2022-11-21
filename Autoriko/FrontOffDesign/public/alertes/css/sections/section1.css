@@ -1,0 +1,50 @@
+.section_1 {
+  margin-bottom: 3.5rem;
+}
+.section_1 h1.title-page {
+  font-family: "Montserrat";
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-align: left;
+  color: #000000;
+  margin: 0;
+  margin-bottom: 1.5rem;
+}
+.section_1 .block-alerte, .section_1 .block-conversation {
+  font-family: "Montserrat";
+  color: #000000;
+  cursor: pointer;
+  padding: 0.8rem;
+  margin-bottom: 0.8rem;
+  box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.15);
+}
+.section_1 .block-alerte p, .section_1 .block-conversation p {
+  font-weight: 500;
+  font-size: 0.8rem;
+  margin: 0;
+  margin-bottom: 0.4rem;
+}
+.section_1 .block-alerte p:hover b, .section_1 .block-conversation p:hover b {
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#0552fa", endColorstr="#aa1abb", GradientType=1 );
+  background: -moz-linear-gradient(135deg, #0552fa, #aa1abb);
+  background: -webkit-gradient(135deg, #0552fa, #aa1abb);
+  background: -webkit-linear-gradient(135deg, #0552fa, #aa1abb);
+  background: -o-linear-gradient(135deg, #0552fa, #aa1abb);
+  background: -ms-linear-gradient(135deg, #0552fa, #aa1abb);
+  background: linear-gradient(135deg, #0552fa, #aa1abb);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+.section_1 .block-alerte p.notif_time, .section_1 .block-conversation p.notif_time {
+  font-size: 0.6rem;
+  margin-bottom: 0;
+  font-style: italic;
+}
+.section_1 .block-alerte p .danger, .section_1 .block-conversation p .danger {
+  color: #fb9d0d;
+}
+
+/*# sourceMappingURL=section1.css.map */

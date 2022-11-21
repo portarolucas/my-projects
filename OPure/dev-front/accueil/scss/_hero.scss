@@ -1,0 +1,293 @@
+@import '_var.scss';
+
+.hero{
+  margin-top: 6.5rem;//xs nav height
+
+  @include md{
+    margin-top: 8rem;
+  }
+  @include lg{
+    margin-top: 10rem;
+  }
+  @include xl{
+    margin-top: 10rem;
+  }
+  .slide{
+    position: relative;
+    min-height: 60rem;
+    max-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -5%;
+      width: 110%;
+      height: 100%;
+      background-image: url('../img/hero/drink-water.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      filter: blur(5px);
+    }
+
+    @include md{
+      min-height: calc(100vh - 8rem);
+      max-height: inherit;
+    }
+    @include lg{
+      min-height: calc(100vh - 10rem);
+      max-height: inherit;
+    }
+    @include xl{
+      min-height: calc(100vh - 10rem);
+      max-height: inherit;
+    }
+    .slide__container{
+      z-index: 50;
+      position: relative;
+      min-height: 60rem;
+      max-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      @include sm{
+        align-items: flex-start;
+        padding-left: 6rem;
+      }
+      @include md{
+        align-items: flex-start;
+        width: $max-size-md;
+        margin: 0 auto;
+      }
+      @include lg{
+        align-items: flex-start;
+        width: $max-size-lg;
+        margin: 0 auto;
+      }
+      @include xl{
+        align-items: flex-start;
+        width: $max-size-xl;
+        margin: 0 auto;
+      }
+      & > *{
+        margin: 0;
+        margin-top: $margin-y-medium-size-xs;
+
+        @include sm{
+          margin-top: $margin-y-medium-size-sm / 2;
+        }
+
+        @include md{
+          margin-top: $margin-y-medium-size-md / 2;
+        }
+        @include lg{
+          margin-top: $margin-y-medium-size-md / 2;
+        }
+        @include xl{
+          margin-top: $margin-y-medium-size-md / 2;
+        }
+      }
+      & *:first-child{
+        margin-top: 0 !important;
+      }
+      h1.title{
+        color: #ffffff;
+        font-family: $font-raleway;
+        font-weight: 900;
+        font-size: $font-extralarge-size-xs;
+        text-transform: uppercase;
+
+        @include sm{
+          font-size: $font-extralarge-size-sm;
+        }
+        @include md{
+          font-size: $font-extralarge-size-md;
+        }
+        @include lg{
+          font-size: $font-extralarge-size-lg;
+        }
+        @include xl{
+          font-size: $font-extralarge-size-lg;
+        }
+      }
+      p.desc{
+        text-align: center;
+        color: #ffffff;
+        font-family: $font-raleway;
+        font-weight: 500;
+        font-size: $font-large-size-xs;
+
+        @include sm{
+          width: 70%;
+          text-align: left;
+          font-size: $font-large-size-sm;
+        }
+        @include md{
+          width: 70%;
+          text-align: left;
+          font-size: $font-large-size-md;
+        }
+        @include lg{
+          width: 70%;
+          text-align: left;
+          font-size: $font-large-size-lg;
+        }
+        @include xl{
+          width: 70%;
+          text-align: left;
+          font-size: $font-large-size-lg;
+        }
+      }
+      .button-block{
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        flex-wrap: nowrap;
+
+        & > *{
+          margin-right: $padding-x-medium-size-xs;
+
+          @include sm{
+            margin-right: $padding-x-medium-size-sm;
+          }
+          @include md{
+            margin-right: $padding-x-medium-size-md / 1.4;
+          }
+          @include lg{
+            margin-right: $padding-x-medium-size-md / 1.4;
+          }
+          @include xl{
+            margin-right: $padding-x-medium-size-md / 1.4;
+          }
+        }
+        .button--secondary{
+          display: none;
+
+          &:hover{
+            background-color: rgba(#28499A, .2) !important;
+          }
+
+          &.pink{
+            &:hover{
+              background-color: rgba(#C95D63, .2) !important;
+            }
+          }
+
+          @include sm{
+            display: block;
+          }
+          @include md{
+            display: block;
+          }
+          @include lg{
+            display: block;
+          }
+          @include xl{
+            display: block;
+          }
+        }
+      }
+      .slide-pagination{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+
+        .slide-pagination_circle{
+          height: 1rem;
+          width: 1rem;
+          border-radius: 1rem;
+          background-color: transparent;
+          border: 1px solid #ffffff;
+          margin-left: .25rem;
+          margin-right: .25rem;
+          &.is--active{
+            background-color: rgba(#ffffff, .5);
+          }
+
+          @include sm{
+            height: 1.2rem;
+            width: 1.2rem;
+            margin-left: .45rem;
+            margin-right: .45rem;
+          }
+          @include md{
+            height: 1.4rem;
+            width: 1.4rem;
+            margin-left: .65rem;
+            margin-right: .65rem;
+          }
+          @include lg{
+            height: 1.4rem;
+            width: 1.4rem;
+            margin-left: .65rem;
+            margin-right: .65rem;
+          }
+          @include xl{
+            height: 1.4rem;
+            width: 1.4rem;
+            margin-left: .65rem;
+            margin-right: .65rem;
+          }
+        }
+        .slide-pagination__prev, .slide-pagination__next{
+          height: .45rem;
+
+          @include sm{
+            height: .65rem;
+          }
+          @include md{
+            height: .85rem;
+          }
+          @include lg{
+            height: .85rem;
+          }
+          @include xl{
+            height: .85rem;
+          }
+        }
+        .slide-pagination__prev{
+          margin-right: 1rem;
+        }
+        .slide-pagination__next{
+          margin-left: 1rem;
+          transform: rotate(180deg);
+        }
+      }
+    }
+    .slide__image{
+      z-index: 10;
+      position: absolute;
+      height: 70%;
+      width: 70%;
+      object-fit: cover;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+
+      @include sm{
+        height: 75%;
+        width: 75%;
+      }
+      @include md{
+        height: 75%;
+        width: 75%;
+      }
+      @include lg{
+        height: 75%;
+        width: 75%;
+      }
+      @include xl{
+        height: 75%;
+        width: 75%;
+      }
+    }
+  }
+}

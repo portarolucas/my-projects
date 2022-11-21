@@ -1,0 +1,49 @@
+@import "./config";
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin-top: $navbar-header-size;
+  width: 100%;
+}
+
+.main-content{
+  padding-top: 3.5rem;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.align-center{
+  padding-left: $body-padding-left;
+  padding-right: $body-padding-right;
+}
+
+.align-center-small{
+  padding-left: $body-padding-left + 4.5rem;
+  padding-right: $body-padding-right + 4.5rem;
+}
+
+.separation-bar{
+  width: 100vw;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0px 6px 12px 0px rgba(0,0,0,0.25);
+  box-shadow: 0px 6px 12px 0px rgba(0,0,0,0.25);
+  margin-top: $body-margin-top;
+  margin-bottom: $body-margin-bottom;
+}
+
+.align-center .separation-bar{
+  margin-right: -150px;
+  margin-left: -150px;
+}
+
+.text-linear-gradient{
+  @include text-linear-gradient;
+}
+
+.text-lg-center{
+  margin: 0 auto;
+}

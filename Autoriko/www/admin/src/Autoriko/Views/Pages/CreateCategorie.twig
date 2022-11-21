@@ -1,0 +1,44 @@
+{% extends "Layout.twig" %}
+
+{% block style %}
+<link rel="stylesheet" href="/assets/css/new_sequence.css">
+{% endblock %}
+
+{% block content %}
+
+{% if flash.success %}
+<div class="alert alert-success" role="alert">
+  {{ flash.success }}
+</div>
+{% endif %}
+
+{% if flash.error %}
+<div class="alert alert-danger" role="alert">
+  {{ flash.error }}
+</div>
+{% endif %}
+
+
+<div class="col-sm-6">
+  <form ui-jp="parsley" action="{{ path_for('createCategorie') }}" method="post">
+    <div class="box">
+      <div class="box-header">
+        <h2>Créer une categorie</h2>
+      </div>
+      <div class="box-body">
+        <p class="text-muted">Tous les champs sont obligatoires.</p>
+
+        <div class="row m-b">
+          <div class="fcol-sm-6">
+            <label>Nom de la catégorie</label>
+            <input type="text" required class="form-control" placeholder="Entrer la categorie" id="libelle" name="libelle">
+          </div>
+        </div>
+        <div class="dker p-a text-right">
+          <button type="submit" class="btn info">Valider</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

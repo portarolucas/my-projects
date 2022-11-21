@@ -1,0 +1,229 @@
+{% extends "Layout.twig" %}
+
+{% block style %}
+
+<style>
+	.notification {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+	}
+</style>
+{% endblock %}
+
+{% block content %}
+
+<div id="notification_block" class="notification" style="z-index: 999;display: none;">
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="hideNotification()">
+		<span aria-hidden="true">&times;</span>
+	</button>
+	<p></p>
+</div>
+<div class="box">
+	<div class="box-header">
+		<h2>Gestion des faqs</h2>
+		<small>Possiblité de modifier ou de supprmier des faqs</small>
+	</div>
+	<div class="table-responsive">
+		<table class="table table-bordered m-0">
+			<tr>
+				<th style="width: 30%;">Question</th>
+				<th style="width: 30%;">Reponse</th>
+				<th style="width: 30%;">Introduction
+				<th>
+				<th style="width: 10%;"></th>
+			</tr>
+			</thead>
+			<tbody>
+				{% for faq in faqs %}
+				<tr>
+					<td class="panel_questionfaq">
+						<span class="editable">{{ faq.question }}</span>
+					</td>
+					<td class="panel_reponsefaq">
+						<span class="editable">{{ faq.reponse }}</span>
+					</td>
+					<td class="panel_introductionfaq">
+						<span class="editable">{{ faq.introduction }}</span>
+					</td>
+
+					<td class="panel_update">
+						<button type="button" class="btn btn-default btn-sm" data-toggle="modal"
+							data-target="#editUser_{{ faq.id_faq }}">
+							<i class="far fa-edit"></i>
+						</button>
+						<div class="modal fade exampleModalClass" id="editUser_{{ faq.id_faq  }}" tabindex="-1"
+							role="dialog" aria-labelledby="editUserLabel_{{ faq.id_faq  }}">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="row">
+										<div class="col-sm-12">
+											<form ui-jp="parsley">
+												<div class="box">
+													<div class="box-header">
+														<div class="modal-header">
+															<h4 class="modal-title" id="editUserLabel_{{ faq.id_faq }}">
+																Modifier les faqs</h4>
+															<button type="button" class="close" data-dismiss="modal"
+																aria-label="Fermer">
+																<span aria-hidden="true">×</span>
+															</button>
+														</div>
+													</div>
+													<div class="box-body">
+														<div class="modal-body">
+															<div class="form-group">
+																<label class="control-label">Question de le faq:</label>
+																<input type="text" value="{{ faq.question }}"
+																	class="form-control update_questionFaq">
+															</div>
+															<div class="form-group">
+																<label class="control-label">Reponse de le faq:</label>
+																<input type="text" value="{{ faq.reponse }}"
+																	class="form-control update_reponseFaq">
+															</div>
+															<div class="form-group">
+																<label class="control-label">Introduction de
+																	l'faq</label>
+																<input type="text" value="{{ faq.introduction }}"
+																	class="form-control update_introductionFaq">
+															</div>
+														</div>
+														<div class="dker p-a text-right">
+															<button type="button" class="btn btn-default"
+																data-dismiss="modal">Annuler</button>
+															<button type="button" class="btn info"
+																onclick="faqUpdate({{ faq.id_faq }}, this)">Modifier le
+																FAQ</button>
+														</div>
+													</div>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</td>
+
+					<td class="panel_delete">
+						<input type="button" value="Supprimer" class="btn btn-danger delCompteBtn" data-toggle="modal"
+							data-target="#faqDelete{{ faq.id_faq }}">
+						<div class="modal fade" id="faqDelete{{ faq.id_faq }}" tabindex="-1" role="dialog"
+							aria-labelledby="faqDeleteLabel_{{ faq.id_faq }}" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h4 class="modal-title" id="deleteUserLabel_{{ faq.id_faq }}">Supprimer un FAQ :
+										</h4>
+									</div>
+									<div class="modal-body">
+										<p>Êtes-vous sûr de vouloir supprimer le faq :
+											{{ faq.question }}
+											?</p>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default"
+											data-dismiss="modal">Annuler</button>
+										<button type="button" class="btn btn-danger btn-ok"
+											onclick="faqDelete({{ faq.id_faq }}, this)">Supprimer</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>
+
+				{% endfor %}
+
+			</tbody>
+		</table>
+	</div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+
+<script>
+	function hideNotification() {
+		$('#notification_block').fadeOut('500', () => {
+			$('#notification_block').removeClass();
+		});
+	}
+
+	function showNotification(libelle_bootstrap, message) {
+		hideNotification();
+		$('#notification_block p').text(message)
+		$('#notification_block').addClass("notification")
+		$('#notification_block').addClass('alert alert-' + libelle_bootstrap)
+		$('#notification_block').fadeIn('500');
+	}
+
+	function faqDelete(id, leBtn) {
+		let model = $(leBtn).parents().closest('.modal');
+		let lineDelet = $(leBtn).parents().closest('tr');
+
+		let http = new XMLHttpRequest();
+		let params = 'id_faq=' + id;
+		http.open('POST', '{{ path_for('faqDelete') }}', true);
+
+		http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+		http.onreadystatechange = function () {
+			if (http.readyState == 4 && http.status == 200) {
+				if (http.responseText == 'success') {
+					$(model).modal('hide');
+					showNotification('success', "Le faq a bien été supprimé.");
+					$(lineDelet).hide('slow', function () {
+						$(lineDelet).remove();
+					});
+				} else {
+					showNotification('danger', 'Erreur : ' + http.responseText);
+				}
+			}
+		}
+		http.send(params);
+	}
+	function faqUpdate(id, leBtn) {
+		let bodyModal = $(leBtn).parent().prev('.modal-body');
+		let question = $(bodyModal).find('.update_questionFaq').val();
+		let reponse = $(bodyModal).find('.update_reponseFaq').val();
+		let introduction = $(bodyModal).find('.update_introductionFaq').val();
+
+		if (id, question, reponse, introduction) {
+			let model = $(leBtn).parents().closest('.modal');
+			let lineUpdate = $(leBtn).parents().closest('tr');
+			let http = new XMLHttpRequest();
+
+			let params = 'id_faq=' + id + 
+			'&question=' + question +
+			'&reponse=' + reponse +
+			'&introduction=' + introduction;
+			
+			http.open('POST', '{{ path_for('faqUpdate') }}', true);
+
+			http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+			http.onreadystatechange = function () {
+				if (http.readyState == 4 && http.status == 200) {
+					console.log(http.responseText);
+					if (http.responseText == 'success') {
+						$(lineUpdate).find('.panel_questionfaq').text(question);
+						$(lineUpdate).find('.panel_reponsefaq').text(reponse);
+						$(lineUpdate).find('.panel_introductionfaq').text(introduction);
+
+						$(model).modal('hide');
+						showNotification('success', "Succès : Le faq " + id + " a bien été modifié.");
+					} else {
+						showNotification('danger', 'Erreur : ', http.responseText);
+					}
+				}
+			}
+			http.send(params);
+		} else {
+			alert("Une erreur est survenue : des champs sont manquants, introuvable, ou incomplet \n\rSi le problème persiste actualisez la page ou contactez-nous");
+		}
+	}
+	</script>
+
+	{% endblock %}

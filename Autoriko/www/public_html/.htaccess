@@ -1,0 +1,11 @@
+#AuthUserFile /home/u844184129/domains/autoriko.com/public_html/secret/.htpasswd
+#AuthType Basic
+#AuthName "Veuillez vous identifier :"
+#Require valid-user
+
+# DO NOT REMOVE THIS LINE AND THE LINES BELLOW SSL_REDIRECT:autoriko.com
+#RewriteEngine on
+#RewriteCond %{HTTPS} off
+#RewriteCond %{HTTP_HOST} (www\.)?autoriko.com
+#RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# DO NOT REMOVE THIS LINE AND THE LINES BELLOW SSL_REDIRECT:autoriko.com

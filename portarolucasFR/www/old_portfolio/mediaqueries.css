@@ -1,0 +1,198 @@
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 460px)
+{
+	html
+	{
+		font-size: 6px;
+	}
+
+	aside img
+	{
+		display: none;
+	}
+
+	#info_moi li
+	{
+    	list-style: none;
+	}
+
+	#nav_head
+	{
+	    display: none;
+	}
+
+	#titreHeader
+	{
+		width: inherit;
+	}
+
+	.compTd
+	{
+		display: block;
+		margin-bottom: 20px;
+		width: inherit;
+	}
+
+	#art_a_propos
+	{
+		font-size: 1.8rem;
+		text-align: center;
+	}
+	
+	#section_a_propos
+	{
+		position: relative;
+	}
+
+	.bar_underword
+	{
+		margin: 0 auto !important;
+	}
+
+	#art_me_contacter p
+	{
+		width: auto;
+	}
+
+	#uNomTB, #uEmailTB, #uMessageTB
+	{
+		width: 80%;
+	}
+}
+
+@media screen and (min-width: 461px) and (max-width: 600px)
+{
+	html
+	{
+		font-size: 6.5px;
+	}
+
+	#nav_head
+	{
+	    display: none;
+	    color: red;
+	}
+
+	#titreHeader
+	{
+		width: inherit;
+	}
+
+	.compTd
+	{
+		display: block;
+		margin-bottom: 20px;
+		width: inherit;
+	}
+
+	#art_a_propos
+	{
+		font-size: 1.8rem;
+	}
+
+	#section_a_propos
+	{
+		position: relative;
+	}
+
+	aside img
+	{
+		position: absolute;
+		top: -45px;
+		right: 0;
+		height: 115px !important;
+		width: 85px !important;
+	}
+
+	#art_me_contacter p
+	{
+		width: auto;
+	}
+
+	#uNomTB, #uEmailTB, #uMessageTB
+	{
+		width: 100%;
+	}
+}
+
+@media screen and (min-width: 601px) and (max-width: 1016px)
+{
+	html
+	{
+		font-size: 8.5px;
+	}
+
+	#nav_head a
+	{
+		color: #efefef;
+		font-weight: bold;
+	}
+
+	.bar_undertextnav
+	{
+		background-color: #efefef;
+	}
+
+	#nav_head ul
+	{
+        padding-left: 0;
+    }
+
+    .bar_undertextnav
+    {
+    	display: none;
+    }
+
+	#art_a_propos
+	{
+		font-size: 1.8rem;
+	}
+
+	aside img
+	{
+		height: 184px !important;
+		width: 138px !important;
+	}
+}
+
+@media screen and (min-width: 1017px) and (max-width: 1260px)
+{
+	html
+	{
+		font-size: 8.5px;
+	}
+
+	#nav_head a
+	{
+		color: #efefef;
+		font-weight: bold;
+	}
+
+	.bar_undertextnav
+	{
+		background-color: #efefef;
+	}
+
+	#nav_head ul
+	{
+        padding-left: 0;
+    }
+
+    .bar_undertextnav
+    {
+    	display: none;
+    }
+
+	#art_a_propos
+	{
+		font-size: 2rem;
+	}
+
+	aside img
+	{
+		height: 250px !important;
+		width: 200px !important;
+	}
+}

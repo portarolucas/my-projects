@@ -1,0 +1,6 @@
+[2021-7-6 12:46:39] layer " ": Expected Either a default asset specification or a layer asset specification but " " found.
+[2021-7-6 12:46:39] layer "LES AVANTAGES ENCHEREAUTO.COM": Unsupported extension: com
+[2021-7-6 12:46:39] layer "This is some extra text tu argue your specification.This is som": Expected end of input but "i" found.
+[2021-7-6 12:46:39] layer "This is some extra text tu argue your specification.This is som": Expected end of input but "i" found.
+[2021-7-6 12:46:39] layer "This is some extra text tu argue your specification.This is som": Expected end of input but "i" found.
+[2021-7-6 12:46:39] layer "This is some extra text tu argue your specification.This is som": Expected end of input but "i" found.

@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'Lemon Milk';
+    src: url('../../../fonts/lemonmilk-regular-webfont.woff2') format('woff2'),
+         url('../../../fonts/lemonmilk-regular-webfont.woff') format('woff'),
+         url("../../../fonts/LEMONMILK-Regular.otf") format("otf");
+    font-weight: 400;
+    font-style: normal;
+}
+
+//@import "./config";
+@import "../../MAIN/scss/utils";
+//@import "./components/header-nav"; //TODO ajouter séparement le header.scss dans l'app vue
+@import "./sections/section1";
+@import "./sections/section3";
+@import "./sections/section4";
+//@import "./sections/footer";
+
+html, body {
+	font-size: 100%;
+  overflow-x: hidden;
+}
+
+.separation-bar-marque{
+  margin-top: $body-margin-top - 2rem !important;//where 2 is the height of the last elem in the first section (* Livraison Offerte en France métropolitain...)
+}
+
+a{
+  color: inherit;
+  text-decoration: none;
+}
+//save
+
+//laptopt : 1400px
+//screen : 1920px
+@media (min-width: 1800px) {
+  html {
+  	font-size: 120%;
+  }
+}

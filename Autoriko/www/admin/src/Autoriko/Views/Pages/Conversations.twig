@@ -1,0 +1,204 @@
+{% extends "Layout.twig" %}
+
+{% block style %}
+<link rel="stylesheet" href="/assets/css/gestion_sequence.css">
+<style>
+    .notification {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div id="notification_block" class="notification" style="z-index: 999;display: none;">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="hideNotification()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <p></p>
+</div>
+
+<div class="box">
+    <div class="box-header">
+        <h2>Liste des conversations</h2>
+        <small>Possiblité de modifier ou de supprmier des conversations</small>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered m-0">
+            <thead>
+                <tr>
+                    <th style="width: 20%;">titre</th>
+                    <th style="width: 20%;">utilisateur</th>
+                    <th style="width: 20%;">admin</th>
+                    <th style="width: 20%;">date</th>
+                    <th style="width: 5%;"></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for conversation in conversations %}
+                <tr>
+                    <td class="panel_titreconversation"><span class="editable">{{ conversation.titre }}</span></td>
+                    <td><span class="editable">{{ conversation.utilisateur.prenom }}</span></td>
+                    <td><span class="editable">{{ conversation.administrateur.nom }}</span></td>
+                    <td class="panel_dateconversation"><span class="editable">{{ conversation.created_at }}</span></td>
+                    </td>
+
+                    <td class="panel_update">
+                        <button type="button" class="btn btn-default btn-sm" data-toggle="modal"
+                            data-target="#editconversation_{{ conversation.id_conversation }}">
+                            <i class="far fa-edit"></i>
+                        </button>
+                        <div class="modal fade exampleModalClass"
+                            id="editconversation_{{ conversation.id_conversation }}" tabindex="-1" role="dialog"
+                            aria-labelledby="editconversationLabel_{{ conversation.id_conversations }}">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="col-sm-12">
+                                        <form ui-jp="parsley">
+                                            <div class="box">
+                                                <div class="box-header">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title"
+                                                            id="editconversationLabel_{{ conversation.id_conversation }}">Modifier la
+                                                            conversation</h4>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Fermer"><span aria-hidden="true">×</span></button>
+                                                    </div>
+                                                </div>
+                                                <div class="box-body">
+                                                    <div class="modal-body">
+                                                            <div class="form-group">
+                                                                <label class="control-label">Modifier le titre :</label>
+                                                                <input type="text" value="{{ conversation.titre }}"
+                                                                    class="form-control update_titreConversation">
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                    <div class="dker p-a text-right">
+                                                        <button type="button" class="btn btn-default"
+                                                            data-dismiss="modal">Annuler</button>
+                                                        <button type="button" class="btn info"
+                                                            onclick="conversationUpdate({{ conversation.id_conversation }}, this)">Modifier
+                                                            l'utilisateur</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+
+                    <td class="panel_delete">
+                        <input type="button" value="Supprimer" class="btn btn-danger delCompteBtn" data-toggle="modal"
+                            data-target="#conversationDelete{{ conversation.id_conversation }}">
+                        <div class="modal fade" id="conversationDelete{{ conversation.id_conversation }}" tabindex="-1"
+                            role="dialog" aria-labelledby="conversationDeleteLabel_{{ conversation.id_conversation }}"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title"
+                                            id="conversationDeleteLabel_{{ conversation.id_conversation }}">Supprimer
+                                            une conversation :</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Êtes-vous sûr de vouloir supprimer la conversation : {{ conversation.titre }}
+                                            ?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default"
+                                            data-dismiss="modal">Annuler</button>
+                                        <button type="button" class="btn btn-danger btn-ok"
+                                            onclick="conversationDelete({{ conversation.id_conversation }}, this)">Supprimer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endblock %}
+
+        {% block script %}
+        <script>
+            function hideNotification() {
+                $('#notification_block').fadeOut('500', () => {
+                    $('#notification_block').removeClass();
+                });
+            }
+
+            function showNotification(libelle_bootstrap, message) {
+                hideNotification();
+                $('#notification_block p').text(message)
+                $('#notification_block').addClass("notification")
+                $('#notification_block').addClass('alert alert-' + libelle_bootstrap)
+                $('#notification_block').fadeIn('500');
+            }
+
+            function conversationDelete(id, leBtn) {
+                let model = $(leBtn).parents().closest('.modal');
+                let lineDelet = $(leBtn).parents().closest('tr');
+
+                let http = new XMLHttpRequest();
+                let params =
+                    'id_conversation=' + id;
+                http.open('POST', '{{ path_for('conversationDelete') }}', true);
+
+                http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                http.onreadystatechange = function () {
+                    if (http.readyState == 4 && http.status == 200) {
+                        if (http.responseText == 'success') {
+                            $(model).modal('hide');
+                            showNotification('success', "La conversation a bien été supprimé.");
+                            $(lineDelet).hide('slow', function () {
+                                $(lineDelet).remove();
+                            });
+                        } else {
+                            showNotification('danger', 'Erreur : ' + http.responseText);
+                        }
+                    }
+                }
+                http.send(params);
+            }
+
+            function conversationUpdate(id, leBtn) {
+                let bodyModal = $(leBtn).parent().prev('.modal-body');
+                let titre = $(bodyModal).find('.update_titreConversation').val();
+
+                if (id, titre) {
+                    let model = $(leBtn).parents().closest('.modal');
+                    let lineUpdate = $(leBtn).parents().closest('tr');
+                    let http = new XMLHttpRequest();
+
+                    let params =
+                        'id_conversation=' + id +
+                        '&titre=' + titre;
+                    http.open('POST', '{{ path_for('conversationUpdate') }}', true);
+
+                    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                    http.onreadystatechange = function () {
+                        if (http.readyState == 4 && http.status == 200) {
+                            console.log(http.responseText);
+                            if (http.responseText == 'success') {
+                                $(lineUpdate).find('.panel_titreconversation').text(titre);
+                                $(model).modal('hide');
+                                showNotification('success', "Succès : La conversation " + titre + " a bien été modifié.");
+                            } else {
+                                showNotification('danger', 'Erreur : ', http.responseText);
+                            }
+                        }
+                    }
+                    http.send(params);
+                } else {
+                    alert("Une erreur est survenue : des champs sont manquants, introuvable, ou incomplet \n\rSi le problème persiste actualisez la page ou contactez-nous");
+                }
+            }
+        </script>
+        {% endblock %}

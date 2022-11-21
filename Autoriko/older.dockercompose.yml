@@ -1,0 +1,62 @@
+version: "3"
+
+networks:
+  d.net:
+    driver: bridge
+
+services:
+
+  enchereauto:
+    image: canals/php:latest
+    environment:
+      - VHOST_HOSTNAME=enchereauto.fr
+      - VHOST_DOCROOT=/var/www
+    ports:
+      - "12080:80"
+      - "12043:443"
+    volumes:
+      - ./API/public:/var/www/api/public
+      - ./API/src:/var/www/api/src
+      - ./API/config:/var/www/api/config
+      - ./API/logs:/var/www/api/logs
+      - ./BackOffice/public:/var/www/admin/public
+      - ./BackOffice/src:/var/www/admin/src
+      - ./BackOffice/config:/var/www/admin/config
+      - ./BackOffice/src:/var/www/admin/tmp
+      - ./FrontOffice/dist:/var/www/public
+
+    working_dir: /var/www/
+    networks:
+      - d.net
+    links:
+      - mysql:db
+
+  mysql:
+    image: mariadb:latest
+    command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8 --collation-server=utf8_general_ci
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=com
+      - MYSQL_PASSWORD=com
+      - MYSQL_DATABASE=enchere_auto
+    volumes :
+      - ./SQL:/var/sql
+    networks:
+      - d.net
+
+  myadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    ports:
+      - "12780:80"
+    links:
+      - mysql:db
+    networks:
+      - d.net
+
+  maildev:
+     image: maildev/maildev
+     ports:
+       - "1210:80"
+       - "1220:25"
+     networks:
+       - d.net

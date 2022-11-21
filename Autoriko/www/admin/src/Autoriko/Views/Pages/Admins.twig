@@ -1,0 +1,213 @@
+{% extends "Layout.twig" %}
+
+{% block style %}
+<link rel="stylesheet" href="/assets/css/gestion_sequence.css">
+<style>
+    .notification{
+      position: fixed;
+      bottom: 0;
+      left:0;
+      width: 100%;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+<div id="notification_block" class="notification" style="z-index: 999;display: none;">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="hideNotification()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <p></p>
+</div>
+
+
+
+
+
+<div class="box">
+    <div class="box-header">
+    <h2>Liste des administrateurs</h2>
+      <small>Possiblité de modifier ou de supprmier des administrateurs</small>
+    </div>
+<div class="table-responsive">
+<table class="table table-bordered m-0">
+    <thead>
+        <tr>
+            <th style="width: 25%;">Nom </th>
+            <th style="width: 25%;">Adresse mail</th>
+            <th style="width: 25%;">super_admin</th>
+            <th style="width: 5%;"></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for admin in admins %}
+            <tr>
+            <td class="panel_nomAdministrateur"><span class="editable">{{ admin.nom }}</span></td>
+            <td class="panel_mailAdministrateur"><span class="editable">{{ admin.mail }}</span></td>
+            <td class="panel_super_adminAdministrateur"><span class="editable">{{ admin.super_admin }}</span></td>
+
+            <td class="panel_update">
+                <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#editUser_{{ admin.id_admin  }}">
+                    <i class="far fa-edit"></i>
+                </button>
+                <div class="modal fade exampleModalClass" id="editUser_{{ admin.id_admin  }}" tabindex="-1" role="dialog"
+                    aria-labelledby="editUserLabel_{{ admin.id_admin }}">
+                    <div class="modal-dialog" role="document">
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                            <form ui-jp="parsley">
+                                <div class="box">
+                                <div class="box-header">
+                                    <h2>Modifier l'administrateur</h2>
+                                </div>
+                                    <div class="box-body">                    
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 form-control-label">Nom</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" value="{{ admin.nom }}" class="form-control update_nomAdmin">
+                                            </div>
+                                            </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 form-control-label">Adresse mail</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" value="{{ admin.mail }}" class="form-control update_mailAdmin">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-9">
+                                                <label class="md-check">
+                                                    <input type="checkbox" class="form-check-input update_super_admin" id="super_admin" name="super_admin" value="{{admin.super_admin}}">
+                                                    <i class="indigo"></i>
+                                                    Super-admin
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <div class="dker p-a text-right">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                                    <button type="submit" class="btn info" onclick="adminUpdate({{ admin.id_admin }}, this)">Submit</button>
+                                </div>
+                                </div>
+                            </form>
+                            </div>
+
+
+
+                    </div>
+                </div>
+            </td>
+
+            <td class="panel_delete">
+                <input type="button" value="Supprimer" class="btn btn-danger delCompteBtn" data-toggle="modal"
+                    data-target="#adminDelete{{ admin.id_admin }}">
+                <div class="modal fade" id="adminDelete{{ admin.id_admin  }}" tabindex="-1" role="dialog"
+                    aria-labelledby="adminDeleteLabel_{{ admin.id_admin  }}" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="deleteUserLabel_{{ admin.id_admin  }}">Supprimer l'administrateur:</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>Êtes-vous sûr de vouloir supprimer l'administrateur : {{ admin.nom }} ?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                                <button type="button" class="btn btn-danger btn-ok"
+                                    onclick="adminDelete({{ admin.id_admin }}, this)">Supprimer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
+{% block script %}
+<script>
+function hideNotification() {
+    $('#notification_block').fadeOut('500', () => {
+        $('#notification_block').removeClass();
+    });
+}
+
+function showNotification(libelle_bootstrap, message) {
+    hideNotification();
+    $('#notification_block p').text(message)
+    $('#notification_block').addClass("notification")
+    $('#notification_block').addClass('alert alert-' + libelle_bootstrap)
+    $('#notification_block').fadeIn('500');
+}
+
+function adminDelete(id, leBtn) {
+    let model = $(leBtn).parents().closest('.modal');
+    let lineDelet = $(leBtn).parents().closest('tr');
+
+    let http = new XMLHttpRequest();
+    let params =
+        'id_admin=' + id;
+    http.open('POST', '{{ path_for('adminDelete') }}', true);
+
+    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    http.onreadystatechange = function () {
+        if (http.readyState == 4 && http.status == 200) {
+            if (http.responseText == 'success') {
+                $(model).modal('hide');
+                showNotification('success', "L'utilisateur a bien été supprimé.");
+                $(lineDelet).hide('slow', function () {
+                    $(lineDelet).remove();
+                });
+            } else {
+                showNotification('danger', 'Erreur : ' + http.responseText);
+            }
+        }
+    }
+    http.send(params);
+}
+
+function adminUpdate(id, leBtn) {
+    let bodyModal = $(leBtn).parent().prev('.modal-body');
+    let nom = $(bodyModal).find('.update_nomAdmin').val();
+    let mail = $(bodyModal).find('.update_mailAdmin').val();
+    let super_admin = $(bodyModal).find('.update_super_admin').val();
+    
+
+    if (id, nom, mail, super_admin) {
+        let model = $(leBtn).parents().closest('.modal');
+        let lineUpdate = $(leBtn).parents().closest('tr');
+        let http = new XMLHttpRequest();
+
+        let params =
+            'id_admin=' + id +
+            '&nom=' + nom +
+            '&mail=' + mail +
+            '&super_admin=' + super_admin;
+        http.open('POST', '{{ path_for('adminUpdate') }}', true);
+
+        http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        http.onreadystatechange = function () {
+            if (http.readyState == 4 && http.status == 200) {
+                  console.log(http.responseText);
+                if (http.responseText == 'success') {
+                    $(lineUpdate).find('.panel_nomAdministrateur').text(nom);
+                    $(lineUpdate).find('.panel_mailAdministrateur').text(mail);
+                    $(lineUpdate).find('.panel_super_adminAdministrateur').text(super_admin);
+                    $(lineUpdate).find('.panel_tokenUtilisateur').text("Rechargez la page");
+
+                    $(model).modal('hide');
+                    showNotification('success', "Succès : L'administrateur " + nom + " a bien été modifié.");
+                } else {
+                    showNotification('danger', 'Erreur : ', http.responseText);
+                }
+            }
+        }
+        http.send(params);
+    } else {
+        alert("Une erreur est survenue : des champs sont manquants, introuvable, ou incomplet \n\rSi le problème persiste actualisez la page ou contacter l'administrateur du site");
+    }
+}
+</script>
+{% endblock %}

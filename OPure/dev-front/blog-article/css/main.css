@@ -1,0 +1,1073 @@
+/* raleway-100 - latin */
+@font-face {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 100;
+  src: url("../fonts/raleway/raleway-v26-latin-100.eot");
+  /* IE9 Compat Modes */
+  src: local(""), url("../fonts/raleway/raleway-v26-latin-100.eot?#iefix") format("embedded-opentype"), url("../fonts/raleway/raleway-v26-latin-100.woff2") format("woff2"), url("../fonts/raleway/raleway-v26-latin-100.woff") format("woff"), url("../fonts/raleway/raleway-v26-latin-100.ttf") format("truetype"), url("../fonts/raleway/raleway-v26-latin-100.svg#Raleway") format("svg");
+  /* Legacy iOS */
+}
+/* raleway-regular - latin */
+@font-face {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/raleway/raleway-v26-latin-regular.eot");
+  /* IE9 Compat Modes */
+  src: local(""), url("../fonts/raleway/raleway-v26-latin-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/raleway/raleway-v26-latin-regular.woff2") format("woff2"), url("../fonts/raleway/raleway-v26-latin-regular.woff") format("woff"), url("../fonts/raleway/raleway-v26-latin-regular.ttf") format("truetype"), url("../fonts/raleway/raleway-v26-latin-regular.svg#Raleway") format("svg");
+  /* Legacy iOS */
+}
+/* raleway-500 - latin */
+@font-face {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/raleway/raleway-v26-latin-500.eot");
+  /* IE9 Compat Modes */
+  src: local(""), url("../fonts/raleway/raleway-v26-latin-500.eot?#iefix") format("embedded-opentype"), url("../fonts/raleway/raleway-v26-latin-500.woff2") format("woff2"), url("../fonts/raleway/raleway-v26-latin-500.woff") format("woff"), url("../fonts/raleway/raleway-v26-latin-500.ttf") format("truetype"), url("../fonts/raleway/raleway-v26-latin-500.svg#Raleway") format("svg");
+  /* Legacy iOS */
+}
+/* raleway-700 - latin */
+@font-face {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/raleway/raleway-v26-latin-700.eot");
+  /* IE9 Compat Modes */
+  src: local(""), url("../fonts/raleway/raleway-v26-latin-700.eot?#iefix") format("embedded-opentype"), url("../fonts/raleway/raleway-v26-latin-700.woff2") format("woff2"), url("../fonts/raleway/raleway-v26-latin-700.woff") format("woff"), url("../fonts/raleway/raleway-v26-latin-700.ttf") format("truetype"), url("../fonts/raleway/raleway-v26-latin-700.svg#Raleway") format("svg");
+  /* Legacy iOS */
+}
+/* raleway-900 - latin */
+@font-face {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 900;
+  src: url("../fonts/raleway/raleway-v26-latin-900.eot");
+  /* IE9 Compat Modes */
+  src: local(""), url("../fonts/raleway/raleway-v26-latin-900.eot?#iefix") format("embedded-opentype"), url("../fonts/raleway/raleway-v26-latin-900.woff2") format("woff2"), url("../fonts/raleway/raleway-v26-latin-900.woff") format("woff"), url("../fonts/raleway/raleway-v26-latin-900.ttf") format("truetype"), url("../fonts/raleway/raleway-v26-latin-900.svg#Raleway") format("svg");
+  /* Legacy iOS */
+}
+/* helvetica-bold */
+@font-face {
+  font-family: "Helvetica";
+  font-style: normal;
+  font-weight: 700;
+  src: local(""), url("../fonts/helvetica/Helvetica-Bold.ttf") format("truetype");
+  /* Safari, Android, iOS */
+}
+/* helvetica-light */
+@font-face {
+  font-family: "Helvetica";
+  font-style: normal;
+  font-weight: 300;
+  src: local(""), url("../fonts/helvetica/Helvetica-Light.ttf") format("truetype");
+  /* Safari, Android, iOS */
+}
+/*Fontweight :
+  Thin : 100
+  Extralight : 200
+  Light : 300
+  Regular : 400
+  Medium : 500
+  SemiBold : 600
+  Bold : 700
+  ExtraBold : 800
+  Black : 900
+*/
+/*Fontweight :
+  Thin : 100
+  Extralight : 200
+  Light : 300
+  Regular : 400
+  Medium : 500
+  SemiBold : 600
+  Bold : 700
+  ExtraBold : 800
+  Black : 900
+*/
+.section1 {
+  margin-top: 3.5rem;
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  .section1 {
+    margin-top: 4.5rem;
+  }
+}
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  .section1 {
+    width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6.5rem;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+  .section1 {
+    width: 1240px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6.5rem;
+  }
+}
+@media screen and (min-width: 1920px) and (max-width: 5000px) {
+  .section1 {
+    width: 1640px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6.5rem;
+  }
+}
+.section1 .desc {
+  margin-top: 3.5rem;
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  .section1 .desc {
+    margin-top: 4.5rem;
+  }
+}
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  .section1 .desc {
+    margin-top: 6.5rem;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+  .section1 .desc {
+    margin-top: 6.5rem;
+  }
+}
+@media screen and (min-width: 1920px) and (max-width: 5000px) {
+  .section1 .desc {
+    margin-top: 6.5rem;
+  }
+}
+.section1 .desc p {
+  font-family: "Raleway", "Arial";
+  font-size: 1.4rem;
+  color: #000000;
+  overflow: auto;
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  .section1 .desc p {
+    font-size: 1.6rem;
+  }
+}
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  .section1 .desc p {
+    font-size: 1.6rem;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+  .section1 .desc p {
+    font-size: 1.6rem;
+  }
+}
+@media screen and (min-width: 1920px) and (max-width: 5000px) {
+  .section1 .desc p {
+    font-size: 1.6rem;
+  }
+}
+.section1 .desc p:after {
+  clear: both;
+  display: table;
+  content: " ";
+}
+.section1 .desc .img-shadow {
+  display: none;
+  float: right;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  .section1 .desc .img-shadow {
+    display: block;
+  }
+}
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  .section1 .desc .img-shadow {
+    display: block;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+  .section1 .desc .img-shadow {
+    display: block;
+  }
+}
+@media screen and (min-width: 1920px) and (max-width: 5000px) {
+  .section1 .desc .img-shadow {
+    display: block;
+  }
+}
+.section1 .desc .img-shadow:before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: inset 20px 0px 20px 6px rgba(255, 255, 255, 0.6);
+  -moz-box-shadow: inset 20px 0px 20px 6px rgba(255, 255, 255, 0.6);
+  -webkit-box-shadow: inset 20px 0px 20px 6px rgba(255, 255, 255, 0.6);
+}
+.section1 .desc .img-shadow img {
+  height: 40vw;
+  max-height: 480px;
+}
+
+/*Fontweight :
+  Thin : 100
+  Extralight : 200
+  Light : 300
+  Regular : 400
+  Medium : 500
+  SemiBold : 600
+  Bold : 700
+  ExtraBold : 800
+  Black : 900
+*/
+.section2 {
+  margin-top: 3.5rem;
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  .section2 {
+    margin-top: 4.5rem;
+  }
+}
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  .section2 {
+    width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6.5rem;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+  .section2 {
+    width: 1240px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6.5rem;
+  }
+}
+@media screen and (min-width: 1920px) and (max-width: 5000px) {
+  .section2 {
+    width: 1640px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6.5rem;
+  }
+}
+.section2 .desc {
+  margin-top: 3.5rem;
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  .section2 .desc {
+    margin-top: 4.5rem;
+  }
+}
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  .section2 .desc {
+    margin-top: 6.5rem;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+  .section2 .desc {
+    margin-top: 6.5rem;
+  }
+}
+@media screen and (min-width: 1920px) and (max-width: 5000px) {
+  .section2 .desc {
+    margin-top: 6.5rem;
+  }
+}
+.section2 .desc img {
+  width: 100%;
+  max-width: 920px;
+}
+.section2 .desc p {
+  font-family: "Raleway", "Arial";
+  font-size: 1.4rem;
+  color: #000000;
+  margin-top: 3.5rem;
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  .section2 .desc p {
+    font-size: 1.6rem;
+    margin-top: 4.5rem;
+  }
+}
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  .section2 .desc p {
+    font-size: 1.6rem;
+    margin-top: 6.5rem;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+  .section2 .desc p {
+    font-size: 1.6rem;
+    margin-top: 6.5rem;
+  }
+}
+@media screen and (min-width: 1920px) and (max-width: 5000px) {
+  .section2 .desc p {
+    font-size: 1.6rem;
+    margin-top: 6.5rem;
+  }
+}
+
+/*Fontweight :
+  Thin : 100
+  Extralight : 200
+  Light : 300
+  Regular : 400
+  Medium : 500
+  SemiBold : 600
+  Bold : 700
+  ExtraBold : 800
+  Black : 900
+*/
+.section3 {
+  margin-top: 3.5rem;
+  margin-bottom: 3.5rem;
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  .section3 {
+    margin-top: 4.5rem;
+    margin-bottom: 4.5rem;
+  }
+}
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  .section3 {
+    width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6.5rem;
+    margin-bottom: 6.5rem;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+  .section3 {
+    width: 1240px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6.5rem;
+    margin-bottom: 6.5rem;
+  }
+}
+@media screen and (min-width: 1920px) and (max-width: 5000px) {
+  .section3 {
+    width: 1640px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6.5rem;
+    margin-bottom: 6.5rem;
+  }
+}
+.section3 .cards {
+  margin-top: 3.5rem;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 4vw;
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  .section3 .cards {
+    margin-top: 4.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 4vw;
+  }
+}
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  .section3 .cards {
+    margin-top: 6.5rem;
+    width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 6vw;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+  .section3 .cards {
+    margin-top: 6.5rem;
+    width: 1240px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 4vw;
+  }
+}
+@media screen and (min-width: 1920px) and (max-width: 5000px) {
+  .section3 .cards {
+    margin-top: 6.5rem;
+    width: 1640px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 4vw;
+  }
+}
+.section3 .cards .card {
+  position: relative;
+  font-family: "Raleway", "Arial";
+  background-color: #000000;
+  box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 13px;
+  width: 100%;
+  z-index: 0;
+}
+.section3 .cards .card .card__img {
+  position: absolute;
+  z-index: -10;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.8;
+  border-radius: 13px;
+}
+.section3 .cards .card .card__content {
+  z-index: 5;
+  padding: 2rem;
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  .section3 .cards .card .card__content {
+    padding: 3rem;
+  }
+}
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  .section3 .cards .card .card__content {
+    padding: 5rem;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+  .section3 .cards .card .card__content {
+    padding: 5rem;
+  }
+}
+@media screen and (min-width: 1920px) and (max-width: 5000px) {
+  .section3 .cards .card .card__content {
+    padding: 5rem;
+  }
+}
+.section3 .cards .card .card__content .card__content__title {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  .section3 .cards .card .card__content .card__content__title {
+    font-size: 2rem;
+  }
+}
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  .section3 .cards .card .card__content .card__content__title {
+    font-size: 2rem;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+  .section3 .cards .card .card__content .card__content__title {
+    font-size: 2rem;
+  }
+}
+@media screen and (min-width: 1920px) and (max-width: 5000px) {
+  .section3 .cards .card .card__content .card__content__title {
+    font-size: 2rem;
+  }
+}
+.section3 .cards .card .card__content .card__content__desc {
+  margin-top: 1.75rem;
+  font-size: 1.4rem;
+  color: #ffffff;
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  .section3 .cards .card .card__content .card__content__desc {
+    margin-top: 2.25rem;
+    font-size: 1.6rem;
+  }
+}
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  .section3 .cards .card .card__content .card__content__desc {
+    margin-top: 3.25rem;
+    font-size: 1.6rem;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+  .section3 .cards .card .card__content .card__content__desc {
+    margin-top: 3.25rem;
+    font-size: 1.6rem;
+  }
+}
+@media screen and (min-width: 1920px) and (max-width: 5000px) {
+  .section3 .cards .card .card__content .card__content__desc {
+    margin-top: 3.25rem;
+    font-size: 1.6rem;
+  }
+}
+.section3 .cards .card .card__content .card__content__btn {
+  display: block;
+  margin-top: 1.75rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  padding: 1.2rem;
+  border: 0;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  .section3 .cards .card .card__content .card__content__btn {
+    width: 100%;
+    padding: 1.6rem;
+    margin-top: 2.25rem;
+  }
+}
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  .section3 .cards .card .card__content .card__content__btn {
+    width: 100%;
+    padding: 2rem;
+    margin-top: 3.25rem;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+  .section3 .cards .card .card__content .card__content__btn {
+    width: 100%;
+    padding: 2.4rem;
+    margin-top: 3.25rem;
+  }
+}
+@media screen and (min-width: 1920px) and (max-width: 5000px) {
+  .section3 .cards .card .card__content .card__content__btn {
+    width: 100%;
+    padding: 2.4rem;
+    margin-top: 3.25rem;
+  }
+}
+.section3 .cards .card .card__content .card__content__btn p {
+  display: inline-block;
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #28499a;
+  text-transform: uppercase;
+  margin-left: 1.5rem;
+  position: relative;
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  .section3 .cards .card .card__content .card__content__btn p {
+    font-size: 1.6rem;
+  }
+}
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  .section3 .cards .card .card__content .card__content__btn p {
+    font-size: 1.6rem;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+  .section3 .cards .card .card__content .card__content__btn p {
+    font-size: 1.6rem;
+  }
+}
+@media screen and (min-width: 1920px) and (max-width: 5000px) {
+  .section3 .cards .card .card__content .card__content__btn p {
+    font-size: 1.6rem;
+  }
+}
+.section3 .cards .card .card__content .card__content__btn p:before {
+  content: ">";
+  position: absolute;
+  top: 0;
+  left: -1.5rem;
+  color: #089abe;
+  line-height: 1.4rem;
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  .section3 .cards .card .card__content .card__content__btn p:before {
+    line-height: 1.6rem;
+  }
+}
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  .section3 .cards .card .card__content .card__content__btn p:before {
+    line-height: 1.6rem;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+  .section3 .cards .card .card__content .card__content__btn p:before {
+    line-height: 1.6rem;
+  }
+}
+@media screen and (min-width: 1920px) and (max-width: 5000px) {
+  .section3 .cards .card .card__content .card__content__btn p:before {
+    line-height: 1.6rem;
+  }
+}
+
+html {
+  font-size: 62.5%;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.emoj-block {
+  position: relative;
+  display: inline;
+}
+
+.emoj--france {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 100%;
+  display: inline-block;
+  position: absolute;
+  right: -2.5rem;
+  top: calc(50% - 1rem);
+  background: linear-gradient(90deg, rgba(40, 73, 154, 0.8) 0%, rgba(40, 73, 154, 0.8) 17.71%, rgba(255, 255, 255, 0.44) 49.99%, rgba(220, 45, 55, 0.8) 82.81%, rgba(220, 45, 55, 0.8) 100%);
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+ul li {
+  position: relative;
+  list-style-type: none;
+  padding-left: 1.4rem;
+  margin-bottom: 1rem;
+}
+ul li:last-child {
+  margin-bottom: 0;
+}
+ul li:before {
+  content: " ";
+  position: absolute;
+  top: 0.5rem;
+  left: 0;
+  height: 0.5rem;
+  width: 0.5rem;
+  border-radius: 100%;
+  background-color: #C95D63;
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  ul li:before {
+    top: 0.4rem;
+    left: 0;
+    height: 0.7rem;
+    width: 0.7rem;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  ul li {
+    padding-left: 2rem;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button.button--primary {
+  display: block;
+  border: 0;
+  border-radius: 5px;
+  font-size: 1.4rem;
+  font-family: "Raleway", "Arial";
+  color: #ffffff;
+  padding: 1.2rem;
+  background-color: #28499A;
+  cursor: pointer;
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  button.button--primary {
+    padding: 1.6rem;
+    font-size: 1.6rem;
+  }
+}
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  button.button--primary {
+    padding: 2rem;
+    font-size: 1.6rem;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+  button.button--primary {
+    padding: 2.4rem;
+    font-size: 1.6rem;
+  }
+}
+@media screen and (min-width: 1920px) and (max-width: 5000px) {
+  button.button--primary {
+    padding: 2.4rem;
+    font-size: 1.6rem;
+  }
+}
+button.button--primary.pink {
+  background-color: #C95D63;
+}
+
+button.button--secondary {
+  display: block;
+  border: 1px solid;
+  border-radius: 5px;
+  font-size: 1.4rem;
+  font-family: "Raleway", "Arial";
+  color: #28499A;
+  padding: 1.2rem;
+  border-color: #28499A;
+  background-color: transparent;
+  cursor: pointer;
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  button.button--secondary {
+    padding: 1.6rem;
+    font-size: 1.6rem;
+  }
+}
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  button.button--secondary {
+    padding: 2rem;
+    font-size: 1.6rem;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+  button.button--secondary {
+    padding: 2.4rem;
+    font-size: 1.6rem;
+  }
+}
+@media screen and (min-width: 1920px) and (max-width: 5000px) {
+  button.button--secondary {
+    padding: 2.4rem;
+    font-size: 1.6rem;
+  }
+}
+button.button--secondary.pink {
+  color: #C95D63;
+  border-color: #C95D63;
+}
+
+.input__group h3 {
+  display: inline-block;
+  font-family: "Raleway", "Arial";
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #000000;
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  .input__group h3 {
+    font-size: 1.6rem;
+  }
+}
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  .input__group h3 {
+    font-size: 1.6rem;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+  .input__group h3 {
+    font-size: 1.6rem;
+  }
+}
+@media screen and (min-width: 1920px) and (max-width: 5000px) {
+  .input__group h3 {
+    font-size: 1.6rem;
+  }
+}
+.input__group input, .input__group textarea {
+  display: block;
+  padding: 1rem 1.5rem;
+  margin-top: 1.5rem;
+  font-family: "Raleway", "Arial";
+  font-size: 1.4rem;
+  color: #000000;
+  border: 1px solid #C4C4C4;
+  border-radius: 5px;
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  .input__group input, .input__group textarea {
+    font-size: 1.6rem;
+  }
+}
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  .input__group input, .input__group textarea {
+    font-size: 1.6rem;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+  .input__group input, .input__group textarea {
+    font-size: 1.6rem;
+  }
+}
+@media screen and (min-width: 1920px) and (max-width: 5000px) {
+  .input__group input, .input__group textarea {
+    font-size: 1.6rem;
+  }
+}
+.input__group input::placeholder, .input__group textarea::placeholder {
+  color: #C4C4C4;
+}
+.input__group.required h3 {
+  position: relative;
+}
+.input__group.required h3:after {
+  content: "*";
+  position: absolute;
+  top: 0;
+  right: -1rem;
+  font-family: "Raleway", "Arial";
+  font-size: 1.4rem;
+  color: #C95D63;
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  .input__group.required h3:after {
+    font-size: 1.6rem;
+  }
+}
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  .input__group.required h3:after {
+    font-size: 1.6rem;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+  .input__group.required h3:after {
+    font-size: 1.6rem;
+  }
+}
+@media screen and (min-width: 1920px) and (max-width: 5000px) {
+  .input__group.required h3:after {
+    font-size: 1.6rem;
+  }
+}
+
+input[type=submit] {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  width: 40%;
+  max-width: 25rem;
+  background-color: #C95D63;
+  border: 1px solid #883E42;
+  border-radius: 5px;
+  color: #ffffff;
+  font-family: "Raleway", "Arial";
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  input[type=submit] {
+    font-size: 1.6rem;
+  }
+}
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  input[type=submit] {
+    font-size: 1.6rem;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+  input[type=submit] {
+    font-size: 1.6rem;
+  }
+}
+@media screen and (min-width: 1920px) and (max-width: 5000px) {
+  input[type=submit] {
+    font-size: 1.6rem;
+  }
+}
+
+hr {
+  display: block;
+  margin: 3.5rem auto;
+  width: 60%;
+  height: 1px;
+  background-color: #C4C4C4;
+  border: 0;
+}
+hr.separator--multicolor {
+  background: linear-gradient(to right, #28499a, #00a8d6);
+}
+
+.title--primary {
+  display: flex;
+  justify-content: center;
+}
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  .title--primary {
+    display: block;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+  .title--primary {
+    display: block;
+  }
+}
+@media screen and (min-width: 1920px) and (max-width: 5000px) {
+  .title--primary {
+    display: block;
+  }
+}
+.title--primary h1 {
+  position: relative;
+  display: inline-block;
+  font-family: "Raleway", "Arial";
+  font-weight: 900;
+  font-size: 2rem;
+  color: #28499a;
+  text-transform: uppercase;
+  text-align: center;
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  .title--primary h1 {
+    font-size: 2.4rem;
+  }
+}
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  .title--primary h1 {
+    font-size: 2.6rem;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+  .title--primary h1 {
+    font-size: 2.6rem;
+  }
+}
+@media screen and (min-width: 1920px) and (max-width: 5000px) {
+  .title--primary h1 {
+    font-size: 2.6rem;
+  }
+}
+.title--primary h1::after {
+  content: " ";
+  position: absolute;
+  bottom: -1rem;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  border: 1px solid #089abe;
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  .title--primary h1::after {
+    width: 20%;
+    margin: 0;
+    left: -5%;
+  }
+}
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  .title--primary h1::after {
+    width: 20%;
+    margin: 0;
+    left: -5%;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+  .title--primary h1::after {
+    width: 30%;
+    margin: 0;
+    left: -5%;
+  }
+}
+@media screen and (min-width: 1920px) and (max-width: 5000px) {
+  .title--primary h1::after {
+    width: 30%;
+    margin: 0;
+    left: -5%;
+  }
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  .container {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  .container {
+    max-width: 940px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+  .container {
+    max-width: 1240px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+@media screen and (min-width: 1920px) and (max-width: 5000px) {
+  .container {
+    max-width: 1640px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.link-before {
+  margin-top: 10rem;
+  margin-bottom: 3.5rem;
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  .link-before {
+    margin-top: 11rem;
+    margin-bottom: 4.5rem;
+  }
+}
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  .link-before {
+    margin-top: 14.5rem;
+    margin-bottom: 6.5rem;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+  .link-before {
+    margin-top: 16.5rem;
+    margin-bottom: 6.5rem;
+  }
+}
+@media screen and (min-width: 1920px) and (max-width: 5000px) {
+  .link-before {
+    margin-top: 16.5rem;
+    margin-bottom: 6.5rem;
+  }
+}
+.link-before a {
+  position: relative;
+  font-family: "Raleway", "Arial";
+  font-size: 1.4rem;
+  color: #000000;
+  padding-left: 1rem;
+  text-decoration: none;
+}
+.link-before a:before {
+  content: "<";
+  position: absolute;
+  line-height: 1.4rem;
+  left: -1rem;
+}
+.link-before a:after {
+  content: " ";
+  position: absolute;
+  bottom: -0.5rem;
+  left: 1rem;
+  width: calc(100% - 1rem);
+  height: 1px;
+  border: 1px dashed #000000;
+}
+
+/*# sourceMappingURL=main.css.map */

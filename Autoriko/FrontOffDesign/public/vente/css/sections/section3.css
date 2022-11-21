@@ -1,0 +1,70 @@
+.section_3 {
+  padding: 4rem 0;
+  z-index: 50;
+}
+.section_3.backgrounds-container {
+  position: relative;
+  top: initial;
+  left: initial;
+}
+.section_3.backgrounds-container .bg {
+  z-index: -50;
+}
+.section_3 .section-title {
+  font-size: 2rem;
+  font-family: "Montserrat";
+  font-weight: 700;
+  text-transform: uppercase;
+  z-index: 0;
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+.section_3 .filter {
+  margin-bottom: 3.5rem;
+}
+.section_3 .filter ul {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  padding: 0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.section_3 .filter ul li {
+  list-style: none;
+}
+.section_3 .filter ul li .filter-btn {
+  cursor: pointer;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.section_3 .filter ul li img {
+  display: block;
+  height: 1.2rem;
+  width: auto;
+  margin-right: 1rem;
+}
+.section_3 .filter ul li p {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+.section_3 .filter ul.second-line ul li img {
+  height: 6rem;
+}
+.section_3 .list-vente {
+  margin-top: 3.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+  align-items: center;
+  box-sizing: content-box;
+}
+
+/*# sourceMappingURL=section3.css.map */

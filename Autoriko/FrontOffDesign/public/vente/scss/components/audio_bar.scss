@@ -1,0 +1,191 @@
+.custom-audio-bar{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  align-items: center;
+
+  .button-play, .button-volume{
+    cursor: pointer;
+    margin-left: .4rem;
+    margin-right: 1rem;
+    svg{
+      height: 1.5rem;
+      fill: #ffffff;
+    }
+  }
+
+  .play-group{
+    background: linear-gradient(90deg, #aa1abb, #0552fa);
+    border-radius: 30px;
+    padding: .4rem;
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-items: center;
+
+    .bar-time{
+      position: relative;
+      width: 100%;
+      height: 10px;
+      background-color: #ffffff;
+      border-radius: 5px;
+      margin-right: .8rem;
+
+      & .cursor{
+        z-index: 200;
+        position: absolute;
+        top: -2px;
+        left: 0%;
+        overflow: visible;
+
+        &::after{
+          content: '';
+          display: block;
+          box-sizing: border-box;
+          height: 14px;
+          width: 14px;
+          border: 1px solid black;
+          border-radius: 90px;
+          background-color: white;
+          margin-left: -7px;
+        }
+      }
+      & .cursor-background{
+        z-index: 100;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 5px;
+        background-color: #0552fa;
+        width: 0%;
+        height: 10px;
+      }
+    }
+  }
+
+  .sound-group{
+    display: flex;
+    justify-content: left;
+    flex-wrap: nowrap;
+    align-items: center;
+
+    svg{
+      height: 1.5rem;
+      fill: #000000;
+    }
+    .volume-full{
+
+    }
+    .volume-mute{
+
+    }
+    .bar-range{
+
+    }
+  }
+}
+
+$track-color: linear-gradient(90deg, #aa1abb, #0552fa);//barre
+$thumb-color: #ffffff;//cursor
+
+$thumb-radius: 90px;
+$thumb-height: 20px;
+$thumb-width: 20px;
+
+$thumb-shadow-size: 1px;
+$thumb-shadow-blur: 1px;
+$thumb-shadow-color: #111;
+$thumb-border-width: 1px;
+$thumb-border-color: white;
+
+$track-width: 80px;
+$track-height: 10px;
+$track-shadow-size: 2px;
+$track-shadow-blur: 2px;
+$track-shadow-color: #222;
+$track-border-width: 1px;
+$track-border-color: black;
+
+$track-radius: 5px;
+$contrast: 5%;
+
+@mixin track(){
+  width: $track-width;
+  height: $track-height;
+  cursor: pointer;
+}
+
+//CURSOR
+@mixin thumb(){
+  box-shadow: 0px 0px 7px 5px rgb(0 0 0 / 15%);
+  height: $thumb-height;
+  width: $thumb-width;
+  border-radius: $thumb-radius;
+  background: $thumb-color;
+  cursor: pointer;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  margin: $thumb-height/2 0;
+  width: $track-width;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::-webkit-slider-runnable-track {
+    @include track();
+    background: $track-color;
+    border-radius: $track-radius;
+  }
+
+  &::-webkit-slider-thumb {
+    @include thumb();
+    -webkit-appearance: none;
+    margin-top: ((-$track-border-width * 2 + $track-height) / 2) - ($thumb-height / 2);
+  }
+
+  &:focus::-webkit-slider-runnable-track {
+    background: $track-color;
+  }
+
+  &::-moz-range-track {
+    @include track();
+    box-shadow: 0px 0px 1px 1px rgb(0 0 0 / 20%);
+    background: $track-color;
+    border-radius: $track-radius;
+  }
+  &::-moz-range-thumb {
+     @include thumb();
+  }
+
+  &::-ms-track {
+    @include track();
+    background: transparent;
+    border-color: transparent;
+    border-width: $thumb-width 0;
+    color: transparent;
+  }
+
+  &::-ms-fill-lower {
+    background: $track-color;
+    border-radius: $track-radius*2;
+    box-shadow: 0px 0px 1px 1px rgb(0 0 0 / 20%);
+  }
+  &::-ms-fill-upper {
+    background: $track-color;
+    border-radius: $track-radius*2;
+    box-shadow: 0px 0px 1px 1px rgb(0 0 0 / 20%);
+  }
+  &::-ms-thumb {
+    @include thumb();
+  }
+  &:focus::-ms-fill-lower {
+    background: $track-color;
+  }
+  &:focus::-ms-fill-upper {
+    background: $track-color;
+  }
+}

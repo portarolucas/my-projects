@@ -1,0 +1,62 @@
+@import "../../../MAIN/scss/config";
+
+.section_3{
+
+  .filter{
+    margin-left: 7rem;
+    margin-right: 7rem;
+    ul{
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      padding: 0;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      li{
+        list-style: none;
+
+        .filter-btn{
+          cursor: pointer;
+          padding: 0.3rem 0.7rem;
+          border-radius: 4px;
+          background-color: #ffffff;
+          box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.1);
+          display: flex;
+          justify-content: space-between;
+          //width: max-content;
+          align-items: center;
+          flex-wrap: nowrap;
+        }
+
+        img{
+          display: block;
+          height: 1.2rem;
+          width: auto;
+          margin-right: 1rem;
+        }
+        p{
+          font-family: 'Montserrat';
+          font-weight: 500;
+          font-size: 0.8rem;
+        }
+      }
+
+      &.second-line{
+        ul li img{
+          height: 6rem;
+        }
+      }
+    }
+  }
+
+  .list-vente{
+    margin-left: 4.5rem;//TODO faire une variable général du genre : margin-content-medium
+    margin-right: 4.5rem;//TODO faire une variable général du genre : margin-content-medium
+    margin-top: $body-margin-top;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+    align-items: center;
+    box-sizing: content-box;
+  }
+}

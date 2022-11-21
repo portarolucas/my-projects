@@ -1,0 +1,97 @@
+{% extends "Layout.twig" %}
+
+{% block style %}
+<style>
+    .notification {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div id="notification_block" class="notification" style="z-index: 999;display: none;">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="hideNotification()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <p></p>
+</div>
+
+<div class="box">
+    <div class="box-header">
+        <h2>Modifier la page guide</h2>
+        <small>Modifier le contenu de la page guide</small>
+    </div>
+    <div class="box-body">
+        <p class="text-muted">Tous les champs sont obligatoires.</p>
+        <div class="row m-b">
+            <div class="col-sm-6">
+                <label>Titre</label>
+                <input type="text" value="{{ guidepage.titre_page }}" class="form-control" placeholder="Titre"
+                    id="titre_page" required />
+            </div>
+            <div class="col-sm-6">
+                <label>Text</label>
+                <input type="text" value="{{ guidepage.text }}" class="form-control" placeholder="Text"
+                    id="text" required />
+            </div>
+        </div>
+        <div class="dker p-a text-right">
+            <button type="button" class="btn info" onclick="update()">Valider</button>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+
+<script>
+
+    function hideNotification() {
+        $('#notification_block').fadeOut('500', () => {
+            $('#notification_block').removeClass();
+        });
+    }
+
+    function showNotification(libelle_bootstrap, message) {
+        hideNotification();
+        $('#notification_block p').text(message)
+        $('#notification_block').addClass("notification")
+        $('#notification_block').addClass('alert alert-' + libelle_bootstrap)
+        $('#notification_block').fadeIn('500');
+    }
+
+    function update() {
+        let titre_page = $('#titre_page').val();
+        let text = $('#text').val();
+
+        if (titre_page, text) {
+            let http = new XMLHttpRequest();
+
+            let params =
+                '&titre_page=' + titre_page +
+                '&text=' + text;
+            http.open('POST', '{{ path_for('guidePageUpdate') }}', true);
+
+            http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            http.onreadystatechange = function () {
+                if (http.readyState == 4 && http.status == 200) {
+                    console.log(http.responseText);
+                    if (http.responseText == 'success') {
+                        showNotification('success', "Succès : La page guide a bien été modifié.");
+                    } else {
+                        showNotification('danger', 'Erreur : ', http.responseText);
+                    }
+                }
+            }
+            http.send(params);
+        } else {
+            alert("Une erreur est survenue : des champs sont manquants, introuvable, ou incomplet \n\rSi le problème persiste actualisez la page ou contactez-nous");
+        }
+    }
+
+</script>
+{% endblock %}

@@ -1,0 +1,83 @@
+@import '_var.scss';
+
+.section1{
+  margin-top: $margin-y-medium-size-xs;
+
+  @include sm{
+    margin-top: $margin-y-medium-size-sm;
+  }
+  @include md{
+    margin-top: $margin-y-medium-size-md;
+  }
+  @include lg{
+    margin-top: $margin-y-medium-size-md;
+  }
+  @include xl{
+    margin-top: $margin-y-medium-size-md;
+  }
+
+
+  .desc{
+    margin-top: $margin-y-medium-size-xs;
+    @include sm{
+      margin-top: $margin-y-medium-size-sm / 1.5;
+    }
+    @include md{
+      margin-top: $margin-y-medium-size-md / 2.2;
+    }
+    @include lg{
+      margin-top: $margin-y-medium-size-md / 2;
+    }
+    @include xl{
+      margin-top: $margin-y-medium-size-md / 2;
+    }
+    .desc__block{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: nowrap;
+      margin-bottom: 1rem;
+      &:last-child{
+        margin-bottom: 0;
+      }
+
+      img{
+        height: $font-medium-size-xs;
+        @include sm{
+          height: $font-medium-size-sm;
+        }
+        @include md{
+          height: $font-medium-size-md;
+        }
+        @include lg{
+          height: $font-medium-size-lg;
+        }
+        @include xl{
+          height: $font-medium-size-lg;
+        }
+      }
+      p{
+        margin-left: 1rem;
+        font-family: $font-raleway;
+        font-size: $font-medium-size-xs;
+        color: #000000;
+        @include sm{
+          font-size: $font-medium-size-sm;
+        }
+        @include md{
+          font-size: $font-medium-size-md;
+        }
+        @include lg{
+          font-size: $font-medium-size-lg;
+        }
+        @include xl{
+          font-size: $font-medium-size-lg;
+        }
+        .color{
+          font-family: $font-helvetica;
+          color: $color-primary;
+        }
+      }
+    }
+  }
+}

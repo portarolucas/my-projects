@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <title>Design Guide</title>
+    <meta charset="utf-8">
+    <!-- FONT 1 : Montserrat-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!------------------------>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css"/>
+    <link rel="stylesheet" href="./css/main.css"/>
+    <link rel="stylesheet" href="../MAIN/css/header-nav.css"/>
+    <link rel="stylesheet" href="../MAIN/css/footer.css"/>
+  </head>
+  <body>
+    <nav class="nav-header nav-disconnected align-center">
+      <a href="#"><img class="logo" src="./img/LOGO/logo.png" alt="EnchereAuto"/></a>
+      <ul class="menu">
+        <li class="hotline">
+          <a href="tel:800 000 000">
+            <img class="logo_tel" src="./img/NAV/ICONS/hotline.png" />
+            <div class="text">
+              <div>Hotline</div>
+              <div class="number">800 000 000</div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <button class="se-inscrire">S'inscrire !</button>
+        </li>
+        <li>
+          <a href="#">
+            <p class="se-connecter">Se connecter</p>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="main-content">
+      <section class="section_1 align-center">
+        <h1 class="title-page">Page de guide</h1>
+        <p class="desc-page">Autoriko vous permet d'enchèrir en ligne, en toute sécurité et à partir d'1€ seulement !</p>
+        <div class="block-guide">
+          <img src="./img/SECTION_1/signup.svg" alt="" />
+          <div class="content-text">
+            <h3>Devenez membre Autoriko</h3>
+            <p>Pour pouvoir surfer sur tout le site vous devez disposer d'un compte, celui-ci vous permetra par la suite d'accèder à une enchère et d'y participer pour vous offrir un véhicule à prix cassé !</p>
+          </div>
+        </div>
+        <div class="block-guide right">
+          <img src="./img/SECTION_1/door_access.svg" alt="" />
+          <div class="content-text">
+            <h3 class="title">Accèder à une enchère</h3>
+            <p>
+              Afin de participer à une enchère vous devez vous procurer un ticket de participation au prix de 19,90€ pour n'importe quelle enchère.
+              <br><br>
+              Ensuite vous serez libre de participer à cette enchère et de faire monter le prix en votre faveur !
+            </p>
+          </div>
+        </div>
+        <div class="block-guide">
+          <img src="./img/SECTION_1/confirmed.svg" alt="" />
+          <div class="content-text">
+            <h3>Offre acquis</h3>
+            <p>
+              Une fois l'offre terminé, si vous l'avez acquis vous serez dans l'obligation pénale de procéder au paiment afin de valider votre acquisition.
+            </p>
+          </div>
+        </div>
+        <div class="block-guide right">
+          <img src="./img/SECTION_1/validate.svg" alt="" />
+          <div class="content-text">
+            <h3>Confirmation par le staf</h3>
+            <p>
+              Notre équipe validera ensuite votre acquisition
+            </p>
+          </div>
+        </div>
+        <div class="block-guide">
+          <img src="./img/SECTION_1/key_hand.svg" alt="" />
+          <div class="content-text">
+            <h3>Livraison à votre domicile</h3>
+            <p>
+              Jusqu'au 23 décembre 2021 on vous livre votre nouvelle voiture dans toutes la France métropolitaine, en Suisse, en Belgique et au Luxembourg !
+              <br><br>
+              Gagner votre enchère et Autoriko s'occupe de tout le reste, vous recevrez votre nouvelle voiture devant chez vous clé en main !
+            </p>
+          </div>
+        </div>
+      </section>
+      <hr>
+      <section class="section_2 align-center">
+        <a href="#">
+          <button class="faire-offre">Accéder aux ventes</button>
+        </a>
+        <a href="#"><p class="question">Vous avez une question ?</p></a>
+      </section>
+    </div>
+    <footer class="align-center">
+      <div class="left">
+        <div>
+          <img class="logo" src="./img/LOGO/logo.png" alt="EnchereAuto"/>
+        </div>
+        <p class="localisation">
+          18 rue de la ruelle
+          <br>75001 Paris France
+        </p>
+        <div class="copyright-nav">
+          <p>
+            Enchereauto © 2021 - All rights reserved
+          </p>
+          <ul class="footer-nav">
+            <li><a href="#">Contact</a></li><li>|</li>
+            <li><a href="#">A propos</a></li><li>|</li>
+            <li><a href="#">Plan du site</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="right">
+        <button class="signup-btn">Inscrivez-vous</button>
+        <div class="get-app">
+          <a href="#">
+            <img src="./img/FOOTER/get-app-ios.png" alt="iOS Application"/>
+          </a>
+          <a href="#">
+            <img src="./img/FOOTER/get-app-android.png" alt="Android Application"/>
+          </a>
+        </div>
+      </div>
+    </footer>
+    <!-- TODO enlever le script et ajouter ces fonctions dans l'app VueJS ->>>> App.vue -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+      $( document ).ready(function() {
+        let heightNav = $('nav').height()
+        let heightFooter = $('footer').height()
+        //let height
+        $('.main-content').css('min-height', 'calc(100vh - ' + (heightNav + heightFooter) + 'px)')
+
+      });
+    </script>
+  </body>
+</html>

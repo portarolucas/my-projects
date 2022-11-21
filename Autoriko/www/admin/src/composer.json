@@ -1,0 +1,16 @@
+{
+    "name": "autoriko/backoffice",
+    "require": {
+        "php": ">=7.0",
+        "slim/slim": "^3.0",
+        "illuminate/database": "^8.38",
+        "monolog/monolog": "^2.2",
+        "slim/twig-view": "^2.5.1",
+        "twig/intl-extra": "^3.3"
+    },
+    "autoload": {
+        "psr-4": {
+          "Autoriko\\":"Autoriko/"
+        }
+      }
+}

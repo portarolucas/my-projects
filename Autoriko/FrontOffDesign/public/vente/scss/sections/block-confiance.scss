@@ -1,0 +1,28 @@
+
+
+.block-confiance{
+  padding: 1.5rem 0;
+  background-color: #ffffff;
+  ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    li{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: nowrap;
+
+      p{
+        font-family: 'Montserrat';
+        font-weight: 500;
+        font-size: 0.8rem;
+      }
+      img{
+        height: 1.3rem;
+        margin-right: 1rem;
+      }
+    }
+  }
+}

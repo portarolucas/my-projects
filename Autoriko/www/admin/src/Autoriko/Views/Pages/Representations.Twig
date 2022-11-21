@@ -1,0 +1,204 @@
+{% extends "Layout.twig" %}
+
+{% block style %}
+<style>
+    .notification {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div id="notification_block" class="notification" style="z-index: 999;display: none;">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="hideNotification()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <p></p>
+</div>
+
+
+
+<div class="box">
+    <div class="box-header">
+        <h2>Gestion des representations</h2>
+        <small>Possiblité de modifier ou de supprmier des representations de voiture</small>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered m-0">
+            <thead>
+                <tr>
+                    <th style="width: 30%;">Nom</th>
+                    <th style="width: 10%;"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for representation in representations %}
+                <tr>
+                    <td class="panel_lienrepresentation"><span class="editable">{{ representation.lien }}</span></td>
+                    <td class="panel_update">
+                        <button type="button" class="btn btn-default btn-sm" data-toggle="modal"
+                            data-target="#editUser_{{ representation.id_representation }}">
+                            <i class="far fa-edit"></i>
+                        </button>
+                        <div class="modal fade exampleModalClass" id="editUser_{{ representation.id_representation  }}"
+                            tabindex="-1" role="dialog"
+                            aria-labelledby="editUserLabel_{{ representation.id_representation  }}">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <form ui-jp="parsley">
+                                                <div class="box">
+                                                    <div class="box-header">
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title"
+                                                                id="editUserLabel_{{ representation.id_representation }}">
+                                                                Modifier les representations</h4>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Fermer"><span
+                                                                    aria-hidden="true">×</span></button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="box-body">
+                                                        <div class="modal-body">
+                                                            <div class="form-group">
+                                                                <label class="form-control-label">lien de la
+                                                                    representation:</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" value="{{ representation.lien }}"
+                                                                        class="form-control update_lienRepresentation">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="dker p-a text-right">
+                                                            <button type="button" class="btn btn-default"
+                                                                data-dismiss="modal">Annuler</button>
+                                                            <button type="button" class="btn info"
+                                                                onclick="representationUpdate({{ representation.id_representation }}, this)">Modifier
+                                                                la representation</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+
+                    <td class="panel_delete">
+                        <input type="button" value="Supprimer" class="btn btn-danger delCompteBtn" data-toggle="modal"
+                            data-target="#representationDelete{{ representation.id_representation }}">
+                        <div class="modal fade" id="representationDelete{{ representation.id_representation }}"
+                            tabindex="-1" role="dialog"
+                            aria-labelledby="representationDeleteLabel_{{ representation.id_representation }}"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title"
+                                            id="deleteUserLabel_{{ representation.id_representation }}">Supprimer une
+                                            representation :</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Êtes-vous sûr de vouloir supprimer la representation : {{ representation.lien
+                                            }} ?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default"
+                                            data-dismiss="modal">Annuler</button>
+                                        <button type="button" class="btn btn-danger btn-ok"
+                                            onclick="representationDelete({{ representation.id_representation }}, this)">Supprimer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endblock %}
+
+        {% block script %}
+
+        <script>
+            function hideNotification() {
+                $('#notification_block').fadeOut('500', () => {
+                    $('#notification_block').removeClass();
+                });
+            }
+
+            function showNotification(lien_bootstrap, message) {
+                hideNotification();
+                $('#notification_block p').text(message)
+                $('#notification_block').addClass("notification")
+                $('#notification_block').addClass('alert alert-' + lien_bootstrap)
+                $('#notification_block').fadeIn('500');
+            }
+
+            function representationDelete(id, leBtn) {
+                let model = $(leBtn).parents().closest('.modal');
+                let lineDelet = $(leBtn).parents().closest('tr');
+
+                let http = new XMLHttpRequest();
+                let params =
+                    'id_representation=' + id;
+                http.open('POST', '{{ path_for('representationDelete') }}', true);
+
+                http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                http.onreadystatechange = function () {
+                    if (http.readyState == 4 && http.status == 200) {
+                        if (http.responseText == 'success') {
+                            $(model).modal('hide');
+                            showNotification('success', "La representation a bien été supprimé.");
+                            $(lineDelet).hide('slow', function () {
+                                $(lineDelet).remove();
+                            });
+                        } else {
+                            showNotification('danger', 'Erreur : ' + http.responseText);
+                        }
+                    }
+                }
+                http.send(params);
+            }
+            function representationUpdate(id, leBtn) {
+                let bodyModal = $(leBtn).parent().prev('.modal-body');
+                let lien = $(bodyModal).find('.update_lienRepresentation').val();
+
+                if (id, lien) {
+                    let model = $(leBtn).parents().closest('.modal');
+                    let lineUpdate = $(leBtn).parents().closest('tr');
+                    let http = new XMLHttpRequest();
+
+                    let params =
+                        'id_representation=' + id +
+                        '&lien=' + lien;
+                    http.open('POST', '{{ path_for('representationUpdate') }}', true);
+
+                    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                    http.onreadystatechange = function () {
+                        if (http.readyState == 4 && http.status == 200) {
+                            console.log(http.responseText);
+                            if (http.responseText == 'success') {
+                                $(lineUpdate).find('.panel_lienrepresentation').text(lien);
+
+                                $(model).modal('hide');
+                                showNotification('success', "Succès : La representation " + lien + " a bien été modifié.");
+                            } else {
+                                showNotification('danger', 'Erreur : ', http.responseText);
+                            }
+                        }
+                    }
+                    http.send(params);
+                } else {
+                    alert("Une erreur est survenue : des champs sont manquants, introuvable, ou incomplet \n\rSi le problème persiste actualisez la page ou contactez-nous");
+                }
+            }
+
+        </script>
+        {% endblock %}

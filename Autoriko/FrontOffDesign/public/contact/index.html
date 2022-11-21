@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <title>Design Contact</title>
+    <meta charset="utf-8">
+    <!-- FONT 1 : Montserrat-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!------------------------>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css"/>
+    <link rel="stylesheet" href="./css/main.css"/>
+    <link rel="stylesheet" href="../MAIN/css/header-nav.css"/>
+    <link rel="stylesheet" href="../MAIN/css/footer.css"/>
+  </head>
+  <body>
+    <nav class="nav-header nav-disconnected align-center">
+      <a href="#"><img class="logo" src="./img/LOGO/logo.png" alt="EnchereAuto"/></a>
+      <ul class="menu">
+        <li class="hotline">
+          <a href="tel:800 000 000">
+            <img class="logo_tel" src="./img/NAV/ICONS/hotline.png" />
+            <div class="text">
+              <div>Hotline</div>
+              <div class="number">800 000 000</div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <button class="se-inscrire">S'inscrire !</button>
+        </li>
+        <li>
+          <a href="#">
+            <p class="se-connecter">Se connecter</p>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="main-content">
+      <section class="section_1 align-center">
+        <h1 class="title-page">Une question ? Contactez nous</h1>
+        <p class="desc-page">
+          N'hésitez pas à prendre contact avec nous pour toutes questions :<br>
+          <br>
+          - par mail à : <a href="mailto:autoriko@contact.fr" class="text-linear-gradient">autoriko@contact.fr</a><br>
+          <br>
+          - par téléphone au : <a href="tel:800 000 000" class="text-linear-gradient">800 000 000</a>
+
+        </p>
+        <div class="block-contact">
+          <p class="desc">
+            Vous pouvez également nous contacter via notre formulaire de contact, nous vous répondrons sous 48H !
+          </p>
+          <form class="form-contact">
+            <div class="form-grp email">
+              <label for="form-email">Adresse mail *</label>
+              <input type="text" required id="form-email" name="email" placeholder="Votre adresse mail">
+            </div>
+            <div class="form-grp nom">
+              <label for="form-nom">Nom</label>
+              <input type="text" id="form-nom" name="nom" placeholder="Votre nom">
+            </div>
+            <div class="form-grp prenom">
+              <label for="form-prenom">Prénom</label>
+              <input type="text" id="form-prenom" name="prenom" placeholder="Votre prénom">
+            </div>
+            <div class="form-grp telephone">
+              <label for="form-telephone">Numéro de téléphone</label>
+              <input type="text" id="form-telephone" name="telephone" placeholder="Votre numéro de téléphone">
+            </div>
+            <div class="form-grp message">
+              <label for="form-message">Message *</label>
+              <textarea rows="5" required id="form-message" name="message" placeholder="Votre message"></textarea>
+            </div>
+            <p class="required_fields">* Champs obligatoires</p>
+            <input type="submit" value="Envoyer">
+          </form>
+        </div>
+      </section>
+      <hr>
+      <section class="section_2 align-center">
+        <a href="#">
+          <button class="faire-offre">Accéder aux ventes</button>
+        </a>
+        <a href="#"><p class="guide">Comment ça marche ?</p></a>
+      </section>
+    </div>
+    <footer class="align-center">
+      <div class="left">
+        <div>
+          <img class="logo" src="./img/LOGO/logo.png" alt="EnchereAuto"/>
+        </div>
+        <p class="localisation">
+          18 rue de la ruelle
+          <br>75001 Paris France
+        </p>
+        <div class="copyright-nav">
+          <p>
+            Enchereauto © 2021 - All rights reserved
+          </p>
+          <ul class="footer-nav">
+            <li><a href="#">Contact</a></li><li>|</li>
+            <li><a href="#">A propos</a></li><li>|</li>
+            <li><a href="#">Plan du site</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="right">
+        <button class="signup-btn">Inscrivez-vous</button>
+        <div class="get-app">
+          <a href="#">
+            <img src="./img/FOOTER/get-app-ios.png" alt="iOS Application"/>
+          </a>
+          <a href="#">
+            <img src="./img/FOOTER/get-app-android.png" alt="Android Application"/>
+          </a>
+        </div>
+      </div>
+    </footer>
+    <!-- TODO enlever le script et ajouter ces fonctions dans l'app VueJS ->>>> App.vue -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+      $( document ).ready(function() {
+        let heightNav = $('nav').height()
+        let heightFooter = $('footer').height()
+        //let height
+        $('.main-content').css('min-height', 'calc(100vh - ' + (heightNav + heightFooter) + 'px)')
+
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,175 @@
+{% extends "Layout.twig" %}
+
+{% block content %}
+<div id="notification_block" class="notification" style="z-index: 999999;display: none;">
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="hideNotification()">
+		<span aria-hidden="true">&times;</span>
+	</button>
+	<p></p>
+</div>
+
+
+<div class="box">
+	<div class="box-header">
+		<h2>Liste des options</h2>
+		<small>Possiblité de modifier ou de supprmier des voitures</small>
+	</div>
+	<div class="table-responsive">
+		<table class="table table-bordered m-0">
+			<thead>
+				<tr>
+					<th style="width: 30%;">Nom</th>
+					<th style="width: 10%;"></th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for option in options %}
+				<tr>
+					<td class="panel_libelleoption">
+						<span class="editable">{{ option.libelle }}</span>
+					</td>
+					<td class="panel_update">
+						<button type="button" class="btn btn-default btn-sm" data-toggle="modal"
+							data-target="#editUser_{{ option.id_option }}">
+							<i class="far fa-edit"></i>
+						</button>
+						<div class="modal fade exampleModalClass" id="editUser_{{ option.id_option  }}" tabindex="-1"
+							role="dialog" aria-labelledby="editUserLabel_{{ option.id_option  }}">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="row">
+										<div class="col-sm-12">
+											<form ui-jp="parsley">
+												<div class="box">
+													<div class="box-header">
+														<div class="modal-header">
+															<h4 class="modal-title"
+																id="editUserLabel_{{ option.id_option }}">Modifier les
+																options
+															</h4>
+															<button type="button" class="close" data-dismiss="modal"
+																aria-label="Fermer">
+																<span aria-hidden="true">×</span>
+															</button>
+														</div>
+													</div>
+													<div class="box-body">
+														<div class="modal-body">
+															<div class="form-group">
+																<label class="control-label">libelle de la
+																	option:</label>
+																<input type="text" value="{{ option.libelle }}"
+																	class="form-control update_libelleOption">
+															</div>
+
+														</div>
+														<div class="dker p-a text-right">
+															<button type="button" class="btn btn-default"
+																data-dismiss="modal">Annuler</button>
+															<button type="button" class="btn info"
+																onclick="optionUpdate({{ option.id_option }}, this)">Modifier
+																la option</button>
+														</div>
+													</div>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</td>
+
+					<td class="panel_delete">
+						<input type="button" value="Supprimer" class="btn btn-danger delCompteBtn" data-toggle="modal"
+							data-target="#optionDelete{{ option.id_option }}">
+						<div class="modal fade" id="optionDelete{{ option.id_option }}" tabindex="-1" role="dialog"
+							aria-labelledby="optionDeleteLabel_{{ option.id_option }}" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h4 class="modal-title" id="deleteUserLabel_{{ option.id_option }}">Supprimer
+											une option
+											:</h4>
+									</div>
+									<div class="modal-body">
+										<p>Êtes-vous sûr de vouloir supprimer la option :
+											{{ option.libelle }}
+											?</p>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default"
+											data-dismiss="modal">Annuler</button>
+										<button type="button" class="btn btn-danger btn-ok"
+											onclick="optionDelete({{ option.id_option }}, this)">Supprimer</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		{% endblock %}
+
+		{% block script %}
+
+		<script>
+			function optionDelete(id, leBtn) {
+				let model = $(leBtn).parents().closest('.modal');
+				let lineDelet = $(leBtn).parents().closest('tr');
+
+				let http = new XMLHttpRequest();
+				let params = 'id_option=' + id;
+				http.open('POST', '{{ path_for('optionDelete') }}', true);
+
+				http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+				http.onreadystatechange = function () {
+					if (http.readyState == 4 && http.status == 200) {
+						if (http.responseText == 'success') {
+							$(model).modal('hide');
+							showNotification('success', "La option a bien été supprimé.");
+							$(lineDelet).hide('slow', function () {
+								$(lineDelet).remove();
+							});
+						} else {
+							showNotification('danger', 'Erreur : ' + http.responseText);
+						}
+					}
+				}
+				http.send(params);
+			}
+			function optionUpdate(id, leBtn) {
+				let bodyModal = $(leBtn).parent().prev('.modal-body');
+				let libelle = $(bodyModal).find('.update_libelleOption').val();
+
+				if (id, libelle) {
+					let model = $(leBtn).parents().closest('.modal');
+					let lineUpdate = $(leBtn).parents().closest('tr');
+					let http = new XMLHttpRequest();
+
+					let params = 'id_option=' + id + '&libelle=' + libelle;
+					http.open('POST', '{{ path_for('optionUpdate') }}', true);
+
+					http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+					http.onreadystatechange = function () {
+						if (http.readyState == 4 && http.status == 200) {
+							console.log(http.responseText);
+							if (http.responseText == 'success') {
+								$(lineUpdate).find('.panel_libelleoption').text(libelle);
+
+								$(model).modal('hide');
+								showNotification('success', "Succès : La option " + libelle + " a bien été modifié.");
+							} else {
+								showNotification('danger', 'Erreur : ', http.responseText);
+							}
+						}
+					}
+					http.send(params);
+				} else {
+					alert("Une erreur est survenue : des champs sont manquants, introuvable, ou incomplet \n\rSi le problème persiste actualisez la page ou contactez-nous");
+				}
+			}
+		</script>
+		{% endblock %}

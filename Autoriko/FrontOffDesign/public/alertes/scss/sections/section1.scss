@@ -1,0 +1,42 @@
+@import "../../../MAIN/scss/config";
+
+$margin-between-elem-y: 2rem;
+
+.section_1{
+  margin-bottom: $body-margin-top;
+  h1.title-page{
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-align: left;
+    color: #000000;
+    margin: 0;
+    margin-bottom: 1.5rem;
+  }
+  .block-alerte, .block-conversation{
+    font-family: 'Montserrat';
+    color: #000000;
+    cursor: pointer;
+    padding: .8rem;
+    margin-bottom: .8rem;
+    box-shadow: 0 0 8px 2px rgb(0 0 0 / 15%);
+    p{
+      font-weight: 500;
+      font-size: .8rem;
+      margin: 0;
+      margin-bottom: .4rem;
+      &:hover b{
+        @include text-linear-gradient;
+      }
+
+      &.notif_time{
+        font-size: 0.6rem;
+        margin-bottom: 0;
+        font-style: italic;
+      }
+      .danger{
+        color: #fb9d0d;
+      }
+    }
+  }
+}

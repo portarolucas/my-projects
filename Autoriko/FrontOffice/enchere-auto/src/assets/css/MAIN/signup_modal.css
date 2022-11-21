@@ -1,0 +1,163 @@
+.signup-modal {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.6);
+  z-index: 9999;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  top: 0;
+}
+.signup-modal .block-signup {
+  position: relative;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  width: 80%;
+  height: 80%;
+  box-shadow: 0 0 8px 5px rgba(0, 0, 0, 0.25);
+}
+.signup-modal .block-signup .close-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  height: 2rem;
+  width: 2rem;
+  text-align: center;
+  line-height: 2rem;
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+  border: 2px solid rgba(0, 0, 0, 0.8);
+  border-radius: 40px;
+  transition: background-color 0.1s, color 0.1s;
+}
+.signup-modal .block-signup .close-modal:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+}
+.signup-modal .block-signup .left {
+  height: 100%;
+  width: 20%;
+  background: linear-gradient(0deg, #aa1abb, #0552fa);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+.signup-modal .block-signup .left .selected p {
+  text-decoration: underline;
+}
+.signup-modal .block-signup .left .choose-entreprise, .signup-modal .block-signup .left .choose-particulier {
+  position: relative;
+  height: 50%;
+  width: 100%;
+  cursor: pointer;
+  display: table;
+}
+.signup-modal .block-signup .left .choose-entreprise:hover p, .signup-modal .block-signup .left .choose-particulier:hover p {
+  transform: scale(1.2);
+}
+.signup-modal .block-signup .left .choose-entreprise p, .signup-modal .block-signup .left .choose-particulier p {
+  transition: transform 0.3s;
+  vertical-align: middle;
+  display: table-cell;
+  text-align: center;
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 0.8rem;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+.signup-modal .block-signup .left .choose-particulier::after {
+  content: "";
+  z-index: 9999;
+  position: absolute;
+  display: block;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  border-bottom: 1px solid white;
+}
+.signup-modal .block-signup .right {
+  height: 100%;
+  width: 80%;
+  background-color: #ffffff;
+  padding: 3rem;
+  overflow-y: scroll;
+}
+.signup-modal .block-signup .right .info-block {
+  width: 100%;
+  margin: 1rem 0;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.signup-modal .block-signup .right .info-block label {
+  display: block;
+  width: 30%;
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 0.8rem;
+  color: black;
+  margin: 0;
+}
+.signup-modal .block-signup .right .info-block input[type=text], .signup-modal .block-signup .right .info-block input[type=password] {
+  display: block;
+  margin: 0;
+  width: 70%;
+  border: 1px solid rgba(117, 117, 117, 0.4);
+  padding: 0.8rem;
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 0.8rem;
+  outline: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+.signup-modal .block-signup .right .info-block input[type=text]:hover, .signup-modal .block-signup .right .info-block input[type=password]:hover {
+  outline: 0;
+}
+.signup-modal .block-signup .right .se-inscrire {
+  display: block;
+  font-size: 0.8rem;
+  width: 100%;
+  padding: 20px;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  font-weight: 700;
+  box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.05);
+  color: #ffffff;
+  background: linear-gradient(90deg, #aa1abb, #0552fa);
+}
+.signup-modal .block-signup .right .se-inscrire:hover {
+  outline: 0;
+}
+.signup-modal .block-signup .right a {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 0.8rem;
+  color: #000;
+  text-decoration: underline;
+  margin: 0;
+  margin-top: 1rem;
+  display: inline-block;
+}
+.signup-modal .block-signup .right h1 {
+  font-family: "Montserrat";
+  font-weight: 700;
+  color: #000;
+  margin: 0 auto 1rem auto;
+}
+.signup-modal .block-signup .right hr {
+  margin: 1rem auto;
+}
+
+/*# sourceMappingURL=signup_modal.css.map */

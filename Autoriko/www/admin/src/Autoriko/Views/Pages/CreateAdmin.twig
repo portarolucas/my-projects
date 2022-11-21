@@ -1,0 +1,61 @@
+{% extends "Layout.twig" %}
+
+{% block style %}{% endblock %}
+
+{% block content %}
+ <div class="col-sm-6">
+      <form ui-jp="parsley" action="{{ path_for('createAdmin') }}">
+        <div class="box">
+          <div class="box-header">
+            <h2>Créer un administrateur</h2>
+          </div>
+          <div class="box-body">
+            <p class="text-muted">Tous les champs sont obligatoires.</p>
+
+{% if flash.success %}
+<div class="alert alert-success" role="alert">
+  {{ flash.success }}
+</div>
+{% endif %}
+
+{% if flash.error %}
+<div class="alert alert-danger" role="alert">
+  {{ flash.error }}
+</div>
+{% endif %}
+                           
+              <div class="row m-b">
+                <div class="col-sm-6">
+                  <label>Nom</label>
+                  <input type="text" placeholder="Entrer votre nom " class="form-control" placeholder="Entrer votre nom" id="fullname_user" name="nom_admin" required>
+                </div>
+                <div class="col-sm-6">
+                  <label>Email</label>
+                  <input type="email" class="form-control" placeholder="Enter votre email " id="mail_admin" name="mail_admin" required>
+                </div>
+              </div>
+              <div class="row m-b">
+                <div class="col-sm-6">
+                  <label>Mot de passe</label>
+                  <input type="password" class="form-control" placeholder="Entrer votre mot de passe"  id="mdp_admin" name="mdp_admin" required>
+                </div>
+                <div class="col-sm-4">
+                  <p>
+                    <label class="md-check">
+                        <input type="checkbox" id="super_admin" name="super_admin">
+                        <i class="indigo"></i>
+                        Super-admin
+                    </label>
+                </p>
+                </div>
+              </div>
+          </div>
+          <div class="dker p-a text-right">
+            <button type="submit" class="btn info">Valider</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+
+{% endblock %}

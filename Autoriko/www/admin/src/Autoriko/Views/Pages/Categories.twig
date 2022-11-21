@@ -1,0 +1,197 @@
+{% extends "Layout.twig" %}
+
+{% block style %}
+<style>
+    .notification {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div id="notification_block" class="notification" style="z-index: 999;display: none;">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="hideNotification()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <p></p>
+</div>
+
+
+<div class="box">
+    <div class="box-header">
+        <h2>Gestion des categories</h2>
+        <small>Possiblité de modifier ou de supprmier des categories</small>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered m-0">
+            <thead>
+                <tr>
+                    <th style="width: 30%;">Nom</th>
+                    <th style="width: 10%;"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for categorie in categories %}
+                <tr>
+                    <td class="panel_libellecategorie"><span class="editable">{{ categorie.libelle }}</span></td>
+                    <td class="panel_update">
+                        <button type="button" class="btn btn-default btn-sm" data-toggle="modal"
+                            data-target="#editUser_{{ categorie.id_categorie }}">
+                            <i class="far fa-edit"></i>
+                        </button>
+                        <div class="modal fade exampleModalClass" id="editUser_{{ categorie.id_categorie  }}"
+                            tabindex="-1" role="dialog" aria-labelledby="editUserLabel_{{ categorie.id_categorie  }}">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <form ui-jp="parsley">
+                                                <div class="box">
+                                                    <div class="box-header">
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title"
+                                                                id="editUserLabel_{{ categorie.id_categorie }}">Modifier
+                                                                les categories</h4>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Fermer"><span
+                                                                    aria-hidden="true">×</span></button>
+                                                        </div>
+                                                        <div class="box-body">
+                                                            <div class="modal-body">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">libelle de la
+                                                                        categorie:</label>
+                                                                    <input type="text" value="{{ categorie.libelle }}"
+                                                                        class="form-control update_libelleCategorie">
+                                                                </div>
+                                                            </div>
+                                                            <div class="dker p-a text-right">
+                                                                <button type="button" class="btn btn-default"
+                                                                    data-dismiss="modal">Annuler</button>
+                                                                <button type="button" class="btn info"
+                                                                    onclick="categorieUpdate({{ categorie.id_categorie }}, this)">Modifier
+                                                                    la categorie</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="panel_delete">
+                        <input type="button" value="Supprimer" class="btn btn-danger delCompteBtn" data-toggle="modal"
+                            data-target="#categorieDelete{{ categorie.id_categorie }}">
+                        <div class="modal fade" id="categorieDelete{{ categorie.id_categorie }}" tabindex="-1"
+                            role="dialog" aria-labelledby="categorieDeleteLabel_{{ categorie.id_categorie }}"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="deleteUserLabel_{{ categorie.id_categorie }}">
+                                            Supprimer une categorie :</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Êtes-vous sûr de vouloir supprimer la categorie : {{ categorie.libelle }} ?
+                                        </p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default"
+                                            data-dismiss="modal">Annuler</button>
+                                        <button type="button" class="btn btn-danger btn-ok"
+                                            onclick="categorieDelete({{ categorie.id_categorie }}, this)">Supprimer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endblock %}
+
+        {% block script %}
+
+        <script>
+            function hideNotification() {
+                $('#notification_block').fadeOut('500', () => {
+                    $('#notification_block').removeClass();
+                });
+            }
+
+            function showNotification(libelle_bootstrap, message) {
+                hideNotification();
+                $('#notification_block p').text(message)
+                $('#notification_block').addClass("notification")
+                $('#notification_block').addClass('alert alert-' + libelle_bootstrap)
+                $('#notification_block').fadeIn('500');
+            }
+
+            function categorieDelete(id, leBtn) {
+                let model = $(leBtn).parents().closest('.modal');
+                let lineDelet = $(leBtn).parents().closest('tr');
+
+                let http = new XMLHttpRequest();
+                let params =
+                    'id_categorie=' + id;
+                http.open('POST', '{{ path_for('categorieDelete') }}', true);
+
+                http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                http.onreadystatechange = function () {
+                    if (http.readyState == 4 && http.status == 200) {
+                        if (http.responseText == 'success') {
+                            $(model).modal('hide');
+                            showNotification('success', "La categorie a bien été supprimé.");
+                            $(lineDelet).hide('slow', function () {
+                                $(lineDelet).remove();
+                            });
+                        } else {
+                            showNotification('danger', 'Erreur : ' + http.responseText);
+                        }
+                    }
+                }
+                http.send(params);
+            }
+            function categorieUpdate(id, leBtn) {
+                let bodyModal = $(leBtn).parent().prev('.modal-body');
+                let libelle = $(bodyModal).find('.update_libelleCategorie').val();
+
+                if (id, libelle) {
+                    let model = $(leBtn).parents().closest('.modal');
+                    let lineUpdate = $(leBtn).parents().closest('tr');
+                    let http = new XMLHttpRequest();
+
+                    let params =
+                        'id_categorie=' + id +
+                        '&libelle=' + libelle;
+                    http.open('POST', '{{ path_for('categorieUpdate') }}', true);
+
+                    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                    http.onreadystatechange = function () {
+                        if (http.readyState == 4 && http.status == 200) {
+                            console.log(http.responseText);
+                            if (http.responseText == 'success') {
+                                $(lineUpdate).find('.panel_libellecategorie').text(libelle);
+
+                                $(model).modal('hide');
+                                showNotification('success', "Succès : La categorie " + libelle + " a bien été modifié.");
+                            } else {
+                                showNotification('danger', 'Erreur : ', http.responseText);
+                            }
+                        }
+                    }
+                    http.send(params);
+                } else {
+                    alert("Une erreur est survenue : des champs sont manquants, introuvable, ou incomplet \n\rSi le problème persiste actualisez la page ou contactez-nous");
+                }
+            }
+
+        </script>
+        {% endblock %}

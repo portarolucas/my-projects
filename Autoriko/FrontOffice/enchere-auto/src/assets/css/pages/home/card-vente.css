@@ -1,0 +1,99 @@
+.card {
+  background-color: white;
+  width: auto;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  font-weight: 700;
+  letter-spacing: 1px;
+  box-shadow: 0px 0px 8px 5px rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+.card.car h1 {
+  font-size: 1rem;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#0552fa", endColorstr="#aa1abb", GradientType=1 );
+  background: -moz-linear-gradient(135deg, #0552fa, #aa1abb);
+  background: -webkit-gradient(135deg, #0552fa, #aa1abb);
+  background: -webkit-linear-gradient(135deg, #0552fa, #aa1abb);
+  background: -o-linear-gradient(135deg, #0552fa, #aa1abb);
+  background: -ms-linear-gradient(135deg, #0552fa, #aa1abb);
+  background: linear-gradient(135deg, #0552fa, #aa1abb);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+.card.car img {
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+.card.car .desc {
+  padding: 0.8rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.card.car .desc .separation-bar-desc {
+  height: 1rem;
+  width: 1px;
+  background-color: black;
+}
+.card.car .desc h3 {
+  font-size: 0.6rem;
+  color: #000000;
+  margin: 0;
+  padding-bottom: 0.5rem;
+}
+.card.car .desc p {
+  font-size: 0.6rem;
+  margin: 0;
+}
+.card.car .desc .left p {
+  color: #443ce3;
+}
+.card.car .desc .right p {
+  color: #00da33;
+}
+.card.see-all {
+  box-shadow: none;
+}
+.card.see-all button {
+  position: relative;
+  font-size: 0.8rem;
+  width: 100%;
+  padding: 20px;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  font-weight: 700;
+  box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.05);
+  color: #ffffff;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#0552fa", endColorstr="#aa1abb", GradientType=1 );
+  background: -moz-linear-gradient(-90deg, #0552fa, #aa1abb);
+  background: -webkit-gradient(-90deg, #0552fa, #aa1abb);
+  background: -webkit-linear-gradient(-90deg, #0552fa, #aa1abb);
+  background: -o-linear-gradient(-90deg, #0552fa, #aa1abb);
+  background: -ms-linear-gradient(-90deg, #0552fa, #aa1abb);
+  background: linear-gradient(-90deg, #0552fa, #aa1abb);
+  transition: transform 0.4s;
+}
+.card.see-all button .arrow {
+  display: inline-block;
+  margin-left: 0.3rem;
+  transition: transform 0.4s;
+}
+.card.see-all button:hover {
+  cursor: pointer;
+  outline: none;
+  transform: scale(1.05);
+}
+.card.see-all button:hover .arrow {
+  transform: translateX(30%);
+}
+
+/*# sourceMappingURL=card-vente.css.map */

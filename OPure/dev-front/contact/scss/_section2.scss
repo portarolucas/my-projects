@@ -1,0 +1,152 @@
+@import '_var.scss';
+
+.section2{
+  margin-top: $margin-y-medium-size-xs;
+  margin-bottom: $margin-y-medium-size-xs;// COMBAK: revenir plus tard et supprimer ça - mettre le style directement sur le footer
+  @include sm{
+    margin-top: $margin-y-medium-size-sm;
+    margin-bottom: $margin-y-medium-size-sm;// COMBAK: revenir plus tard et supprimer ça - mettre le style directement sur le footer
+  }
+  @include md{
+    margin-top: $margin-y-medium-size-md;
+    margin-bottom: $margin-y-medium-size-md;// COMBAK: revenir plus tard et supprimer ça - mettre le style directement sur le footer
+  }
+  @include lg{
+    margin-top: $margin-y-medium-size-md;
+    margin-bottom: $margin-y-medium-size-md;// COMBAK: revenir plus tard et supprimer ça - mettre le style directement sur le footer
+  }
+  @include xl{
+    margin-top: $margin-y-medium-size-md;
+    margin-bottom: $margin-y-medium-size-md;// COMBAK: revenir plus tard et supprimer ça - mettre le style directement sur le footer
+  }
+
+  .desc{
+    margin-top: $margin-y-medium-size-xs;
+    @include sm{
+      margin-top: $margin-y-medium-size-sm / 1.5;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+    @include md{
+      margin-top: $margin-y-medium-size-md / 2.2;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+    @include lg{
+      margin-top: $margin-y-medium-size-md / 2;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+    @include xl{
+      margin-top: $margin-y-medium-size-md / 2;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+
+    .input__group{
+      margin-top: $margin-y-medium-size-xs / 2;
+      width: 70%;
+      @include sm{
+        &:nth-child(2){
+          margin-top: 0;
+        }
+        &:not(.textarea){
+          width: 45%;
+        }
+        &.textarea{
+          width: 100%;
+        }
+      }
+      @include md{
+        &:nth-child(2){
+          margin-top: 0;
+        }
+        &:not(.textarea){
+          width: 45%;
+        }
+        &.textarea{
+          width: 100%;
+        }
+      }
+      @include lg{
+        &:nth-child(2){
+          margin-top: 0;
+        }
+        &:not(.textarea){
+          width: 45%;
+        }
+        &.textarea{
+          width: 100%;
+        }
+      }
+      @include xl{
+        &:nth-child(2){
+          margin-top: 0;
+        }
+        &:not(.textarea){
+          width: 45%;
+        }
+        &.textarea{
+          width: 100%;
+        }
+      }
+      &:first-child{
+        margin-top: 0;
+      }
+      input, textarea{
+        width: 100%;
+      }
+    }
+
+    p.information{
+      margin-top: 1.5rem;
+      padding-left: 1rem;
+      color: #C4C4C4;
+      font-family: $font-raleway;
+      font-size: $font-medium-size-xs;
+      position: relative;
+      @include sm{
+        font-size: $font-medium-size-sm;
+      }
+      @include md{
+        font-size: $font-medium-size-md;
+      }
+      @include lg{
+        font-size: $font-medium-size-lg;
+      }
+      @include xl{
+        font-size: $font-medium-size-lg;
+      }
+
+      &:before{
+        content: '*';
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-family: $font-raleway;
+        font-size: $font-medium-size-xs;
+        color: $color-pink;
+        @include sm{
+          font-size: $font-medium-size-sm;
+        }
+        @include md{
+          font-size: $font-medium-size-md;
+        }
+        @include lg{
+          font-size: $font-medium-size-lg;
+        }
+        @include xl{
+          font-size: $font-medium-size-lg;
+        }
+      }
+    }
+  }
+}

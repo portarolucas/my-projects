@@ -1,0 +1,214 @@
+.section_1 {
+  position: relative;
+  min-height: calc(100vh - 4rem);
+  width: 100%;
+  overflow: auto;
+  margin-top: -3.5rem;
+}
+.section_1 .align-center {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+}
+.section_1 .align-center .title {
+  text-transform: uppercase;
+  font-family: "Lemon Milk";
+  font-weight: 400;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.section_1 .align-center .title .left {
+  margin-right: 1rem;
+  position: relative;
+}
+.section_1 .align-center .title .left p.pink {
+  top: 0px;
+  font-size: 2rem;
+  margin: 0;
+  color: #aa1abb;
+}
+.section_1 .align-center .title .left p.blue {
+  bottom: 0px;
+  font-size: 5.2rem;
+  margin: 0;
+  color: #0552fa;
+}
+.section_1 .align-center .title .right {
+  margin-top: -1rem;
+}
+.section_1 .align-center .title .right p {
+  align-self: baseline;
+  display: inline;
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 10.8rem;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#0552fa", endColorstr="#aa1abb", GradientType=1 );
+  background: -moz-linear-gradient(135deg, #0552fa, #aa1abb);
+  background: -webkit-gradient(135deg, #0552fa, #aa1abb);
+  background: -webkit-linear-gradient(135deg, #0552fa, #aa1abb);
+  background: -o-linear-gradient(135deg, #0552fa, #aa1abb);
+  background: -ms-linear-gradient(135deg, #0552fa, #aa1abb);
+  background: linear-gradient(135deg, #0552fa, #aa1abb);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+.section_1 .align-center .desc {
+  font-family: "Montserrat";
+  font-weight: 500;
+  margin-left: 4.5rem;
+}
+.section_1 .align-center .desc h3 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  margin-top: 0;
+}
+.section_1 .align-center .desc ul {
+  margin-bottom: 0;
+}
+.section_1 .align-center .desc ul li {
+  position: relative;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  flex-wrap: nowrap;
+  list-style-type: none;
+  height: 2.5rem;
+}
+.section_1 .align-center .desc ul li .img-container {
+  width: 3rem;
+  margin-right: 1.5rem;
+}
+.section_1 .align-center .desc ul li .img-container img {
+  display: block;
+  height: 1.5rem;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+.section_1 .align-center .desc ul li p {
+  font-size: 0.9rem;
+}
+.section_1 .align-center .btns-panel {
+  display: flex;
+  justify-content: left;
+  flex-wrap: nowrap;
+  margin: 0 4.5rem;
+  z-index: 50;
+}
+.section_1 .align-center .btns-panel a {
+  margin-right: 2rem;
+}
+.section_1 .align-center .btns-panel p.recharger-compte {
+  position: relative;
+  font-size: 1rem;
+  width: fit-content;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#0552fa", endColorstr="#aa1abb", GradientType=1 );
+  background: -moz-linear-gradient(135deg, #0552fa, #aa1abb);
+  background: -webkit-gradient(135deg, #0552fa, #aa1abb);
+  background: -webkit-linear-gradient(135deg, #0552fa, #aa1abb);
+  background: -o-linear-gradient(135deg, #0552fa, #aa1abb);
+  background: -ms-linear-gradient(135deg, #0552fa, #aa1abb);
+  background: linear-gradient(135deg, #0552fa, #aa1abb);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  box-shadow: none;
+  text-transform: none;
+  font-family: "Montserrat";
+  font-weight: 600;
+  cursor: pointer;
+}
+.section_1 .align-center .btns-panel p.recharger-compte::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background-color: #6446de;
+}
+.section_1 .align-center .btns-panel button {
+  padding: 16px;
+  border: 0;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.25);
+}
+.section_1 .align-center .btns-panel button:hover {
+  outline: none;
+}
+.section_1 .align-center .btns-panel button.faire-offre {
+  color: #ffffff;
+  background: linear-gradient(-135deg, #aa1abb, #de2ef3);
+}
+.section_1 .align-center .img-car {
+  position: absolute;
+  width: 56%;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+.section_1 .align-center .livraison-offerte {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 2rem;
+}
+.section_1 .align-center .livraison-offerte p {
+  position: absolute;
+  font-size: 0.8rem;
+  top: 0;
+  right: calc(calc(150px - 8rem) * -1);
+  color: #ffffff;
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-style: italic;
+}
+.section_1 .vu-dans {
+  margin-left: -9rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 80%;
+  padding: 0.5rem;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.15);
+}
+.section_1 .vu-dans p {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+.section_1 .vu-dans .img-container {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-left: 1rem;
+}
+.section_1 .vu-dans .img-container img {
+  height: 1.5rem;
+  margin-right: 1rem;
+}
+
+/*# sourceMappingURL=section1.css.map */

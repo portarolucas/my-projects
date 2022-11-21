@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Autoriko - Administration</title>
+  <meta name="description" content="Admin, Dashboard, Bootstrap, Bootstrap 4, Angular, AngularJS" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- for ios 7 style, multi-resolution icon of 152x152 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+  <link rel="apple-touch-icon" href="/admin/public/assets/images/logo.png">
+  <meta name="apple-mobile-web-app-title" content="Flatkit">
+  <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" sizes="196x196" href="/admin/public/assets/images/logo.png">
+
+  <!-- style -->
+  <link rel="stylesheet" href="/admin/public/assets/animate.css/animate.min.css" type="text/css" />
+  <link rel="stylesheet" href="/admin/public/assets/glyphicons/glyphicons.css" type="text/css" />
+  <link rel="stylesheet" href="/admin/public/assets/font-awesome/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="/admin/public/assets/material-design-icons/material-design-icons.css" type="text/css" />
+
+  <link rel="stylesheet" href="/admin/public/assets/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+  <!-- build:css /admin/public/assets/styles/app.min.css -->
+  <link rel="stylesheet" href="/admin/public/assets/styles/app.css" type="text/css" />
+  <!-- endbuild -->
+  <link rel="stylesheet" href="/admin/public/assets/styles/font.css" type="text/css" />
+  <style>
+    .notification {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+  </style>
+
+  <!-- jQuery -->
+  <script src="/admin/public/libs/jquery/jquery/dist/jquery.js"></script>
+</head>
+
+<body>
+  <div class="app" id="app">
+
+    <!-- ############ LAYOUT START-->
+
+    <!-- aside -->
+    <div id="aside" class="app-aside modal folded md nav-expand">
+      <div class="left navside indigo-900 dk" layout="column">
+        <div class="navbar navbar-md no-radius">
+          <!-- brand -->
+          <a class="navbar-brand">
+            <div ui-include="'/admin/public/assets/images/logo.svg'"></div>
+            <img src="/admin/public/assets/images/logo.png" alt="." class="hide">
+            <span class="hidden-folded inline">Autoriko</span>
+          </a>
+          <!-- / brand -->
+        </div>
+        <div flex class="hide-scroll">
+          <nav class="scroll nav-active-primary">
+
+            <ul class="nav" ui-nav>
+              <li class="nav-header hidden-folded">
+                <small class="text-muted">Tableau de bord</small>
+              </li>
+
+              <li>
+                <a href="{{ path_for('home') }}">
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe3fc;
+                      <span ui-include="'/admin/public/assets/images/i_0.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">Accueil</span>
+                </a>
+              </li>
+
+
+              {# UTILISATEUR #}
+
+
+              <li class="nav-header hidden-folded">
+                <small class="text-muted">Utilisateur</small>
+              </li>
+
+              <li>
+                <a>
+                  <span class="nav-caret">
+                    <i class="fa fa-caret-down"></i>
+                  </span>
+
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe8d2;
+                      <span ui-include="'/admin/public/assets/images/i_3.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">Admin</span>
+                </a>
+                <ul class="nav-sub">
+                  <li>
+                    <a href="{{ path_for('createAdmin') }}">
+                      <span class="nav-text">Créer</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{ path_for('admins') }}">
+                      <span class="nav-text">Liste</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+
+              <li>
+                <a href="{{ path_for('entreprises') }}">
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe8d2;
+                      <span ui-include="'/admin/public/assets/images/i_3.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">Entreprise</span>
+                </a>
+              </li>
+
+              <li>
+                <a href="{{ path_for('particuliers') }}">
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe8d2;
+                      <span ui-include="'/admin/public/assets/images/i_3.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">Particulier</span>
+                </a>
+              </li>
+
+
+              <li>
+                <a href="{{ path_for('conversations') }}">
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe8d2;
+                      <span ui-include="'/admin/public/assets/images/i_3.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">Conversation</span>
+                </a>
+              </li>
+
+              {# Voiture #}
+
+
+              <li class="nav-header hidden-folded">
+                <small class="text-muted">Voiture</small>
+              </li>
+
+
+              <li>
+                <a>
+                  <span class="nav-caret">
+                    <i class="fa fa-caret-down"></i>
+                  </span>
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe8f0;
+                      <span ui-include="'/admin/public/assets/images/i_2.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">Voiture</span>
+                </a>
+                <ul class="nav-sub">
+                  <li>
+                    <a href="{{ path_for('createVoiture') }}">
+                      <span class="nav-text">Créer</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{ path_for('voitures') }}">
+                      <span class="nav-text">Liste</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <a>
+                  <span class="nav-caret">
+                    <i class="fa fa-caret-down"></i>
+                  </span>
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe8f0;
+                      <span ui-include="'/admin/public/assets/images/i_2.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">Vente</span>
+                </a>
+                <ul class="nav-sub">
+                  <li>
+                    <a href="{{ path_for('createVente') }}">
+                      <span class="nav-text">Créer</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{ path_for('ventes') }}">
+                      <span class="nav-text">Liste</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <a>
+                  <span class="nav-caret">
+                    <i class="fa fa-caret-down"></i>
+                  </span>
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe8f0;
+                      <span ui-include="'/admin/public/assets/images/i_2.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">Marque</span>
+                </a>
+                <ul class="nav-sub">
+                  <li>
+                    <a href="{{ path_for('createMarque') }}">
+                      <span class="nav-text">Créer</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{ path_for('marques') }}">
+                      <span class="nav-text">Liste</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <a>
+                  <span class="nav-caret">
+                    <i class="fa fa-caret-down"></i>
+                  </span>
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe8f0;
+                      <span ui-include="'/admin/public/assets/images/i_2.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">Categorie</span>
+                </a>
+                <ul class="nav-sub">
+                  <li>
+                    <a href="{{ path_for('createCategorie') }}">
+                      <span class="nav-text">Créer</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{ path_for('categories') }}">
+                      <span class="nav-text">Liste</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a>
+                  <span class="nav-caret">
+                    <i class="fa fa-caret-down"></i>
+                  </span>
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe8f0;
+                      <span ui-include="'/admin/public/assets/images/i_2.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">Presentation</span>
+                </a>
+                <ul class="nav-sub">
+                  <li>
+                    <a href="{{ path_for('createRepresentation') }}">
+                      <span class="nav-text">Créer</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{ path_for('representations') }}">
+                      <span class="nav-text">Liste</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+               <li>
+                <a>
+                  <span class="nav-caret">
+                    <i class="fa fa-caret-down"></i>
+                  </span>
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe8f0;
+                      <span ui-include="'/admin/public/assets/images/i_2.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">Categorie photo</span>
+                </a>
+                <ul class="nav-sub">
+                  <li>
+                    <a href="{{ path_for('createCategoriePhoto') }}">
+                      <span class="nav-text">Créer</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{ path_for('categoriephotos') }}">
+                      <span class="nav-text">Liste</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              {# Site #}
+
+              <li class="nav-header hidden-folded">
+                <small class="text-muted">Site</small>
+              </li>
+
+
+              <li>
+                <a href="{{ path_for('informationsite') }}">
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe429;
+                      <span ui-include="'/admin/public/assets/images/i_4.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">Site</span>
+                </a>
+              </li>
+
+              <li>
+                <a>
+                  <span class="nav-caret">
+                    <i class="fa fa-caret-down"></i>
+                  </span>
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe429;
+                      <span ui-include="'/admin/public/assets/images/i_4.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">FAQ</span>
+                </a>
+                <ul class="nav-sub nav-mega nav-mega-3">
+                  <li>
+                    <a href="{{ path_for('createFaq') }}">
+                      <span class="nav-text">Créer</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{ path_for('faqs') }}">
+                      <span class="nav-text">Liste</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <a href="{{ path_for('mentionpage') }}">
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe429;
+                      <span ui-include="'/admin/public/assets/images/i_4.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">Mention légale</span>
+                </a>
+              </li>
+
+              <li>
+                <a href="{{ path_for('guidepage') }}">
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe429;
+                      <span ui-include="'/admin/public/assets/images/i_4.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">Guide</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <!-- / aside -->
+
+    <!-- content -->
+    <div id="content" class="app-content box-shadow-z0" role="main">
+      <div class="app-header white box-shadow navbar-md">
+        <div class="navbar navbar-toggleable-sm flex-row align-items-center">
+          <!-- Open side - Naviation on mobile -->
+          <a data-toggle="modal" data-target="#aside" class="hidden-lg-up mr-3">
+            <i class="material-icons">&#xe5d2;</i>
+          </a>
+          <!-- / -->
+
+          <!-- Page title - Bind to $state's title -->
+          <div class="mb-0 h5 no-wrap" ng-bind="$state.current.data.title" id="pageTitle"></div>
+
+          <!-- navbar collapse -->
+          <div class="collapse navbar-collapse" id="collapse">
+            <!-- link and dropdown -->
+            <ul class="nav navbar-nav mr-auto">
+              <li class="nav-item dropdown">
+                <a class="nav-link" href data-toggle="dropdown">
+                  <i class="fa fa-fw fa-plus text-muted"></i>
+                  <span>New</span>
+                </a>
+                <div ui-include="'/views/blocks/dropdown.new.html'"></div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="{{ path_for('logout') }}" >
+
+                  <span>Sign out</span>
+                </a>
+              </li>
+            </ul>
+
+            <div ui-include="'/views/blocks/navbar.form.html'"></div>
+            <!-- / -->
+          </div>
+          <!-- / navbar collapse -->
+
+          <!-- navbar right -->
+          <ul class="nav navbar-nav ml-auto flex-row">
+            <li class="nav-item dropdown pos-stc-xs">
+              <a class="nav-link mr-2" href data-toggle="dropdown">
+                <i class="material-icons">&#xe7f5;</i>
+                <span class="label label-sm up warn">3</span>
+              </a>
+              <div ui-include="'/views/blocks/dropdown.notification.html'"></div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link p-0 clear" href="#" data-toggle="dropdown">
+                <span class="avatar w-32">
+                  <img src="/admin/public/assets/images/a0.jpg" alt="...">
+                  <i class="on b-white bottom"></i>
+                </span>
+              </a>
+              <div ui-include="'/views/blocks/dropdown.user.html'"></div>
+            </li>
+            <li class="nav-item hidden-md-up">
+              <a class="nav-link pl-2" data-toggle="collapse" data-target="#collapse">
+                <i class="material-icons">&#xe5d4;</i>
+              </a>
+            </li>
+          </ul>
+          <!-- / navbar right -->
+        </div>
+      </div>
+      <div class="app-footer">
+
+      </div>
+      <div ui-view class="app-body" id="view">
+
+        <!-- ############ PAGE START-->
+        <div class="padding">
+          {% block style %}{% endblock %}
+          {% block content %}{% endblock %}
+          {% block script %}{% endblock %}
+        </div>
+
+        <!-- ############ PAGE END-->
+
+      </div>
+    </div>
+    <!-- / -->
+
+
+    <!-- ############ LAYOUT END-->
+
+  </div>
+
+  <!-- build:js scripts/app.html.js -->
+  <!-- Bootstrap -->
+  <script src="/admin/public/libs/jquery/tether/dist/js/tether.min.js"></script>
+  <script src="/admin/public/libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
+  <!-- core -->
+  <script src="/admin/public/libs/jquery/underscore/underscore-min.js"></script>
+  <script src="/admin/public/libs/jquery/jQuery-Storage-API/jquery.storageapi.min.js"></script>
+  <script src="/admin/public/libs/jquery/PACE/pace.min.js"></script>
+
+  <script src="/admin/public/scripts/config.lazyload.js"></script>
+
+  <script src="/admin/public/scripts/palette.js"></script>
+  <script src="/admin/public/scripts/ui-load.js"></script>
+  <script src="/admin/public/scripts/ui-jp.js"></script>
+  <script src="/admin/public/scripts/ui-include.js"></script>
+  <script src="/admin/public/scripts/ui-device.js"></script>
+  <script src="/admin/public/scripts/ui-form.js"></script>
+  <script src="/admin/public/scripts/ui-nav.js"></script>
+  <script src="/admin/public/scripts/ui-screenfull.js"></script>
+  <script src="/admin/public/scripts/ui-scroll-to.js"></script>
+  <script src="/admin/public/scripts/ui-toggle-class.js"></script>
+
+  <!--<script src="/admin/public/scripts/app.js"></script>-->
+
+  <!-- ajax -->
+  <script src="/admin/public/libs/jquery/jquery-pjax/jquery.pjax.js"></script>
+  <script src="/admin/public/scripts/ajax.js"></script>
+  <!-- endbuild -->
+
+		<script>
+			function hideNotification() {
+				$('#notification_block').fadeOut('500', () => {
+					$('#notification_block').removeClass();
+				});
+			}
+
+			function showNotification(libelle_bootstrap, message) {
+				hideNotification();
+				$('#notification_block p').text(message)
+				$('#notification_block').addClass("notification")
+				$('#notification_block').addClass('alert alert-' + libelle_bootstrap)
+				$('#notification_block').fadeIn('500');
+			}
+    </script>
+
+</body>
+
+</html>

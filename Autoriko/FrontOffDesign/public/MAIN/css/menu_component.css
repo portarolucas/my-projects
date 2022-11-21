@@ -1,0 +1,84 @@
+.menu_block {
+  z-index: 1000;
+  position: fixed;
+  top: 4rem;
+  right: 2rem;
+  background-color: #ffffff;
+  padding: 1rem;
+  width: 25%;
+  min-width: 300px;
+  box-shadow: 0px 6px 10px 3px rgba(0, 0, 0, 0.18);
+  font-family: "Montserrat";
+  color: #000000;
+}
+.menu_block::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#0552fa", endColorstr="#aa1abb", GradientType=1 );
+  background: -moz-linear-gradient(135deg, #0552fa, #aa1abb);
+  background: -webkit-gradient(135deg, #0552fa, #aa1abb);
+  background: -webkit-linear-gradient(135deg, #0552fa, #aa1abb);
+  background: -o-linear-gradient(135deg, #0552fa, #aa1abb);
+  background: -ms-linear-gradient(135deg, #0552fa, #aa1abb);
+  background: linear-gradient(135deg, #0552fa, #aa1abb);
+}
+.menu_block h1 {
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin: 0;
+  margin-bottom: 0.8rem;
+}
+.menu_block .menu_container hr {
+  margin: 0.35rem 0;
+  height: 1px;
+  background-color: #000000;
+  border: 0;
+}
+.menu_block .menu_container .menu_row {
+  margin: 0 -1rem;
+  padding: 0.35rem 1rem;
+}
+.menu_block .menu_container .menu_row:hover b {
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#0552fa", endColorstr="#aa1abb", GradientType=1 );
+  background: -moz-linear-gradient(135deg, #0552fa, #aa1abb);
+  background: -webkit-gradient(135deg, #0552fa, #aa1abb);
+  background: -webkit-linear-gradient(135deg, #0552fa, #aa1abb);
+  background: -o-linear-gradient(135deg, #0552fa, #aa1abb);
+  background: -ms-linear-gradient(135deg, #0552fa, #aa1abb);
+  background: linear-gradient(135deg, #0552fa, #aa1abb);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+.menu_block .menu_container .menu_row p {
+  font-weight: 500;
+  font-size: 0.8rem;
+  margin: 0;
+  margin-bottom: 0.3rem;
+}
+.menu_block .menu_container .menu_row p.notif_time {
+  font-size: 0.7rem;
+  margin-bottom: 0;
+  font-style: italic;
+}
+.menu_block .menu_container .menu_row p .danger {
+  color: #fb9d0d;
+}
+.menu_block .menu_footer {
+  border-top: 1px solid grey;
+  margin: 0.8rem -1rem -1rem -1rem;
+  padding: 0.5rem;
+}
+.menu_block .menu_footer p {
+  font-weight: 500;
+  font-size: 0.7rem;
+  margin: 0;
+}
+
+/*# sourceMappingURL=menu_component.css.map */

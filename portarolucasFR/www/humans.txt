@@ -1,0 +1,17 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    PORTARO Lucas -- Developper Front & Back -- https://twitter.com/Lucas57855 || https://www.malt.fr/profile/lucasportaro || https://www.linkedin.com/in/lucas-portaro-00b68b165/ || www.portarolucas.fr
+    PORTARO Lucas -- Design Web (with Figma) -- https://twitter.com/Lucas57855 || https://www.malt.fr/profile/lucasportaro || https://www.linkedin.com/in/lucas-portaro-00b68b165/ || www.portarolucas.fr
+    PORTARO Lucas -- Director Project -- https://twitter.com/Lucas57855 || https://www.malt.fr/profile/lucasportaro || https://www.linkedin.com/in/lucas-portaro-00b68b165/ || www.portarolucas.fr
+# THANKS
+
+    <name>
+
+# TECHNOLOGY COLOPHON
+
+    CSS3, HTML5, PHP
+    jQuery, Modernizr, Normalize.css
+    GSAP - TweenMax (https://greensock.com/)

@@ -1,0 +1,69 @@
+@import '_var.scss';
+
+.section2{
+  margin-top: $margin-y-medium-size-xs;
+  @include sm{
+    margin-top: $margin-y-medium-size-sm;
+  }
+  @include md{
+    width: $max-size-md;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: $margin-y-medium-size-md;
+  }
+  @include lg{
+    width: $max-size-lg;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: $margin-y-medium-size-md;
+  }
+  @include xl{
+    width: $max-size-xl;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: $margin-y-medium-size-md;
+  }
+
+  .desc{
+    margin-top: $margin-y-medium-size-xs;
+    @include sm{
+      margin-top: $margin-y-medium-size-sm;
+    }
+    @include md{
+      margin-top: $margin-y-medium-size-md;
+    }
+    @include lg{
+      margin-top: $margin-y-medium-size-md;
+    }
+    @include xl{
+      margin-top: $margin-y-medium-size-md;
+    }
+    img{
+      width: 100%;
+      max-width: 920px;
+    }
+    p{
+      font-family: $font-raleway;
+      font-size: $font-medium-size-xs;
+      color: #000000;
+      margin-top: $margin-y-medium-size-xs;
+      @include sm{
+        font-size: $font-medium-size-sm;
+        margin-top: $margin-y-medium-size-sm;
+      }
+      @include md{
+        font-size: $font-medium-size-md;
+        margin-top: $margin-y-medium-size-md;
+      }
+      @include lg{
+        font-size: $font-medium-size-lg;
+        margin-top: $margin-y-medium-size-md;
+      }
+      @include xl{
+        font-size: $font-medium-size-lg;
+        margin-top: $margin-y-medium-size-md;
+      }
+    }
+
+  }
+}

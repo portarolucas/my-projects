@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	{% block head %}
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/style.css" />
+    <title>{% block title %}{% endblock %} - Application Portefeuille Numérique</title>
+	{% endblock %}
+</head>
+<body>
+	{% if session %}
+		<div id="disconnect_btn">
+			<form action="{{ path_for('disconnectBtn') }}" method="post">
+				<input type="submit" value="Déconnection" class="btn btn-warning">
+			</form>
+		</div>
+	{% endif %}
+	<div id="title_page">
+		<h1>{% block title_page %}{% endblock %}</h1>
+	</div>
+	<div id="content">
+		{% block content %}{% endblock %}
+	</div>
+
+	{% block footer %}
+		
+	{% endblock %}
+</body>
+
+</html>

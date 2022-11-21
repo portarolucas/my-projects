@@ -1,0 +1,36 @@
+$body-padding-left: 9rem;//150px
+$body-padding-right: 9rem;//150px
+
+$body-margin-top: 3.5rem;
+$body-margin-bottom: 3.5rem;
+
+$body-margin-y-xs: 2rem;
+
+$button-normal-font-size: 0.8rem;
+
+//ELEMENT SIZE
+$navbar-header-size: 4rem;
+
+@mixin bg-linear-gradient($deg: 135deg) {
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0552fa', endColorstr='#aa1abb', GradientType=1 );
+  // Firefox
+  background: -moz-linear-gradient($deg, #0552fa, #aa1abb);
+  // Chrome & Safari
+  background: -webkit-gradient($deg, #0552fa, #aa1abb);
+  background: -webkit-linear-gradient($deg, #0552fa, #aa1abb);
+  // Opera
+  background: -o-linear-gradient($deg, #0552fa, #aa1abb);
+  // IE
+  background: -ms-linear-gradient($deg, #0552fa, #aa1abb);
+  // NEW
+  background: linear-gradient($deg, #0552fa, #aa1abb);
+}
+
+@mixin text-linear-gradient {
+  @include bg-linear-gradient(135deg);
+  background-size: 100%;
+  background-clip:text;
+  -webkit-background-clip:text;
+  color:transparent;
+  -webkit-text-fill-color: transparent;
+}

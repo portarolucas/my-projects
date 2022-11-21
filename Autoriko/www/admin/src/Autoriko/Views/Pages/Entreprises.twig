@@ -1,0 +1,317 @@
+{% extends "Layout.twig" %}
+
+{% block style %}
+<style>
+    .notification {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 70%;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div id="notification_block" class="notification" style="z-index: 999;display: none;">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="hideNotification()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <p></p>
+</div>
+
+<div class="box">
+    <div class="box-header">
+        <h2>Liste des entprerises</h2>
+        <small>Possiblité de modifier ou de supprmier des entreprises</small>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered m-0">
+            <thead>
+                <tr>
+                    <th style="width: 7%;">Nom </th>
+                    <th style="width: 7%;">Prenom</th>
+                    <th style="width: 7%;">Mail</th>
+                    <th style="width: 7%;">Pays</th>
+                    <th style="width: 15%;">Code postal</th>
+                    <th style="width: 7%;">Ville </th>
+                    <th style="width: 7%;">Adresse</th>
+                    <th style="width: 15%;">Adresse compl</th>
+                    <th style="width: 15%;">Telephone fixe</th>
+                    <th style="width: 7%;">Telephone</th>
+                    <th style="width: 15%;">Raison sociale </th>
+                    <th style="width: 7%;">Siren</th>
+                    <th style="width: 15%;">Numero TVA</th>
+                    <th style="width: 7%;">Kabis</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for utilisateur in utilisateurs %}
+                <tr>
+                    <td class="panel_nomentreprise"><span class="editable">{{ utilisateur.nom}}</span></td>
+                    <td class="panel_prenomentreprise"><span class="editable">{{ utilisateur.prenom}}</span></td>
+                    <td class="panel_mailentreprise"><span class="editable">{{ utilisateur.mail}}</span></td>
+                    <td class="panel_paysentreprise"><span class="editable">{{ utilisateur.pays}}</span></td>
+                    <td class="panel_code_postalentreprise"><span class="editable">{{ utilisateur.code_postal}}</span>
+                    </td>
+                    <td class="panel_villeentreprise"><span class="editable">{{ utilisateur.ville}}</span></td>
+                    <td class="panel_adresseentreprise"><span class="editable">{{ utilisateur.adresse}}</span></td>
+                    <td class="panel_comp_adresseentreprise"><span class="editable">{{ utilisateur.comp_adresse}}</span>
+                    </td>
+                    <td class="panel_telephone_fixeentreprise"><span class="editable">{{
+                            utilisateur.telephone_fixe}}</span></td>
+                    <td class="panel_telephone_mobileentreprise"><span class="editable">{{
+                            utilisateur.telephone_mobile}}</span></td>
+                    <td class="panel_raison_socialeEntreprise"><span class="editable">{{
+                            utilisateur.entreprise.raison_sociale}}</span></td>
+                    <td class="panel_sirenEntreprise"><span class="editable">{{ utilisateur.entreprise.siren}}</span>
+                    </td>
+                    <td class="panel_numero_tvaEntreprise"><span class="editable">{{
+                            utilisateur.entreprise.numero_tva}}</span></td>
+                    <td class="panel_url_photocopie_kabisEntreprise"><span class="editable">{{
+                            utilisateur.entreprise.url_photocopie_kabis}}</span></td>
+
+
+
+                    <td class="panel_update">
+                        <button type="button" class="btn btn-default btn-sm" data-toggle="modal"
+                            data-target="#editUser_{{ utilisateur.id_utilisateur  }}">
+                            <i class="far fa-edit"></i>
+                        </button>
+                        <div class="modal fade exampleModalClass" id="editUser_{{ utilisateur.id_utilisateur  }}"
+                            tabindex="-1" role="dialog"
+                            aria-labelledby="editUserLabel_{{ utilisateur.id_utilisateur }}">
+                            <div class="modal-dialog" role="document">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <form ui-jp="parsley">
+                                            <div class="box">
+                                                <div class="box-header">
+                                                    <h4 class="modal-title"
+                                                        id="editUserLabel_{{ utilisateur.id_uitilisateur }}">
+                                                        Modifier l'utilisateur
+                                                    </h4>
+                                                </div>
+                                                <div class="box-body">
+                                                    <div class="modal-body">
+                                                        <div class="form-group ">
+                                                            <label class="col-sm-3 form-control-label">Adresse
+                                                                mail</label>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" value="{{ utilisateur.mail }}"
+                                                                    class="form-control update_mailEntreprise">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group ">
+                                                            <label class="col-sm-3 form-control-label">Pays
+                                                                :</label>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" value="{{ utilisateur.pays  }}"
+                                                                    class="form-control update_paysEntreprise">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group ">
+                                                            <label class="col-sm-3 form-control-label">Code postal
+                                                                :</label>
+                                                            <div class="col-sm-9">
+                                                                <input type="text"
+                                                                    value="{{ utilisateur.code_postal  }}"
+                                                                    class="form-control update_code_postalEntreprise">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group ">
+                                                            <label class="col-sm-3 form-control-label">Ville
+                                                                :</label>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" value="{{ utilisateur.ville  }}"
+                                                                    class="form-control update_villeEntreprise">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group ">
+                                                            <label class="col-sm-3 form-control-label">Adresse
+                                                                :</label>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" value="{{ utilisateur.adresse  }}"
+                                                                    class="form-control update_adresseEntreprise">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group ">
+                                                            <label class="col-sm-3 form-control-label">Complément
+                                                                adresse :</label>
+                                                            <div class="col-sm-9">
+                                                                <input type="text"
+                                                                    value="{{ utilisateur.comp_adresse  }}"
+                                                                    class="form-control update_comp_adresseEntreprise">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group ">
+                                                            <label class="col-sm-3 form-control-label">Téléphone
+                                                                fixe :</label>
+                                                            <div class="col-sm-9">
+                                                                <input type="text"
+                                                                    value="{{ utilisateur.telephone_fixe  }}"
+                                                                    class="form-control update_telephone_fixeEntreprise">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 form-control-label">Téléphone
+                                                                mobile :</label>
+                                                            <div class="col-sm-9">
+                                                                <input type="text"
+                                                                    value="{{ utilisateur.telephone_mobile  }}"
+                                                                    class="form-control update_telephone_mobileEntreprise">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="dker p-a text-right">
+                                                        <button type="button" class="btn btn-default"
+                                                            data-dismiss="modal">Annuler</button>
+                                                        <button type="button" class="btn info"
+                                                            onclick="entrepriseUpdate({{ utilisateur.id_utilisateur }}, this)">Modifier</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="panel_delete">
+                        <input type="button" value="Supprimer" class="btn btn-danger delCompteBtn" data-toggle="modal"
+                            data-target="#entrepriseDelete{{ utilisateur.id_utilisateur }}">
+                        <div class="modal fade" id="entrepriseDelete{{ utilisateur.id_utilisateur  }}" tabindex="-1"
+                            role="dialog" aria-labelledby="entrepriseDeleteLabel_{{ utilisateur.id_utilisateur  }}"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="deleteUserLabel_{{ utilisateur.id_utilisateur  }}">
+                                            Supprimer une entreprise:</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Êtes-vous sûr de vouloir supprimer l'entreprise : {{ utilisateur.nom }} ?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default"
+                                            data-dismiss="modal">Annuler</button>
+                                        <button type="button" class="btn btn-danger btn-ok"
+                                            onclick="entrepriseDelete({{ utilisateur.id_utilisateur }}, this)">Supprimer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endblock %}
+
+        {% block script %}
+        <script>
+            function hideNotification() {
+                $('#notification_block').fadeOut('500', () => {
+                    $('#notification_block').removeClass();
+                });
+            }
+
+            function showNotification(libelle_bootstrap, message) {
+                hideNotification();
+                $('#notification_block p').text(message)
+                $('#notification_block').addClass("notification")
+                $('#notification_block').addClass('alert alert-' + libelle_bootstrap)
+                $('#notification_block').fadeIn('500');
+            }
+
+            function entrepriseDelete(id, leBtn) {
+                let model = $(leBtn).parents().closest('.modal');
+                let lineDelet = $(leBtn).parents().closest('tr');
+
+                let http = new XMLHttpRequest();
+                let params =
+                    'id_utilisateur=' + id;
+                http.open('POST', '{{ path_for('entrepriseDelete') }}', true);
+
+                http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                http.onreadystatechange = function () {
+                    if (http.readyState == 4 && http.status == 200) {
+                        if (http.responseText == 'success') {
+                            $(model).modal('hide');
+                            showNotification('success', "L'entreprise a bien été supprimé.");
+                            $(lineDelet).hide('slow', function () {
+                                $(lineDelet).remove();
+                            });
+                        } else {
+                            showNotification('danger', 'Erreur : ' + http.responseText);
+                        }
+                    }
+                }
+                http.send(params);
+            }
+
+            function entrepriseUpdate(id, leBtn) {
+                let bodyModal = $(leBtn).parent().prev('.modal-body');
+                let mail = $(bodyModal).find('.update_mailEntreprise').val();
+                let pays = $(bodyModal).find('.update_paysEntreprise').val();
+                let code_postal = $(bodyModal).find('.update_code_postalEntreprise').val();
+                let ville = $(bodyModal).find('.update_villeEntreprise').val();
+                let adresse = $(bodyModal).find('.update_adresseEntreprise').val();
+                let comp_adresse = $(bodyModal).find('.update_comp_adresseEntreprise').val();
+                let telephone_fixe = $(bodyModal).find('.update_telephone_fixeEntreprise').val();
+                let telephone_mobile = $(bodyModal).find('.update_telephone_mobileEntreprise').val();
+
+
+
+                if (id, mail, pays, code_postal, ville, adresse, comp_adresse, telephone_fixe, telephone_mobile) {
+                    let model = $(leBtn).parents().closest('.modal');
+                    let lineUpdate = $(leBtn).parents().closest('tr');
+                    let http = new XMLHttpRequest();
+
+                    let params =
+                        'id_utilisateur=' + id +
+                        '&mail=' + mail +
+                        '&pays=' + pays +
+                        '&code_postal=' + code_postal +
+                        '&ville=' + ville +
+                        '&adresse=' + adresse +
+                        '&comp_adresse=' + comp_adresse +
+                        '&telephone_fixe=' + telephone_fixe +
+                        '&telephone_mobile=' + telephone_mobile;
+                    http.open('POST', '{{ path_for('entrepriseUpdate') }}', true);
+
+                    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                    http.onreadystatechange = function () {
+                        if (http.readyState == 4 && http.status == 200) {
+                            console.log(http.responseText);
+                            if (http.responseText == 'success') {
+                                $(lineUpdate).find('.panel_mailentreprise').text(mail);
+                                $(lineUpdate).find('.panel_paysentreprise').text(pays);
+                                $(lineUpdate).find('.panel_code_postalentreprise').text(code_postal);
+                                $(lineUpdate).find('.panel_villeentreprise').text(ville);
+                                $(lineUpdate).find('.panel_adresseentreprise').text(adresse);
+                                $(lineUpdate).find('.panel_comp_adresseentreprise').text(comp_adresse);
+                                $(lineUpdate).find('.panel_telephone_fixeentreprise').text(telephone_fixe);
+                                $(lineUpdate).find('.panel_telephone_mobileentreprise').text(telephone_mobile);
+
+                                $(model).modal('hide');
+                                showNotification('success', "Succès : L'entreprise " + id + " a bien été modifié.");
+                            } else {
+                                showNotification('danger', 'Erreur : ', http.responseText);
+                            }
+                        }
+                    }
+                    http.send(params);
+                } else {
+                    alert("Une erreur est survenue : des champs sont manquants, introuvable, ou incomplet \n\rSi le problème persiste actualisez la page ou contacter nous");
+                }
+            }
+        </script>
+        {% endblock %}

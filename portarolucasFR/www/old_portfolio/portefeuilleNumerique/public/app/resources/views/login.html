@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}Connection{% endblock %}
+
+{% block head %}
+    {{ parent() }}
+    <link href="../css/connexion.css" rel="stylesheet">
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{% endblock %}
+
+{% block title_page %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <h3>Bienvenue, merci de vous authentifier</h3>
+            <form action="{{ path_for('validLogin') }}" method="post">
+                <input type="email" id="login" class="fadeIn second" name="user" placeholder="Adresse mail" required autofocus>
+                <input type="password" id="password" class="fadeIn third" name="mdp" placeholder="Mot de passe" required>
+                <br><br>
+                <input type="submit" class="fadeIn fourth" value="Connection">
+                {% if message %}
+                <div class="error_message"><p>{{message}}</p></div>
+                {% endif %}
+            </form>
+
+            <div id="formFooter">
+                <a class="underlineHover" href="{{ path_for('inscription') }}">Inscription</a><br>
+                <a class="underlineHover" href="#">Mot de passe oublié ?</a>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

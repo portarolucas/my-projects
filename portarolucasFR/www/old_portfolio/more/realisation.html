@@ -1,0 +1,199 @@
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Lucas PORTARO - Réalisation</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="format-detection" content="telephone=no" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600,600i,700" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style_ok.css" />
+    <link rel="stylesheet" type="text/css" href="style_rea.css" />
+    <script src="./js/verification.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="application/javascript">
+        $('<img style="display: none;"/>').attr('src', '../img/bg_header2.jpg').on('load', function()
+        {
+            $(this).remove();
+            //$('header').css('background-image', "url('./img/banner_header.png')");
+            $('#body_loaded').css('display', 'block');
+            $('#loaderAnim').css('display', 'none');
+            var elem = document.getElementById('body_loaded');
+            var actually = 0;
+            function transition()
+            {
+                if(actually < 1)
+                {
+                    actually += 0.1;
+                    elem.style.opacity = actually;
+                    setTimeout(transition, 50);
+                }
+            }
+            transition();
+        });
+
+        jQuery(document).ready(function($) {
+
+            //Count nr. of square classes
+            var countSquare = $('.square').length;
+
+            //For each Square found add BG image
+            for (i = 0; i < countSquare; i++) {
+                var firstImage = $('.square').eq([i]);
+                var secondImage = $('.square2').eq([i]);
+
+                var getImage = firstImage.attr('data-image');
+                var getImage2 = secondImage.attr('data-image');
+
+                firstImage.css('background-image', 'url(' + getImage + ')');
+                secondImage.css('background-image', 'url(' + getImage2 + ')');
+            }
+
+        });
+
+        $(document).ready(function(){
+
+            $(".slideTo").click(function(e){
+                e.preventDefault();
+                var aid = $(this).attr("href");
+                $('html,body').animate({scrollTop: $(aid).offset().top},'slow');
+            });
+        });
+    </script>
+</head>
+
+<body>
+<div id="loaderAnim"></div>
+<div id="body_loaded">
+    <header id="goToTop">
+        <img src="../img/trameFULL.png" alt="" id="trameHeader" />
+        <div id="header_center">
+            <a href="../index.html">
+                <div id="logo_head">
+                    <h1>PORTARO <span style="font-weight: 400;">Lucas</span></h1>
+                    <div id="bar_undername"></div>
+                    <h3>Developpeur c#, Web, MySql</h3>
+                </div>
+            </a>
+            <h1 id="titreHeader"><span class="makeToLight">Mes</span> réalisations</h1>
+            <a class="slideTo" href="#section_mes_rea" style="display: block; margin: 50px auto; border-radius: 50%;">
+                <img src="../img/downArrow.svg" alt="Down arrow" id="downArrowImg" />
+            </a>
+        </div>
+    </header>
+    <section id="section_mes_rea">
+        <div class="centerflipcards">
+            <div class="square-flip">
+                <div class='square' data-image="../img/real/film_ppe2.png">
+                    <div class="square-container">
+                        <h2 class="textshadow">Cinéma PPE</h2>
+                        <h3 class="textshadow">Réalisation d'une application logiciel (C#).</h3>
+                    </div>
+                    <div class="flip-overlay"></div>
+                </div>
+                <div class='square2' data-image="../img/real/manhattan.jpg">
+                    <div class="square-container2">
+                        <div class="align-center"><h2>Cinéma PPE</h2></div>
+                        <h3>Le but de ce PPE était de créer une application permettant la gestion de film à diffuser dans un cinéma.</h3>
+                        <h3>Langages utilisés: C#, MySQL</h3>
+                        <a href="#" target="_blank">
+                            <button>Découvrir</button>
+                        </a>
+                    </div>
+                    <div class="flip-overlay"></div>
+                </div>
+            </div>
+
+            <div class="square-flip">
+                <div class='square' data-image="../img/real/tolede.png">
+                    <div class="square-container">
+                        <h2 class="textshadow">Tolede v2</h2>
+                        <h3 class="textshadow">Réalisation d'une application Web (PHP).</h3>
+                    </div>
+                    <div class="flip-overlay"></div>
+                </div>
+                <div class='square2' data-image="../img/real/ny_fly.jpg">
+                    <div class="square-container2">
+                        <div class="align-center"><h2>Tolede v2</h2></div>
+                        <h3>Pour mon stage de deuxième année j'ai eu pour mission d'accomplir une application Web (progiciel).</h3>
+                        <h3>Langages utilisés: HTML/CSS, JS(Ajax), PHP, MySQL</h3>
+                        <a href="https://www.fortnitecommunity.fr/portarolucas/tolede" target="_blank">
+                            <button>Découvrir</button>
+                        </a>
+                        <h4>Compte de test | User: cdaverio - Password: luc</h4>
+                    </div>
+                    <div class="flip-overlay"></div>
+                </div>
+            </div>
+
+            <div class="square-flip">
+                <div class='square' data-image="../img/real/bellaciao.png">
+                    <div class="square-container">
+                        <h2 class="textshadow">Pizzeria Bella Ciao</h2>
+                        <h3 class="textshadow">Réalisation d'un site vitrine (HTML/JS/JQuerry).</h3>
+                    </div>
+                    <div class="flip-overlay"></div>
+                </div>
+                <div class='square2' data-image="../img/real/nyc_status.jpg">
+                    <div class="square-container2">
+                        <div class="align-center"><h2>Pizzeria Bella Ciao</h2></div>
+                        <h3>Création du site Internet (vitrine) du restaurant Bella Ciao en stage de première année de BTS SIO.</h3>
+                        <h3>Langages utilisés: HTML/CSS/JS(JQuerry)</h3>
+                        <a href="https://www.bellaciaojarny.fr/" target="_blank">
+                            <button>Découvrir</button>
+                        </a>
+                    </div>
+                    <div class="flip-overlay"></div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="centerflipcards">
+            <div class="square-flip">
+                <div class='square' data-image="../twitteralert/img/icon_3.svg">
+                    <div class="square-container">
+                        <h2 class="textshadow">Twitter Alert</h2>
+                        <h3 class="textshadow">Application Web utilisant l'API Twitter.</h3>
+                    </div>
+                    <div class="flip-overlay"></div>
+                </div>
+                <div class='square2' data-image="../img/real/nyc_build.jpg">
+                    <div class="square-container2">
+                        <div class="align-center"><h2>Twitter Alert</h2></div>
+                        <h3>Application web vous permettant de savoir si une personne que vous suivez ou non vous a unfollow (s'est désabonné de votre compte).</h3>
+                        <h3>Langages utilisés: HTML/CSS/PHP/JSON</h3>
+                        <a href="../twitteralert" target="_blank">
+                            <button>Découvrir</button>
+                        </a>
+                    </div>
+                    <div class="flip-overlay"></div>
+                </div>
+            </div>
+            <div class="square-flip">
+                <div class='square' data-image="../img/real/domino.png">
+                    <div class="square-container">
+                        <h2 class="textshadow">Jeu Domino</h2>
+                        <h3 class="textshadow">Jeu de domino réaliser en C#.</h3>
+                    </div>
+                    <div class="flip-overlay"></div>
+                </div>
+                <div class='square2' data-image="../img/real/taxi_nyc.jpg">
+                    <div class="square-container2">
+                        <div class="align-center"><h2>Jeu Domino</h2></div>
+                        <h3>Logiciel simulant un jeu de domino entre 2 à 4 adversaires au maximum.</h3>
+                        <h3>Langages utilisés: C#</h3>
+                        <a href="../twitteralert" target="_blank">
+                            <button>Découvrir</button>
+                        </a>
+                    </div>
+                    <div class="flip-overlay"></div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </section>
+    <footer>
+        <p>Copyright PORTARO Lucas - All right reserved</p>
+    </footer>
+</div>
+</body>

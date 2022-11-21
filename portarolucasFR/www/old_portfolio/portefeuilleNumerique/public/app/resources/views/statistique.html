@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block title %}Les statistiques{% endblock %}
+{% block head %}
+  	{{ parent() }}
+  
+	<style type="text/css">
+		.important {
+			color: #336699;
+		}
+
+		#lgn,
+		#pwd,
+		#btnCo {
+			width: 300px;
+		}
+	</style>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+{% endblock %}
+
+{% block title_page %}Statistiques des catégories :{% endblock %}
+
+{% block content %}
+<div id="stats_btn" class="new_btn">
+	<form action="{{ path_for('home_panel') }}" method="get">
+		<input type="submit" value="Retour accueil" class="btn btn-secondary">
+	</form>
+</div>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Id </th>
+			<th>Nom </th>
+			<th>Nombre de compte </th>
+			<!--<th>Nombre de service </th>-->
+		</tr>
+	</thead>
+
+	<tbody>
+		{% for categorie in lesStats %}
+		<tr>
+			<td>{{categorie.id_categorie}}</td>
+			<td>{{categorie.nomCategorie}}</td>
+			<td>{{categorie.nb_compte}}</td>
+			<!--<td>{{categorie.nb_service}}</td>-->
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% endblock %}
+		
+

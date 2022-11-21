@@ -1,0 +1,57 @@
+/* Made by W3Schools thanks to him */
+/* The switch - the box around the slider */
+.switch-checkbox {
+  position: relative;
+  display: inline-block;
+  width: 33.6px;
+  height: 19.04px;
+}
+.switch-checkbox input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.switch-checkbox input:checked + .slider {
+  background-color: #0552fa;
+}
+.switch-checkbox input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+.switch-checkbox input:checked + .slider::before {
+  -webkit-transform: translateX(13.04px);
+  -ms-transform: translateX(13.04px);
+  transform: translateX(13.04px);
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ebebeb;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border: 1px solid #8d8d8d;
+}
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 19.04px;
+  width: 19.04px;
+  left: 0;
+  bottom: -1px;
+  background: linear-gradient(90deg, #aa1abb, #0552fa);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round::before {
+  border-radius: 50%;
+}
+
+/*# sourceMappingURL=checkbox.css.map */

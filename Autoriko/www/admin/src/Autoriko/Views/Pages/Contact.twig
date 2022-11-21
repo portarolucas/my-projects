@@ -1,0 +1,185 @@
+
+{% extends "Layout.twig" %}
+
+{% block style %}
+<link rel="stylesheet" href="/assets/css/gestion_sequence.css">
+<style>
+    .notification{
+      position: fixed;
+      bottom: 0;
+      left:0;
+      width: 100%;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+<div id="notification_block" class="notification" style="z-index: 999;display: none;">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="hideNotification()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <p></p>
+</div>
+
+<h1>Gestion des contacts</h1>
+<table class="table table-sm table-hover">
+    <thead>
+        <tr>
+            <th style="width: 30%;">Titre</th>
+            <th style="width: 30%;">Text</th>
+            <th style="width: 10%;"></th>
+        </tr>
+    </thead>
+     <tbody>
+        {% for contact in contacts %}
+            <tr>
+            <td class="panel_title_pagecontact"><span class="editable">{{ contact.title_page }}</span></td>
+            <td class="panel_textcontact"><span class="editable">{{ contact.text }}</span></td>
+            </td>
+
+            <td class="panel_update">
+                <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#editUser_{{ contact.id_contact }}">
+                    <i class="far fa-edit"></i>
+                </button>
+                <div class="modal fade exampleModalClass" id="editUser_{{ contact.id_contact  }}" tabindex="-1" role="dialog"
+                    aria-labelledby="editUserLabel_{{ contact.id_contact  }}">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="editUserLabel_{{ contact.id_contact }}">Modifier la page contact </h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Fermer"><span
+                                        aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label class="control-label">Titre de la page contact:</label>
+                                        <input type="text" value="{{ contact.title_page }}"
+                                            class="form-control update_title_pageMention">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Text de la page contact:</label>
+                                        <input type="text" value="{{ contact.text }}"
+                                            class="form-control update_textMention">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                                <button type="button" class="btn btn-dark" onclick="contactUpdate({{ contact.id_contact }}, this)">Modifier
+                                    la page contact</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+
+            <td class="panel_delete">
+                <input type="button" value="Supprimer" class="btn btn-danger delCompteBtn" data-toggle="modal"
+                    data-target="#contactDelete{{ contact.id_contact }}">
+                <div class="modal fade" id="contactDelete{{ contact.id_contact }}" tabindex="-1" role="dialog"
+                    aria-labelledby="contactDeleteLabel_{{ contact.id_contact }}" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="deleteUserLabel_{{ contact.id_contact }}">Supprimer une contact :</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>Êtes-vous sûr de vouloir supprimer la contact ? : {{ contact.id_contact }} ?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                                <button type="button" class="btn btn-danger btn-ok"
+                                    onclick="contactDelete({{ contact.id_contact }}, this)">Supprimer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
+{% block script %}
+
+<script>
+function hideNotification() {
+    $('#notification_block').fadeOut('500', () => {
+        $('#notification_block').removeClass();
+    });
+}
+
+function showNotification(libelle_bootstrap, message) {
+    hideNotification();
+    $('#notification_block p').text(message)
+    $('#notification_block').addClass("notification")
+    $('#notification_block').addClass('alert alert-' + libelle_bootstrap)
+    $('#notification_block').fadeIn('500');
+}
+
+function contactDelete(id, leBtn) {
+    let model = $(leBtn).parents().closest('.modal');
+    let lineDelet = $(leBtn).parents().closest('tr');
+
+    let http = new XMLHttpRequest();
+    let params =
+        'id_contact=' + id;
+    http.open('POST', '{{ path_for('contactDelete') }}', true);
+
+    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    http.onreadystatechange = function () {
+        if (http.readyState == 4 && http.status == 200) {
+            if (http.responseText == 'success') {
+                $(model).modal('hide');
+                showNotification('success', "La page contact a bien été supprimé.");
+                $(lineDelet).hide('slow', function () {
+                    $(lineDelet).remove();
+                });
+            } else {
+                showNotification('danger', 'Erreur : ' + http.responseText);
+            }
+        }
+    }
+    http.send(params);
+}
+function contactUpdate(id, leBtn) {
+    let bodyModal = $(leBtn).parent().prev('.modal-body');
+    let title_page = $(bodyModal).find('.update_title_pageMention').val();
+    let text = $(bodyModal).find('.update_textMention').val();
+
+    if (id, title_page, text) {
+        let model = $(leBtn).parents().closest('.modal');
+        let lineUpdate = $(leBtn).parents().closest('tr');
+        let http = new XMLHttpRequest();
+
+        let params =
+            'id_contact=' + id +
+            '&title_page=' + title_page +
+            '&text=' + text;
+        http.open('POST', '{{ path_for('contactUpdate') }}', true);
+
+        http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        http.onreadystatechange = function () {
+            if (http.readyState == 4 && http.status == 200) {
+                  console.log(http.responseText);
+                if (http.responseText == 'success') {
+                    $(lineUpdate).find('.panel_title_pagecontact').text(title_page);
+                    $(lineUpdate).find('.panel_textcontact').text(text);
+                
+                    $(model).modal('hide');
+                    showNotification('success', "Succès : La page contact " + id + " a bien été modifié.");
+                } else {
+                    showNotification('danger', 'Erreur : ', http.responseText);
+                }
+            }
+        }
+        http.send(params);
+    } else {
+        alert("Une erreur est survenue : des champs sont manquants, introuvable, ou incomplet \n\rSi le problème persiste actualisez la page ou contactez-nous");
+    }
+}
+
+</script>
+{% endblock %}

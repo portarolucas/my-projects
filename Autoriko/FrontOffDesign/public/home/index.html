@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <title>Design Home</title>
+    <meta charset="utf-8">
+    <!-- FONT 1 : Montserrat-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!------------------------>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css"/>
+    <link rel="stylesheet" href="../MAIN/css/background.css"/>
+    <link rel="stylesheet" href="../MAIN/css/header-nav.css"/>
+    <link rel="stylesheet" href="../MAIN/css/footer.css"/>
+    <link rel="stylesheet" href="./css/card-enchere.css"/>
+    <link rel="stylesheet" href="./css/main.css"/>
+    <link rel="stylesheet" href="../MAIN/css/signup_modal.css"/>
+    <link rel="stylesheet" href="../MAIN/css/menu_component.css"/>
+  </head>
+  <body>
+    <div class="menu_block alerts_block">
+      <h1>Vos alertes</h1>
+      <div class="menu_container">
+          <a href="#">
+            <div class="menu_row">
+              <p>
+                Un membre a ajouté <b>500€</b> à la vente <b>Fiat 500 Full Options</b><br>
+                L'offre est désormais à <b>7600€</b>
+              </p>
+              <p class="notif_time">il y a 24 secondes</p>
+            </div>
+          </a>
+          <hr>
+          <a href="#">
+            <div class="menu_row">
+              <p>
+                Un membre a ajouté <b>250€</b> à la vente <b>Fiat 500 Full Options</b><br>
+                L'offre est désormais à <b>7100€</b><br>
+                <span class="danger">Vous n’êtes plus détenteur de la meilleure offre !</span>
+              </p>
+              <p class="notif_time">il y a 4 minutes</p>
+            </div>
+          </a>
+          <hr>
+          <a href="#">
+            <div class="menu_row">
+              <p>
+                La vente <b>Audi A3</b> a commencé !<br>
+                Soyez le premier à faire une offre.
+              </p>
+              <p class="notif_time">il y a 14 minutes</p>
+            </div>
+          </a>
+      </div>
+      <div class="menu_footer">
+        <p>
+          <a href="#">Afficher l'ensemble</a> - <a href="#">Marquer comme vu</a> - <a href="#">Paramètres alertes</a>
+        </p>
+      </div>
+    </div>
+    <div class="menu_block conversations_block" style="display: none;">
+      <h1>Vos conversations</h1>
+      <div class="menu_container">
+          <a href="#">
+            <div class="menu_row">
+              <p class="row_title"><b>Problème accès offre 6458987</b></p>
+              <p>
+                Vous avez un nouveau message concernant votre demande.
+              </p>
+              <p class="notif_time">il y a 24 secondes</p>
+            </div>
+          </a>
+          <hr>
+          <a href="#">
+            <div class="menu_row">
+              <p class="row_title"><b>Remboursement suite à un problème de participation</b></p>
+              <p>
+                Vous avez un nouveau message concernant votre demande.
+              </p>
+              <p class="notif_time">il y a 2 jours</p>
+            </div>
+          </a>
+      </div>
+      <div class="menu_footer">
+        <p>
+          <a href="#">Afficher l'ensemble</a> - <a href="#">Marquer comme lu</a> - <a href="#">Paramètres conversations</a>
+        </p>
+      </div>
+    </div>
+    <div class="signup-modal" style="display: none;">
+      <div class="block-signup">
+        <div class="close-modal">
+          X
+        </div>
+        <div class="left">
+          <div class="choose-particulier selected">
+            <p>Particulier</p>
+          </div>
+          <div class="choose-entreprise">
+            <p>Entreprise</p>
+          </div>
+        </div>
+        <div class="right">
+          <h1>Inscription</h1>
+          <div class="info-block">
+            <label for="firstname">Prénom *</label>
+            <input required type="text" name="firstname" placeholder="Votre prénom" />
+          </div>
+          <div class="info-block">
+            <label for="lastname">Nom *</label>
+            <input required type="text" name="lastname" placeholder="Votre nom" />
+          </div>
+          <div class="info-block">
+            <label for="email">Adresse mail *</label>
+            <input required type="text" name="email" placeholder="Votre adresse mail" />
+          </div>
+          <div style="display: none;" class="info-block">
+            <label for="raison_social">Raison sociale *</label>
+            <input required type="text" name="raison_socials" placeholder="Raison sociale de votre entreprise" />
+          </div>
+          <div class="info-block">
+            <label for="password">Mot de passe *</label>
+            <input required type="password" name="password" placeholder="Votre mot de passe" />
+          </div>
+          <div class="info-block">
+            <label for="verif_password">Vérification mot de passe *</label>
+            <input required type="password" name="verif_password" placeholder="Vérification mot de passe" />
+          </div>
+          <button type="button" class="se-inscrire">S'inscrire</button>
+          <a href="#">Déjà un compte ? Se connecter</a>
+        </div>
+      </div>
+    </div>
+    <nav class="nav-header nav-connected align-center">
+      <a href="#"><img class="logo" src="./img/LOGO/logo.png" alt="EnchereAuto"/></a>
+      <ul class="menu">
+        <li><a href="#">ACCUEIL</a></li>
+        <li><a href="#">Ventes en cours</a></li>
+        <li><a href="#">Guide</a></li>
+        <li class="hotline">
+          <a href="tel:800 000 000">
+            <img class="logo_tel" src="./img/NAV/ICONS/hotline.png" />
+            <div class="text">
+              <div>Hotline</div>
+              <div class="number">800 000 000</div>
+            </div>
+          </a>
+        </li>
+        <li>Bonjour Jean</li>
+        <li class="icons-btn">
+          <a href="#" class="message">
+            <img src="./img/NAV/ICONS/message.png" />
+          </a>
+          <a href="#" class="alerte selected">
+            <img src="./img/NAV/ICONS/bell.png" />
+          </a>
+          <a href="#" class="profil">
+            <img src="./img/NAV/ICONS/profil.png" />
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <nav class="nav-header nav-disconnected align-center" style="display: none;">
+      <a href="#"><img class="logo" src="./img/LOGO/logo.png" alt="EnchereAuto"/></a>
+      <ul class="menu">
+        <li class="hotline">
+          <a href="tel:800 000 000">
+            <img class="logo_tel" src="./img/NAV/ICONS/hotline.png" />
+            <div class="text">
+              <div>Hotline</div>
+              <div class="number">800 000 000</div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <button class="se-inscrire">S'inscrire !</button>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <p class="se-connecter">Se connecter</p>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="main-content">
+      <div class="backgrounds-container">
+        <div class="bg-1-container">
+          <div class="bg"></div>
+        </div>
+        <div class="bg-2-container">
+          <div class="bg"></div>
+        </div>
+        <div class="bg-3-container">
+          <div class="bg"></div>
+        </div>
+        <div class="bg-4-container">
+          <div class="bg"></div>
+        </div>
+        <div class="bg-5-container">
+          <div class="bg"></div>
+        </div>
+      </div>
+      <section class="section_1">
+        <div class="align-center">
+          <div class="title">
+            <div class="left">
+              <p class="pink">Votre prochaine voiture</p>
+              <p class="blue">à partir de</p>
+            </div>
+            <div class="right">
+              <p>1€</p>
+            </div>
+          </div>
+
+          <div class="desc">
+            <h3>Toutes nos voitures sont :</h3>
+            <ul>
+              <li>
+                <div class="img-container">
+                  <img src="./img/SECTION_1/LOGO/expertisee.png" alt="Expertisées" />
+                </div>
+                <p>Expertisées</p>
+              </li>
+              <li>
+                <div class="img-container">
+                  <img src="./img/SECTION_1/LOGO/garantie.png" alt="Garanties" />
+                </div>
+                <p>Garanties 6 mois</p>
+              </li>
+              <li>
+                <div class="img-container">
+                  <img src="./img/SECTION_1/LOGO/ct.png" alt="Controle technique" />
+                </div>
+                <p>Contrôle Technique de - 1 mois</p>
+              </li>
+              <li>
+                <div class="img-container">
+                  <img src="./img/SECTION_1/LOGO/livrees.png" alt="Livrées" />
+                </div>
+                <p>Livrées gratuitement à votre domicile*</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="btns-panel">
+            <!--<button class="faire-offre">Choisir ma voiture</button>-->
+            <a href="#">
+              <button class="faire-offre">Accéder aux ventes</button>
+            </a>
+            <a href="#">
+              <p class="recharger-compte">Recharger mon compte</p>
+            </a>
+            <!-- OLDER : <button class="choisir-voiture">Choisir ma voiture</button>-->
+          </div>
+
+          <img class="img-car" src="./img/SECTION_1/peugoet.png" />
+
+          <div class="vu-dans">
+            <p>vu dans :</p>
+            <div class="img-container">
+              <img src="./img/SECTION_1/VU_DANS_LOGO/forbes.png" alt="Forbes" />
+              <img src="./img/SECTION_1/VU_DANS_LOGO/automoto.png" alt="Auto moto" />
+              <img src="./img/SECTION_1/VU_DANS_LOGO/auto_plus.png" alt="Auto plus" />
+              <img src="./img/SECTION_1/VU_DANS_LOGO/petit_fute.png" alt="Petit fute" />
+              <img src="./img/SECTION_1/VU_DANS_LOGO/auto_journal.png" alt="Auto journal" />
+            </div>
+          </div>
+          <div class="livraison-offerte">
+            <p>* Livraison Offerte en France métropolitaine, Suisse, Belgique et Luxembourg jusqu’au 23/12/2021</p>
+          </div>
+        </div>
+      </section>
+      <div class="separation-bar separation-bar-marque">
+        <div class="img-container">
+          <img src="./img/SECTION_3/LOGO_MARQUE/toyota.png" alt="Toyota">
+          <img src="./img/SECTION_3/LOGO_MARQUE/fiat.png" alt="Fiat">
+          <img src="./img/SECTION_3/LOGO_MARQUE/peugeot.png" alt="Peugeot">
+          <img src="./img/SECTION_3/LOGO_MARQUE/vw.png" alt="Volkswagen">
+          <img src="./img/SECTION_3/LOGO_MARQUE/opel.png" alt="Opel">
+          <img src="./img/SECTION_3/LOGO_MARQUE/renault.png" alt="Renault">
+          <img src="./img/SECTION_3/LOGO_MARQUE/kia.png" alt="Kia">
+          <img src="./img/SECTION_3/LOGO_MARQUE/volvo.png" alt="Volvo">
+        </div>
+      </div>
+      <section class="align-center section_3">
+        <div class="filter">
+          <ul class="first-line">
+            <li>
+              <a href="">
+                <div class="filter-btn">
+                  <img src="./img/SECTION_3/ICON_FILTER/compact.png" alt="Voiture compact" />
+                  <p>Compact</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <div class="filter-btn">
+                  <img src="./img/SECTION_3/ICON_FILTER/berline.png" alt="Voiture berline" />
+                  <p>Berline</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <div class="filter-btn">
+                  <img src="./img/SECTION_3/ICON_FILTER/4x4.png" alt="Voiture 4x4" />
+                  <p>4x4</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <div class="filter-btn">
+                  <img src="./img/SECTION_3/ICON_FILTER/coupe.png" alt="Voiture coupe" />
+                  <p>Coupe</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <div class="filter-btn">
+                  <img src="./img/SECTION_3/ICON_FILTER/cabriolet.png" alt="Voiture cabriolet" />
+                  <p>Cabriolet</p>
+                </div>
+              </a>
+            </li>
+          </ul>
+          <ul class="second-line">
+            <li>
+              <a href="">
+                <div class="filter-btn">
+                  <img src="./img/SECTION_3/ICON_FILTER/automatique.png" alt="Voiture automatique" />
+                  <p>Automatique</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <div class="filter-btn">
+                  <img src="./img/SECTION_3/ICON_FILTER/manuelle.png" alt="Voiture manuelle" />
+                  <p>Manuelle</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <div class="filter-btn">
+                  <img src="./img/SECTION_3/ICON_FILTER/electrique.png" alt="Voiture electrique" />
+                  <p>Electrique</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <div class="filter-btn">
+                  <img src="./img/SECTION_3/ICON_FILTER/essence.png" alt="Voiture essence" />
+                  <p>Essence</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <div class="filter-btn">
+                  <img src="./img/SECTION_3/ICON_FILTER/essence.png" alt="Voiture diesel" />
+                  <p>Diesel</p>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="list-enchere">
+          <div class="card car">
+            <img src="./img/SECTION_3/208.png" alt="Peugeot 208" />
+            <h1>PEUGEOT</h1>
+            <div class="desc">
+              <div class="left">
+                <h3>Prix actuel</h3>
+                <p>7000 eur</p>
+              </div>
+              <div class="separation-bar-desc"></div>
+              <div class="right">
+                <h3>Temps restant</h3>
+                <p>1J 19h 35 MIN</p>
+              </div>
+            </div>
+          </div>
+          <div class="card car">
+            <img src="./img/SECTION_3/208.png" alt="Peugeot 208" />
+            <h1>PEUGEOT</h1>
+            <div class="desc">
+              <div class="left">
+                <h3>Prix actuel</h3>
+                <p>7000 eur</p>
+              </div>
+              <div class="separation-bar-desc"></div>
+              <div class="right">
+                <h3>Temps restant</h3>
+                <p>1J 19h 35 MIN</p>
+              </div>
+            </div>
+          </div>
+          <div class="card car">
+            <img src="./img/SECTION_3/208.png" alt="Peugeot 208" />
+            <h1>PEUGEOT</h1>
+            <div class="desc">
+              <div class="left">
+                <h3>Prix actuel</h3>
+                <p>7000 eur</p>
+              </div>
+              <div class="separation-bar-desc"></div>
+              <div class="right">
+                <h3>Temps restant</h3>
+                <p>1J 19h 35 MIN</p>
+              </div>
+            </div>
+          </div>
+          <div class="card car">
+            <img src="./img/SECTION_3/208.png" alt="Peugeot 208" />
+            <h1>PEUGEOT</h1>
+            <div class="desc">
+              <div class="left">
+                <h3>Prix actuel</h3>
+                <p>7000 eur</p>
+              </div>
+              <div class="separation-bar-desc"></div>
+              <div class="right">
+                <h3>Temps restant</h3>
+                <p>1J 19h 35 MIN</p>
+              </div>
+            </div>
+          </div>
+          <div class="card car">
+            <img src="./img/SECTION_3/208.png" alt="Peugeot 208" />
+            <h1>PEUGEOT</h1>
+            <div class="desc">
+              <div class="left">
+                <h3>Prix actuel</h3>
+                <p>7000 eur</p>
+              </div>
+              <div class="separation-bar-desc"></div>
+              <div class="right">
+                <h3>Temps restant</h3>
+                <p>1J 19h 35 MIN</p>
+              </div>
+            </div>
+          </div>
+          <div class="card see-all">
+            <button>
+              Voir toutes les ventes <span class="arrow">></span>
+            </button>
+          </div>
+        </div>
+      </section>
+      <div class="separation-bar separation-bar-encheres align-center">
+        Les avantages autoriko.com
+      </div>
+      <section class="align-center section_4">
+        <div class="avantage-top">
+          <div class="left">
+            <div class="desc">
+              <p>
+                PRIX MOYEN PAYE
+                <br>PAR L'ACHETEUR <span class="small">( par type de service )</span>
+              </p>
+            </div>
+            <div class="schema-grid">
+              <div class="block-bar">
+                <div class="rectangle-container">
+                  <div class="rounded-rectangle colored"></div>
+                </div>
+                <div class="rectangle-container">
+                  <div class="rounded-rectangle"></div>
+                </div>
+                <div class="rectangle-container">
+                  <div class="rounded-rectangle"></div>
+                </div>
+                <div class="rectangle-container">
+                  <div class="rounded-rectangle"></div>
+                </div>
+              </div>
+              <div class="block-libelle">
+                <img src="./img/LOGO/logo.png" alt="EnchereAuto" />
+                <h3>Vente entre particuliers</h3>
+                <h3>Achat chez un professionnel</h3>
+                <h3>Enchere classique</h3>
+              </div>
+            </div>
+          </div>
+          <div class="right">
+            <div class="line">
+              <img src="./img/SECTION_4/right/1.png"/>
+              <p>NOS VOITURES SONT NÉGOCIÉES PAR NOS EXPERTS À DES PRIX IMBATTABLES.</p>
+            </div>
+            <div class="line">
+              <img src="./img/SECTION_4/right/2.png"/>
+              <p>ENCHEREAUTO SE REMUNERE SUR LES FRAIS DE PARTICIPATIONS DES ENCHÈRISSEURS.</p>
+            </div>
+            <div class="line">
+              <img src="./img/SECTION_4/right/3.png"/>
+              <p>NOUS N’AVONS DONC AUCUN INTERET À GONFLER LE PRIX DE VOTRE FUTURE VOITURE, VOUS ASSURANT AINSI LE MEILLEUR PRIX POSSIBLE.</p>
+            </div>
+          </div>
+        </div>
+        <div class="satisfait-rembourser">
+          <p>
+            SATISFAIT OU REMBOURSÉ<br>
+            <span class="small">14 JOURS DE RETRACTATION APRÈS ACHAT DU VÉHICULE</span>
+          </p>
+        </div>
+        <div class="arguments-container">
+          <div class="argument img-text">
+            <div class="image-argument-shadow">
+              <div class="image-argument" style="background: no-repeat url('./img/SECTION_4/content/without-effect/1.png');background-size: cover;"></div>
+            </div>
+            <div class="white-bg">
+              <div class="text">
+                <h1 class="title">Tarif unique de 19,90€TTC de frais de participation</h1>
+                <p class="desc">This is some extra text tu argue your specification.This is some extra text tu argue your specification.This is some extra text tu argue your specification.</p>
+              </div>
+            </div>
+          </div>
+          <div class="argument text-img">
+            <div class="image-argument-shadow">
+              <div class="image-argument" style="background: no-repeat url('./img/SECTION_4/content/without-effect/2.png');background-size: cover;"></div>
+            </div>
+            <div class="white-bg">
+              <div class="text">
+                <h1 class="title">aucun prix de reserve toutes nos encheres commencent a 1 eur</h1>
+                <p class="desc">This is some extra text tu argue your specification.This is some extra text tu argue your specification.</p>
+              </div>
+            </div>
+          </div>
+          <div class="argument img-text">
+            <div class="image-argument-shadow">
+              <div class="image-argument" style="background: no-repeat url('./img/SECTION_4/content/without-effect/3.png');background-size: cover;"></div>
+            </div>
+            <div class="white-bg">
+              <div class="text">
+                <h1 class="title">Livraison gratuite</h1>
+                <p class="desc">This is some extra text tu argue your specification.This is some extra text tu argue your specification.This is some extra text tu argue your specification.</p>
+              </div>
+            </div>
+          </div>
+          <div class="argument text-img">
+            <div class="image-argument-shadow">
+              <div class="image-argument" style="background: no-repeat url('./img/SECTION_4/content/without-effect/4.png');background-size: cover;background-position-x: 15%;"></div>
+            </div>
+            <div class="white-bg">
+              <div class="text">
+                <h1 class="title">100% Securise</h1>
+                <p class="desc">This is some extra text tu argue your specification.This is some extra text tu argue your specification.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <footer class="align-center">
+      <div class="left">
+        <div>
+          <img class="logo" src="./img/LOGO/logo.png" alt="EnchereAuto"/>
+        </div>
+        <p class="localisation">
+          18 rue de la ruelle
+          <br>75001 Paris France
+        </p>
+        <div class="copyright-nav">
+          <p>
+            Enchereauto © 2021 - All rights reserved
+          </p>
+          <ul class="footer-nav">
+            <li><a href="#">Contact</a></li><li>|</li>
+            <li><a href="#">A propos</a></li><li>|</li>
+            <li><a href="#">Plan du site</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="right">
+        <button class="signup-btn">Inscrivez-vous</button>
+        <div class="get-app">
+          <a href="#">
+            <img src="./img/FOOTER/get-app-ios.png" alt="iOS Application"/>
+          </a>
+          <a href="#">
+            <img src="./img/FOOTER/get-app-android.png" alt="Android Application"/>
+          </a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <title>Design EncheresPanel</title>
+    <meta charset="utf-8">
+    <!-- FONT 1 : Montserrat-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!------------------------>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css"/>
+    <link rel="stylesheet" href="./css/main.css"/>
+    <link rel="stylesheet" href="../MAIN/css/background.css"/>
+  </head>
+  <body>
+    <nav class="nav-header align-center">
+      <img class="logo" src="./img/LOGO/logo.png" alt="EnchereAuto"/>
+      <ul class="menu">
+        <li><a href="#">ACCUEIL</a></li>
+        <li><a href="#">Ventes en cours</a></li>
+        <li><a href="#">Guide</a></li>
+        <li class="hotline">
+          <a href="tel:800 000 000">
+            <img class="logo_tel" src="./img/NAV/ICONS/hotline.png" />
+            <div class="text">
+              <div>Hotline</div>
+              <div class="number">800 000 000</div>
+            </div>
+          </a>
+        </li>
+        <li>Bonjour Jean</li>
+        <li class="icons-btn">
+          <a href="#">
+            <img src="./img/NAV/ICONS/message.png" />
+          </a>
+          <a href="#">
+            <img src="./img/NAV/ICONS/bell.png" />
+          </a>
+          <a href="#">
+            <img src="./img/NAV/ICONS/profil.png" />
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="main-content">
+      <div class="backgrounds-container">
+        <div class="bg-1-container">
+          <div class="bg"></div>
+        </div>
+        <div class="bg-2-container">
+          <div class="bg"></div>
+        </div>
+        <div class="bg-3-container">
+          <div class="bg"></div>
+        </div>
+        <div class="bg-4-container">
+          <div class="bg"></div>
+        </div>
+        <div class="bg-5-container">
+          <div class="bg"></div>
+        </div>
+      </div>
+      <div class="separation-bar separation-bar-marque">
+        <div class="img-container">
+          <img src="./img/SECTION_3/LOGO_MARQUE/toyota.png" alt="Toyota">
+          <img src="./img/SECTION_3/LOGO_MARQUE/fiat.png" alt="Fiat">
+          <img src="./img/SECTION_3/LOGO_MARQUE/peugeot.png" alt="Peugeot">
+          <img src="./img/SECTION_3/LOGO_MARQUE/vw.png" alt="Volkswagen">
+          <img src="./img/SECTION_3/LOGO_MARQUE/opel.png" alt="Opel">
+          <img src="./img/SECTION_3/LOGO_MARQUE/renault.png" alt="Renault">
+          <img src="./img/SECTION_3/LOGO_MARQUE/kia.png" alt="Kia">
+          <img src="./img/SECTION_3/LOGO_MARQUE/volvo.png" alt="Volvo">
+        </div>
+      </div>
+      <div class="align-center">
+        <div class="filter">
+          <ul class="first-line">
+            <li>
+              <img src="./img/SECTION_3/ICON_FILTER/compact.png" alt="Voiture compact" />
+              <p>Compact</p>
+            </li>
+            <li>
+              <img src="./img/SECTION_3/ICON_FILTER/berline.png" alt="Voiture berline" />
+              <p>Berline</p>
+            </li>
+            <li>
+              <img src="./img/SECTION_3/ICON_FILTER/4x4.png" alt="Voiture 4x4" />
+              <p>4x4</p>
+            </li>
+            <li>
+              <img src="./img/SECTION_3/ICON_FILTER/coupe.png" alt="Voiture coupe" />
+              <p>Coupe</p>
+            </li>
+            <li>
+              <img src="./img/SECTION_3/ICON_FILTER/cabriolet.png" alt="Voiture cabriolet" />
+              <p>Cabriolet</p>
+            </li>
+          </ul>
+          <ul class="second-line">
+            <li>
+              <img src="./img/SECTION_3/ICON_FILTER/automatique.png" alt="Voiture automatique" />
+              <p>Automatique</p>
+            </li>
+            <li>
+              <img src="./img/SECTION_3/ICON_FILTER/manuelle.png" alt="Voiture manuelle" />
+              <p>Manuelle</p>
+            </li>
+            <li>
+              <img src="./img/SECTION_3/ICON_FILTER/electrique.png" alt="Voiture electrique" />
+              <p>Electrique</p>
+            </li>
+            <li>
+              <img src="./img/SECTION_3/ICON_FILTER/essence.png" alt="Voiture essence" />
+              <p>Essence</p>
+            </li>
+            <li>
+              <img src="./img/SECTION_3/ICON_FILTER/essence.png" alt="Voiture diesel" />
+              <p>Diesel</p>
+            </li>
+          </ul>
+        </div>
+        <div class="sections-container">
+          <aside class="sections-aside">
+            <div class="show-by">
+              <h1>Afficher par</h1>
+              <div >
+                <input checked type="radio" name="show-by" value="date_start_ascending" id="date_start_ascending">
+                <label for="date_start_ascending">Date début croissante</label>
+              </div>
+              <div>
+                <input type="radio" name="show-by" value="date_start_descending" id="date_start_descending">
+                <label for="date_start_descending">Date début décroissante</label>
+              </div>
+              <div>
+                <input type="radio" name="show-by" value="price_ascending" id="price_ascending">
+                <label for="price_ascending">Prix croissant</label>
+              </div>
+              <div>
+                <input type="radio" name="show-by" value="price_descending" id="price_descending">
+                <label for="price_descending">Prix décroissant</label>
+              </div>
+            </div>
+            <div class="kilometers">
+              <h1>Kilomètres</h1>
+              <div>
+                <label for="min-kilometers">Minimum</label>
+                <input type="text" name="min-kilometers" placeholder="0" />
+              </div>
+              <div>
+                <label for="max-kilometers">Maximum</label>
+                <input type="text" name="max-kilometers" placeholder="0" />
+              </div>
+            </div>
+            <div class="prices">
+              <h1>Prix</h1>
+              <div>
+                <label for="min-price">Minimum</label>
+                <input type="text" name="min-price" placeholder="0" />
+              </div>
+              <div>
+                <label for="max-price">Maximum</label>
+                <input type="text" name="max-price" placeholder="0" />
+              </div>
+            </div>
+            <div class="vehicule-type">
+              <h1>Type véhicule</h1>
+              <ul>
+                <li>Compact</li>
+                <li>Berline</li>
+                <li>4x4</li>
+                <li>Coupe</li>
+                <li>Cabriolet</li>
+              </ul>
+            </div>
+          </aside>
+          <div class="block_encheres">
+            <section class="section_enchere">
+              <h1 class="section-title text-linear-gradient">Offres en cours avec accès</h1>
+              <div class="list-enchere">
+                <div class="card car">
+                  <img class="header-img" src="./img/SECTION_3/208.png" alt="Peugeot 208" />
+                  <div class="card-body">
+                    <div class="titre-marque">
+                      <h1 class="text-linear-gradient">PEUGEOT 208</h1>
+                      <img src="./img/SECTION_3/LOGO_MARQUE/peugeot.png" alt="Peugeot">
+                    </div>
+                    <p>1.5L Edition limitée</p>
+                    <ul class="info-voiture">
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/speed.svg" alt="Voiture automatique" />
+                        <p>30 000 Km</p>
+                      </li>
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/calendar.svg" alt="Voiture automatique" />
+                        <p>2020</p>
+                      </li>
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/automatique.png" alt="Voiture automatique" />
+                        <p>Automatique</p>
+                      </li>
+                      <li>
+                        <a href="#"><u>plus d'options</u> v</a>
+                      </li>
+                    </ul>
+                    <div class="info-enchere">
+                      <div class="left">
+                        <p>7000 eur</p>
+                      </div>
+                      <div class="separation-bar-desc"></div>
+                      <div class="right">
+                        <p>1J 19h 35 MIN</p>
+                      </div>
+                    </div>
+                    <button class="see-enchere">Encherir</button>
+                  </div>
+                </div>
+                <div class="card car">
+                  <img class="header-img" src="./img/SECTION_3/208.png" alt="Peugeot 208" />
+                  <div class="card-body">
+                    <div class="titre-marque">
+                      <h1 class="text-linear-gradient">PEUGEOT 208</h1>
+                      <img src="./img/SECTION_3/LOGO_MARQUE/peugeot.png" alt="Peugeot">
+                    </div>
+                    <p>1.5L Edition limitée</p>
+                    <ul class="info-voiture">
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/speed.svg" alt="Voiture automatique" />
+                        <p>30 000 Km</p>
+                      </li>
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/calendar.svg" alt="Voiture automatique" />
+                        <p>2020</p>
+                      </li>
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/automatique.png" alt="Voiture automatique" />
+                        <p>Automatique</p>
+                      </li>
+                      <li>
+                        <a href="#"><u>plus d'options</u> v</a>
+                      </li>
+                    </ul>
+                    <div class="info-enchere">
+                      <div class="left">
+                        <p>7000 eur</p>
+                      </div>
+                      <div class="separation-bar-desc"></div>
+                      <div class="right">
+                        <p>1J 19h 35 MIN</p>
+                      </div>
+                    </div>
+                    <button class="see-enchere">Encherir</button>
+                  </div>
+                </div>
+                <div class="card car">
+                  <img class="header-img" src="./img/SECTION_3/208.png" alt="Peugeot 208" />
+                  <div class="card-body">
+                    <div class="titre-marque">
+                      <h1 class="text-linear-gradient">PEUGEOT 208</h1>
+                      <img src="./img/SECTION_3/LOGO_MARQUE/peugeot.png" alt="Peugeot">
+                    </div>
+                    <p>1.5L Edition limitée</p>
+                    <ul class="info-voiture">
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/speed.svg" alt="Voiture automatique" />
+                        <p>30 000 Km</p>
+                      </li>
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/calendar.svg" alt="Voiture automatique" />
+                        <p>2020</p>
+                      </li>
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/automatique.png" alt="Voiture automatique" />
+                        <p>Automatique</p>
+                      </li>
+                      <li>
+                        <a href="#"><u>plus d'options</u> v</a>
+                      </li>
+                    </ul>
+                    <div class="info-enchere">
+                      <div class="left">
+                        <p>7000 eur</p>
+                      </div>
+                      <div class="separation-bar-desc"></div>
+                      <div class="right">
+                        <p>1J 19h 35 MIN</p>
+                      </div>
+                    </div>
+                    <button class="see-enchere">Encherir</button>
+                  </div>
+                </div>
+                <div class="card car">
+                  <img class="header-img" src="./img/SECTION_3/208.png" alt="Peugeot 208" />
+                  <div class="card-body">
+                    <div class="titre-marque">
+                      <h1 class="text-linear-gradient">PEUGEOT 208</h1>
+                      <img src="./img/SECTION_3/LOGO_MARQUE/peugeot.png" alt="Peugeot">
+                    </div>
+                    <p>1.5L Edition limitée</p>
+                    <ul class="info-voiture">
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/speed.svg" alt="Voiture automatique" />
+                        <p>30 000 Km</p>
+                      </li>
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/calendar.svg" alt="Voiture automatique" />
+                        <p>2020</p>
+                      </li>
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/automatique.png" alt="Voiture automatique" />
+                        <p>Automatique</p>
+                      </li>
+                      <li>
+                        <a href="#"><u>plus d'options</u> v</a>
+                      </li>
+                    </ul>
+                    <div class="info-enchere">
+                      <div class="left">
+                        <p>7000 eur</p>
+                      </div>
+                      <div class="separation-bar-desc"></div>
+                      <div class="right">
+                        <p>1J 19h 35 MIN</p>
+                      </div>
+                    </div>
+                    <button class="see-enchere">Encherir</button>
+                  </div>
+                </div>
+                <div class="card car">
+                  <img class="header-img" src="./img/SECTION_3/208.png" alt="Peugeot 208" />
+                  <div class="card-body">
+                    <div class="titre-marque">
+                      <h1 class="text-linear-gradient">PEUGEOT 208</h1>
+                      <img src="./img/SECTION_3/LOGO_MARQUE/peugeot.png" alt="Peugeot">
+                    </div>
+                    <p>1.5L Edition limitée</p>
+                    <ul class="info-voiture">
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/speed.svg" alt="Voiture automatique" />
+                        <p>30 000 Km</p>
+                      </li>
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/calendar.svg" alt="Voiture automatique" />
+                        <p>2020</p>
+                      </li>
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/automatique.png" alt="Voiture automatique" />
+                        <p>Automatique</p>
+                      </li>
+                      <li>
+                        <a href="#"><u>plus d'options</u> v</a>
+                      </li>
+                    </ul>
+                    <div class="info-enchere">
+                      <div class="left">
+                        <p>7000 eur</p>
+                      </div>
+                      <div class="separation-bar-desc"></div>
+                      <div class="right">
+                        <p>1J 19h 35 MIN</p>
+                      </div>
+                    </div>
+                    <button class="see-enchere">Encherir</button>
+                  </div>
+                </div>
+                <div class="card see-all">
+                  <button>
+                    Voir toutes les ventes <span class="arrow">></span>
+                  </button>
+                </div>
+              </div>
+            </section>
+            <section class="section_enchere">
+              <h1 class="section-title text-linear-gradient">Offres auxquelles vous avez accès</h1>
+              <div class="list-enchere">
+                <div class="card car">
+                  <img class="header-img" src="./img/SECTION_3/208.png" alt="Peugeot 208" />
+                  <div class="card-body">
+                    <div class="titre-marque">
+                      <h1 class="text-linear-gradient">PEUGEOT 208</h1>
+                      <img src="./img/SECTION_3/LOGO_MARQUE/peugeot.png" alt="Peugeot">
+                    </div>
+                    <p>1.5L Edition limitée</p>
+                    <ul class="info-voiture">
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/speed.svg" alt="Voiture automatique" />
+                        <p>30 000 Km</p>
+                      </li>
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/calendar.svg" alt="Voiture automatique" />
+                        <p>2020</p>
+                      </li>
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/automatique.png" alt="Voiture automatique" />
+                        <p>Automatique</p>
+                      </li>
+                      <li>
+                        <a href="#"><u>plus d'options</u> v</a>
+                      </li>
+                    </ul>
+                    <div class="info-enchere">
+                      <div class="left">
+                        <p>7000 eur</p>
+                      </div>
+                      <div class="separation-bar-desc"></div>
+                      <div class="right">
+                        <p>1J 19h 35 MIN</p>
+                      </div>
+                    </div>
+                    <button class="see-enchere">Encherir</button>
+                  </div>
+                </div>
+                <div class="card car">
+                  <img class="header-img" src="./img/SECTION_3/208.png" alt="Peugeot 208" />
+                  <div class="card-body">
+                    <div class="titre-marque">
+                      <h1 class="text-linear-gradient">PEUGEOT 208</h1>
+                      <img src="./img/SECTION_3/LOGO_MARQUE/peugeot.png" alt="Peugeot">
+                    </div>
+                    <p>1.5L Edition limitée</p>
+                    <ul class="info-voiture">
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/speed.svg" alt="Voiture automatique" />
+                        <p>30 000 Km</p>
+                      </li>
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/calendar.svg" alt="Voiture automatique" />
+                        <p>2020</p>
+                      </li>
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/automatique.png" alt="Voiture automatique" />
+                        <p>Automatique</p>
+                      </li>
+                      <li>
+                        <a href="#"><u>plus d'options</u> v</a>
+                      </li>
+                    </ul>
+                    <div class="info-enchere">
+                      <div class="left">
+                        <p>7000 eur</p>
+                      </div>
+                      <div class="separation-bar-desc"></div>
+                      <div class="right">
+                        <p>1J 19h 35 MIN</p>
+                      </div>
+                    </div>
+                    <button class="see-enchere">Encherir</button>
+                  </div>
+                </div>
+                <div class="card car">
+                  <img class="header-img" src="./img/SECTION_3/208.png" alt="Peugeot 208" />
+                  <div class="card-body">
+                    <div class="titre-marque">
+                      <h1 class="text-linear-gradient">PEUGEOT 208</h1>
+                      <img src="./img/SECTION_3/LOGO_MARQUE/peugeot.png" alt="Peugeot">
+                    </div>
+                    <p>1.5L Edition limitée</p>
+                    <ul class="info-voiture">
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/speed.svg" alt="Voiture automatique" />
+                        <p>30 000 Km</p>
+                      </li>
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/calendar.svg" alt="Voiture automatique" />
+                        <p>2020</p>
+                      </li>
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/automatique.png" alt="Voiture automatique" />
+                        <p>Automatique</p>
+                      </li>
+                      <li>
+                        <a href="#"><u>plus d'options</u> v</a>
+                      </li>
+                    </ul>
+                    <div class="info-enchere">
+                      <div class="left">
+                        <p>7000 eur</p>
+                      </div>
+                      <div class="separation-bar-desc"></div>
+                      <div class="right">
+                        <p>1J 19h 35 MIN</p>
+                      </div>
+                    </div>
+                    <button class="see-enchere">Encherir</button>
+                  </div>
+                </div>
+                <div class="card car">
+                  <img class="header-img" src="./img/SECTION_3/208.png" alt="Peugeot 208" />
+                  <div class="card-body">
+                    <div class="titre-marque">
+                      <h1 class="text-linear-gradient">PEUGEOT 208</h1>
+                      <img src="./img/SECTION_3/LOGO_MARQUE/peugeot.png" alt="Peugeot">
+                    </div>
+                    <p>1.5L Edition limitée</p>
+                    <ul class="info-voiture">
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/speed.svg" alt="Voiture automatique" />
+                        <p>30 000 Km</p>
+                      </li>
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/calendar.svg" alt="Voiture automatique" />
+                        <p>2020</p>
+                      </li>
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/automatique.png" alt="Voiture automatique" />
+                        <p>Automatique</p>
+                      </li>
+                      <li>
+                        <a href="#"><u>plus d'options</u> v</a>
+                      </li>
+                    </ul>
+                    <div class="info-enchere">
+                      <div class="left">
+                        <p>7000 eur</p>
+                      </div>
+                      <div class="separation-bar-desc"></div>
+                      <div class="right">
+                        <p>1J 19h 35 MIN</p>
+                      </div>
+                    </div>
+                    <button class="see-enchere">Encherir</button>
+                  </div>
+                </div>
+                <div class="card car">
+                  <img class="header-img" src="./img/SECTION_3/208.png" alt="Peugeot 208" />
+                  <div class="card-body">
+                    <div class="titre-marque">
+                      <h1 class="text-linear-gradient">PEUGEOT 208</h1>
+                      <img src="./img/SECTION_3/LOGO_MARQUE/peugeot.png" alt="Peugeot">
+                    </div>
+                    <p>1.5L Edition limitée</p>
+                    <ul class="info-voiture">
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/speed.svg" alt="Voiture automatique" />
+                        <p>30 000 Km</p>
+                      </li>
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/calendar.svg" alt="Voiture automatique" />
+                        <p>2020</p>
+                      </li>
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/automatique.png" alt="Voiture automatique" />
+                        <p>Automatique</p>
+                      </li>
+                      <li>
+                        <a href="#"><u>plus d'options</u> v</a>
+                      </li>
+                    </ul>
+                    <div class="info-enchere">
+                      <div class="left">
+                        <p>7000 eur</p>
+                      </div>
+                      <div class="separation-bar-desc"></div>
+                      <div class="right">
+                        <p>1J 19h 35 MIN</p>
+                      </div>
+                    </div>
+                    <button class="see-enchere">Encherir</button>
+                  </div>
+                </div>
+                <div class="card see-all">
+                  <button>
+                    Voir toutes les ventes <span class="arrow">></span>
+                  </button>
+                </div>
+              </div>
+            </section>
+            <section class="section_enchere">
+              <h1 class="section-title text-linear-gradient">Offres auxquelles vous avez accès</h1>
+              <div class="list-enchere">
+                <div class="card car">
+                  <img class="header-img" src="./img/SECTION_3/208.png" alt="Peugeot 208" />
+                  <div class="card-body">
+                    <div class="titre-marque">
+                      <h1 class="text-linear-gradient">PEUGEOT 208</h1>
+                      <img src="./img/SECTION_3/LOGO_MARQUE/peugeot.png" alt="Peugeot">
+                    </div>
+                    <p>1.5L Edition limitée</p>
+                    <ul class="info-voiture">
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/speed.svg" alt="Voiture automatique" />
+                        <p>30 000 Km</p>
+                      </li>
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/calendar.svg" alt="Voiture automatique" />
+                        <p>2020</p>
+                      </li>
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/automatique.png" alt="Voiture automatique" />
+                        <p>Automatique</p>
+                      </li>
+                      <li>
+                        <a href="#"><u>plus d'options</u> v</a>
+                      </li>
+                    </ul>
+                    <div class="info-enchere">
+                      <div class="left">
+                        <p>7000 eur</p>
+                      </div>
+                      <div class="separation-bar-desc"></div>
+                      <div class="right">
+                        <p>1J 19h 35 MIN</p>
+                      </div>
+                    </div>
+                    <button class="see-enchere">Encherir</button>
+                  </div>
+                </div>
+                <div class="card car">
+                  <img class="header-img" src="./img/SECTION_3/208.png" alt="Peugeot 208" />
+                  <div class="card-body">
+                    <div class="titre-marque">
+                      <h1 class="text-linear-gradient">PEUGEOT 208</h1>
+                      <img src="./img/SECTION_3/LOGO_MARQUE/peugeot.png" alt="Peugeot">
+                    </div>
+                    <p>1.5L Edition limitée</p>
+                    <ul class="info-voiture">
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/speed.svg" alt="Voiture automatique" />
+                        <p>30 000 Km</p>
+                      </li>
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/calendar.svg" alt="Voiture automatique" />
+                        <p>2020</p>
+                      </li>
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/automatique.png" alt="Voiture automatique" />
+                        <p>Automatique</p>
+                      </li>
+                      <li>
+                        <a href="#"><u>plus d'options</u> v</a>
+                      </li>
+                    </ul>
+                    <div class="info-enchere">
+                      <div class="left">
+                        <p>7000 eur</p>
+                      </div>
+                      <div class="separation-bar-desc"></div>
+                      <div class="right">
+                        <p>1J 19h 35 MIN</p>
+                      </div>
+                    </div>
+                    <button class="see-enchere">Encherir</button>
+                  </div>
+                </div>
+                <div class="card car">
+                  <img class="header-img" src="./img/SECTION_3/208.png" alt="Peugeot 208" />
+                  <div class="card-body">
+                    <div class="titre-marque">
+                      <h1 class="text-linear-gradient">PEUGEOT 208</h1>
+                      <img src="./img/SECTION_3/LOGO_MARQUE/peugeot.png" alt="Peugeot">
+                    </div>
+                    <p>1.5L Edition limitée</p>
+                    <ul class="info-voiture">
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/speed.svg" alt="Voiture automatique" />
+                        <p>30 000 Km</p>
+                      </li>
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/calendar.svg" alt="Voiture automatique" />
+                        <p>2020</p>
+                      </li>
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/automatique.png" alt="Voiture automatique" />
+                        <p>Automatique</p>
+                      </li>
+                      <li>
+                        <a href="#"><u>plus d'options</u> v</a>
+                      </li>
+                    </ul>
+                    <div class="info-enchere">
+                      <div class="left">
+                        <p>7000 eur</p>
+                      </div>
+                      <div class="separation-bar-desc"></div>
+                      <div class="right">
+                        <p>1J 19h 35 MIN</p>
+                      </div>
+                    </div>
+                    <button class="see-enchere">Encherir</button>
+                  </div>
+                </div>
+                <div class="card car">
+                  <img class="header-img" src="./img/SECTION_3/208.png" alt="Peugeot 208" />
+                  <div class="card-body">
+                    <div class="titre-marque">
+                      <h1 class="text-linear-gradient">PEUGEOT 208</h1>
+                      <img src="./img/SECTION_3/LOGO_MARQUE/peugeot.png" alt="Peugeot">
+                    </div>
+                    <p>1.5L Edition limitée</p>
+                    <ul class="info-voiture">
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/speed.svg" alt="Voiture automatique" />
+                        <p>30 000 Km</p>
+                      </li>
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/calendar.svg" alt="Voiture automatique" />
+                        <p>2020</p>
+                      </li>
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/automatique.png" alt="Voiture automatique" />
+                        <p>Automatique</p>
+                      </li>
+                      <li>
+                        <a href="#"><u>plus d'options</u> v</a>
+                      </li>
+                    </ul>
+                    <div class="info-enchere">
+                      <div class="left">
+                        <p>7000 eur</p>
+                      </div>
+                      <div class="separation-bar-desc"></div>
+                      <div class="right">
+                        <p>1J 19h 35 MIN</p>
+                      </div>
+                    </div>
+                    <button class="see-enchere">Encherir</button>
+                  </div>
+                </div>
+                <div class="card car">
+                  <img class="header-img" src="./img/SECTION_3/208.png" alt="Peugeot 208" />
+                  <div class="card-body">
+                    <div class="titre-marque">
+                      <h1 class="text-linear-gradient">PEUGEOT 208</h1>
+                      <img src="./img/SECTION_3/LOGO_MARQUE/peugeot.png" alt="Peugeot">
+                    </div>
+                    <p>1.5L Edition limitée</p>
+                    <ul class="info-voiture">
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/speed.svg" alt="Voiture automatique" />
+                        <p>30 000 Km</p>
+                      </li>
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/calendar.svg" alt="Voiture automatique" />
+                        <p>2020</p>
+                      </li>
+                      <li>
+                        <img src="./img/SECTION_3/ICON_FILTER/automatique.png" alt="Voiture automatique" />
+                        <p>Automatique</p>
+                      </li>
+                      <li>
+                        <a href="#"><u>plus d'options</u> v</a>
+                      </li>
+                    </ul>
+                    <div class="info-enchere">
+                      <div class="left">
+                        <p>7000 eur</p>
+                      </div>
+                      <div class="separation-bar-desc"></div>
+                      <div class="right">
+                        <p>1J 19h 35 MIN</p>
+                      </div>
+                    </div>
+                    <button class="see-enchere">Encherir</button>
+                  </div>
+                </div>
+                <div class="card see-all">
+                  <button>
+                    Voir toutes les ventes <span class="arrow">></span>
+                  </button>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="align-center">
+      <div class="left">
+        <div>
+          <img class="logo" src="./img/LOGO/logo.png" alt="EnchereAuto"/>
+        </div>
+        <p class="localisation">
+          18 rue de la ruelle
+          <br>75001 Paris France
+        </p>
+        <div class="copyright-nav">
+          <p>
+            Enchereauto © 2021 - All rights reserved
+          </p>
+          <ul class="footer-nav">
+            <li><a href="#">Contact</a></li><li>|</li>
+            <li><a href="#">A propos</a></li><li>|</li>
+            <li><a href="#">Plan du site</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="right">
+        <button class="signup-btn">Inscrivez-vous</button>
+        <div class="get-app">
+          <a href="#">
+            <img src="./img/FOOTER/get-app-ios.png" alt="iOS Application"/>
+          </a>
+          <a href="#">
+            <img src="./img/FOOTER/get-app-android.png" alt="Android Application"/>
+          </a>
+        </div>
+      </div>
+    </footer>
+    <!-- TODO enlever le script et ajouter ces fonctions dans l'app VueJS ->>>> App.vue -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      $( document ).ready(function() {
+        let heightNav = $('footer').height()
+        let heightFooter = $('footer').height()
+        //let height
+        $('.main-content').css('min-height', 'calc(100vh - ' + (heightNav + heightFooter) + 'px)')
+
+      });
+    </script>
+    <!-- TODO enlever le script et ajouter ces fonctions dans l'app VueJS ->>>> App.vue -->
+  </body>
+</html>

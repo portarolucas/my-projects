@@ -1,0 +1,92 @@
+@import "../../MAIN/scss/config";
+
+.card{
+  background-color: white;
+  width: auto;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  letter-spacing: 1px;
+  box-shadow: 0px 0px 8px 5px rgba(255,255,255,0.1);
+  cursor: pointer;
+
+  &.car{
+    h1{
+      font-size: 1rem;
+      @include text-linear-gradient;
+      margin: 0;
+    }
+    img{
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+
+    .desc{
+      padding: 0.8rem;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: nowrap;
+      .separation-bar-desc{
+        height: 1rem;
+        width: 1px;
+        background-color: black;
+      }
+      h3{
+        font-size: 0.6rem;
+        color: #000000;
+        margin: 0;
+        padding-bottom: 0.5rem;
+      }
+      p{
+        font-size: 0.6rem;
+        margin: 0;
+      }
+      .left{
+        p{
+          color: #443ce3;
+        }
+      }
+      .right{
+        p{
+          color: #00da33;
+        }
+      }
+    }
+  }
+
+  &.see-all{
+    box-shadow: none;
+    button{
+      position: relative;
+      font-size: $button-normal-font-size;
+      width: 100%;
+      padding: 20px;
+      border: 0;
+      outline: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-family: 'Montserrat';
+      font-weight: 700;
+      box-shadow: 0px 0px 8px 5px rgba(0,0,0,0.05);
+      color: #ffffff;
+      @include bg-linear-gradient(-90deg);
+      transition: transform 0.4s;
+
+      .arrow{
+        display: inline-block;
+        margin-left: 0.3rem;
+        transition: transform 0.4s;
+      }
+      &:hover{
+        cursor: pointer;
+        outline: none;
+        transform: scale(1.05);
+        & .arrow{
+          transform: translateX(30%);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,254 @@
+@font-face {
+  font-family: "Lemon Milk";
+  src: url("../../../fonts/lemonmilk-regular-webfont.woff2") format("woff2"), url("../../../fonts/lemonmilk-regular-webfont.woff") format("woff"), url("../../../fonts/LEMONMILK-Regular.otf") format("otf");
+  font-weight: 400;
+  font-style: normal;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin-top: 4rem;
+  width: 100%;
+}
+
+.main-content {
+  padding-top: 3.5rem;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.align-center {
+  padding-left: 9rem;
+  padding-right: 9rem;
+}
+
+.align-center-small {
+  padding-left: 13.5rem;
+  padding-right: 13.5rem;
+}
+
+.separation-bar {
+  width: 100vw;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.25);
+  margin-top: 3.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.align-center .separation-bar {
+  margin-right: -150px;
+  margin-left: -150px;
+}
+
+.text-linear-gradient {
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#0552fa", endColorstr="#aa1abb", GradientType=1 );
+  background: -moz-linear-gradient(135deg, #0552fa, #aa1abb);
+  background: -webkit-gradient(135deg, #0552fa, #aa1abb);
+  background: -webkit-linear-gradient(135deg, #0552fa, #aa1abb);
+  background: -o-linear-gradient(135deg, #0552fa, #aa1abb);
+  background: -ms-linear-gradient(135deg, #0552fa, #aa1abb);
+  background: linear-gradient(135deg, #0552fa, #aa1abb);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-lg-center {
+  margin: 0 auto;
+}
+
+.section_1 {
+  margin-bottom: 3.5rem;
+}
+.section_1 h1.title-page {
+  font-family: "Montserrat";
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #000000;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+.section_1 p.desc-page {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 1rem;
+  text-align: center;
+  color: #000000;
+}
+.section_1 .block-contact {
+  padding: 3rem;
+  box-shadow: inset 0px 0px 8px 5px rgba(0, 0, 0, 0.05);
+  border-radius: 34px;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+.section_1 .block-contact .desc {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #000000;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 2rem;
+}
+.section_1 .block-contact .form-contact {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.section_1 .block-contact .form-contact .form-grp {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.section_1 .block-contact .form-contact .form-grp.email, .section_1 .block-contact .form-contact .form-grp.nom, .section_1 .block-contact .form-contact .form-grp.prenom, .section_1 .block-contact .form-contact .form-grp.telephone {
+  width: 45%;
+}
+.section_1 .block-contact .form-contact .required_fields {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 0.7rem;
+  color: #000000;
+  text-align: center;
+  margin: 0;
+}
+.section_1 .block-contact .form-contact label {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 0.8rem;
+  color: #000000;
+  display: block;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  padding-left: 13px;
+  position: relative;
+}
+.section_1 .block-contact .form-contact label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -25%;
+  width: 3px;
+  height: 150%;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#0552fa", endColorstr="#aa1abb", GradientType=1 );
+  background: -moz-linear-gradient(135deg, #0552fa, #aa1abb);
+  background: -webkit-gradient(135deg, #0552fa, #aa1abb);
+  background: -webkit-linear-gradient(135deg, #0552fa, #aa1abb);
+  background: -o-linear-gradient(135deg, #0552fa, #aa1abb);
+  background: -ms-linear-gradient(135deg, #0552fa, #aa1abb);
+  background: linear-gradient(135deg, #0552fa, #aa1abb);
+}
+.section_1 .block-contact .form-contact input[type=text], .section_1 .block-contact .form-contact input[type=email], .section_1 .block-contact .form-contact input[type=password], .section_1 .block-contact .form-contact textarea {
+  display: block;
+  border: 0.3px solid grey;
+  border-radius: 34px;
+  padding: 1rem;
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 0.8rem;
+  outline: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 100%;
+}
+.section_1 .block-contact .form-contact input[type=text]:hover, .section_1 .block-contact .form-contact input[type=email]:hover, .section_1 .block-contact .form-contact input[type=password]:hover, .section_1 .block-contact .form-contact textarea:hover {
+  outline: 0;
+}
+.section_1 .block-contact .form-contact input[type=submit] {
+  margin: 0 auto;
+  margin-top: 1rem;
+  display: block;
+  font-size: 0.8rem;
+  width: 30%;
+  padding: 15px;
+  border: 0;
+  border-radius: 34px;
+  outline: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  font-weight: 700;
+  box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.05);
+  color: #ffffff;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#0552fa", endColorstr="#aa1abb", GradientType=1 );
+  background: -moz-linear-gradient(-90deg, #0552fa, #aa1abb);
+  background: -webkit-gradient(-90deg, #0552fa, #aa1abb);
+  background: -webkit-linear-gradient(-90deg, #0552fa, #aa1abb);
+  background: -o-linear-gradient(-90deg, #0552fa, #aa1abb);
+  background: -ms-linear-gradient(-90deg, #0552fa, #aa1abb);
+  background: linear-gradient(-90deg, #0552fa, #aa1abb);
+}
+.section_1 .block-contact .form-contact input[type=submit]:hover {
+  outline: 0;
+}
+
+.section_2 {
+  margin-top: 3.5rem;
+}
+.section_2 button.faire-offre {
+  display: block;
+  padding: 16px;
+  border: 0;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.25);
+  color: #ffffff;
+  background: linear-gradient(-135deg, #aa1abb, #de2ef3);
+  margin: 0 auto 1rem auto;
+}
+.section_2 button.faire-offre:hover {
+  outline: none;
+}
+.section_2 p.guide {
+  text-align: center;
+  font-family: "Montserrat";
+  font-weight: 500;
+  color: #000000;
+  font-size: 0.8rem;
+  text-decoration: underline;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.main-content {
+  width: 100%;
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+
+hr {
+  display: block;
+  width: 60%;
+}
+
+html, body {
+  font-size: 100%;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (min-width: 1800px) {
+  html {
+    font-size: 120%;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

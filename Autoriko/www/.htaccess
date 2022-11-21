@@ -1,0 +1,13 @@
+RewriteEngine On
+
+RewriteBase /public_html/
+RewriteRule ^$ /public_html/index.html$1 [QSA,L]
+RewriteRule ^/public_html/index\.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /public_html/index.html [L]
+
+
+Redirect /js /public_html/js
+Redirect /css /public_html/css
+Redirect /img /public_html/img

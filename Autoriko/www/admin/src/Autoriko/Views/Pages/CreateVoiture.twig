@@ -1,0 +1,452 @@
+{% extends "Layout.twig" %}
+
+{% block style %}{% endblock %}
+
+{% block content %}
+
+
+{% if flash.success %}
+<div class="alert alert-success" role="alert">
+    {{ flash.success }}
+</div>
+{% endif %}
+
+{% if flash.error %}
+<div class="alert alert-danger" role="alert">
+    {{ flash.error }}
+</div>
+{% endif %}
+
+<div class="col-sm-12">
+    <form class="form-voiture" ui-jp="parsley" enctype="multipart/form-data" action="{{ path_for('createVoiture') }}" method="post">
+        <div class="box">
+            <div class="box-header">
+                <h2>Créer une voiture</h2>
+            </div>
+            <div class="box-body">
+                <p class="text-muted">Tous les champs sont obligatoires.</p>
+                <div class="row m-b">
+                    <div class="col-sm-4">
+                        <label for="modele" class="form-label">Modèle</label>
+                        <input type="text" class="form-control" id="modele" name="modele" required>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="prix_argus" class="form-label">Prix estimé</label>
+                        <input type="text" class="form-control" id="prix_argus" name="prix_argus" required>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="couleur" class="form-label">Couleur</label>
+                        <input type="text" class="form-control" id="couleur" name="couleur" required>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="kilometrage" class="form-label" >Kilométrage</label>
+                        <input type="text" class="form-control" id="kilometrage" name="kilometrage" required>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="puissance" class="form-label" >Puissance</label>
+                        <input type="text" class="form-control" id="puissance" name="puissance" required>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="energie" class="form-label" >Energie</label>
+                        <input type="text" class="form-control" id="energie" name="energie" required>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="annee" class="form-label" >Année</label>
+                        <input type="text" class="form-control" id="annee" name="annee" required>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="transmission" class="form-label" >Transmission</label>
+                        <input type="text" class="form-control" id="transmission" name="transmission" required>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="mise_en_circulation" class="form-label">Mise en circulation</label>
+                        <input type="date" class="form-control" id="mise_en_circulation" name="mise_en_circulation"
+                            required>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="numero_identification" class="form-label" >Numéro d'identification</label>
+                        <input type="text" class="form-control" id="numero_identification" name="numero_identification"
+                            required>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="co2" class="form-label" >co2</label>
+                        <input type="text" class="form-control" id="co2" name="co2" required>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="nombre_de_cle" class="form-label" >Nombre de clés</label>
+                        <input type="text" class="form-control" id="nombre_de_cle" name="nombre_de_cle" required>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="nombre_siege" class="form-label">Nombre de sieges</label>
+                        <input type="text" class="form-control" id="nombre_siege" name="nombre_siege" required>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="nombre_porte" class="form-label" >Nombre de portes</label>
+                        <input type="text" class="form-control" id="nombre_porte" name="nombre_porte" required>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="nombre_proprietaire" class="form-label" >Nombre de propriétaires</label>
+                        <input type="text" class="form-control" id="nombre_proprietaire" name="nombre_proprietaire"
+                            required>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="moteur" class="form-label">Moteur</label>
+                        <input type="text" class="form-control" id="moteur" name="moteur" required>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label>Description globale</label>
+                    <textarea class="form-control" rows="6" data-minwords="6" id="description"
+                        name="description" required placeholder="Entrer une description"></textarea>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label>Description intérieur</label>
+                    <textarea class="form-control" rows="6" data-minwords="6" id="description_interieur"
+                        name="description_interieur" required placeholder="Ecrire votre message"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="single"> Marque </label>
+                    <select required id="id_marque" name="id_marque" class="form-control select2" ui-jp="select2"
+                        ui-options="{theme: 'bootstrap'}">
+                        <option value="" hidden>Sélectionner une marque</option>
+                        {% for marque in marques %}
+                          <option value="{{marque.id_marque }}"> {{ marque.nom }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="single"> Categorie </label>
+                    <select required id="id_categorie" name="id_categorie" class="categorie_photo form-control select2" ui-jp="select2"
+                        ui-options="{theme: 'bootstrap'}">
+                        <option value="" hidden>Sélectionner une catégorie</option>
+                        {% for categorie in categories %}
+                          <option value="{{categorie.id_categorie }}"> {{ categorie.libelle }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-12 form-control-label">Vidéo présentation</label>
+                    <div class="col-sm-12">
+                        <div>
+                            <input style="cursor: pointer;" type="file" accept="video/webm, video/ogg, video/mp4, video/x-m4v" id="video_voiture" name="video_voiture" oninput="showInfoFiles(this)">
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <p class="info_file"></p>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-12 form-control-label">Bruit moteur</label>
+                    <div class="col-sm-12">
+                        <div>
+                            <input style="cursor: pointer;" type="file" accept="audio/mpeg, audio/ogg, audio/midi, audio/webm, audio/wav"  id="bruit_moteur" name="bruit_moteur" oninput="showInfoFiles(this)">
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <p class="info_file"></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="single">Photo</label>
+                    <button style="cursor: pointer;display: block;" onclick="return false;" class="btn white" class="previous" data-toggle="modal" data-target="#modal_add_picture">Ajouter une photo ...</button>
+                    <div id="photo_voiture_list" style="border:1px solid rgba(120, 130, 140, 0.2);width: 100%;padding: 1rem;margin: 1rem 0;">
+                      <p class="aucune-image">Aucune image ajouté</p>
+                      <p class="compteur" style="display: none; margin:0;"></p>
+                    </div>
+                </div>
+                <div class="modal fade exampleModalClass" id="modal_add_picture" tabindex="-1"
+                    role="dialog" aria-labelledby="editUserLabel_{{ marque.id_marque }}">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <form ui-jp="parsley">
+                                        <div class="box">
+                                            <div class="box-header">
+                                                <div class="modal-header">
+                                                    <h4>
+                                                        Ajouter une photo
+                                                    </h4>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Fermer"><span aria-hidden="true">×</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="box-body">
+                                                <div class="modal-body">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Titre de la photo:</label>
+                                                        <input type="text" class="form-control titre_file">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label">Description de la photo</label>
+                                                        <input type="text" class="form-control desc_file">
+                                                    </div>
+                                                    <div class="form-group">
+                                                      <label for="form-control">Catégorie de l'image</label>
+                                                      <select class="categorie_photo form-control select2" ui-jp="select2"
+                                                          ui-options="{theme: 'bootstrap'}">
+                                                          <option value="" hidden>Sélectionner une catégorie</option>
+                                                          {% for categorie in categories_photos %}
+                                                            <option value="{{categorie.id_categorie_photo }}"> {{ categorie.libelle }}</option>
+                                                          {% endfor %}
+                                                      </select>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-12 form-control-label">Choisir une photo</label>
+                                                        <div class="col-sm-12" id="photo_input_file_container">
+                                                            <input type="file" accept="image/png, image/jpeg, image/svg+xml" class="photo_input_file" name="photo_voiture[]" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dker p-a text-right">
+                                                    <button type="button" class="btn btn-default"
+                                                        data-dismiss="modal">Annuler</button>
+                                                    <button type="button" class="btn info" onclick="addPicture(this)">Ajouter une photo</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade exampleModalClass" id="modal_update_picture" tabindex="-1"
+                    role="dialog" aria-labelledby="">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <form ui-jp="parsley">
+                                        <div class="box">
+                                            <div class="box-header">
+                                                <div class="modal-header">
+                                                    <h4>
+                                                        Modifier la photo
+                                                    </h4>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Fermer"><span aria-hidden="true">×</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="box-body">
+                                                <div class="modal-body">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Titre de la photo:</label>
+                                                        <input type="text" class="form-control titre_file">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label">Description de la photo</label>
+                                                        <input type="text" class="form-control desc_file">
+                                                    </div>
+                                                    <div class="form-group">
+                                                      <label for="form-control">Catégorie de l'image</label>
+                                                      <select class="categorie_photo form-control select2" ui-jp="select2"
+                                                          ui-options="{theme: 'bootstrap'}">
+                                                          <option value="" hidden>Sélectionner une catégorie</option>
+                                                          {% for categorie in categories_photos %}
+                                                            <option value="{{categorie.id_categorie_photo }}"> {{ categorie.libelle }}</option>
+                                                          {% endfor %}
+                                                      </select>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-12 form-control-label">Changer la photo actuelle (<span class="actual_default_file_name"></span>)</label>
+                                                        <div class="col-sm-12" id="update_photo_input_file_container">
+                                                            <input type="file" accept="image/png, image/jpeg, image/svg+xml" class="photo_input_file" name="photo_voiture[]" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dker p-a text-right">
+                                                    <button type="button" class="btn btn-default"
+                                                        data-dismiss="modal">Annuler</button>
+                                                    <button type="button" class="btn info" onclick="updatePicture(this)">Modifier l'ajout</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dker p-a text-right">
+                    <button type="submit" class="btn info">Valider</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+  const bruit_moteur_input = $('#bruit_moteur')[0]
+  const jPhoto_voiture_list = $('#photo_voiture_list')
+  const jAddPictureModal = $('#modal_add_picture');
+  const jUpdatePictureModal = $('#modal_update_picture');
+  var groupOpenModal = null
+
+  $(document).ready(function(){
+    $(jPhoto_voiture_list).change(function () {
+      let inputFile = $(this).find('.photo_input_file')
+      let pAucuneImage = $(this).find('p.aucune-image')
+      let pCompteur = $(this).find('p.compteur')
+      if(inputFile.length > 0){
+        let countFile = inputFile.length
+        pAucuneImage.css('display', 'none')
+        pCompteur.text(countFile + ' images ajoutées :')
+        pCompteur.css('display', 'block')
+      }else{
+        pCompteur.text('')
+        pCompteur.css('display', 'none')
+        pAucuneImage.css('display', 'block')
+      }
+    });
+  });
+
+  function showInfoFiles(elem){
+    if ('files' in elem) {
+      let txt = '';
+      if (elem.files.length == 0) {
+        txt = "Séléctionner un son au format mp3.";
+      } else {
+        for (var i = 0; i < elem.files.length; i++) {
+          txt += "<br><strong>" + (i+1) + ". file</strong><br>";
+          var file = elem.files[i];
+          if ('name' in file) {
+            txt += "name: " + file.name + "<br>";
+          }
+          if ('size' in file) {
+            txt += "size: " + file.size + " bytes <br>";
+          }
+        }
+      }
+      $(elem).closest('.form-group').find('p.info_file').html(txt)
+    }
+  }
+
+  function showAddedPictures(){
+    if ('files' in photo_voiture_input) {
+      let txt = '';
+      if (photo_voiture_input.files.length == 0) {
+        txt = "Séléctionner une image au format ++++.";
+      } else {
+        for (var i = 0; i < photo_voiture_input.files.length; i++) {
+          txt += "<br><strong>" + (i+1) + ". file</strong><br>";
+          var file = photo_voiture_input.files[i];
+          if ('name' in file) {
+            txt += "name: " + file.name + "<br>";
+          }
+          if ('size' in file) {
+            txt += "size: " + file.size + " bytes <br>";
+          }
+        }
+      }
+      $('#photo_voiture_list').html(txt)
+    }
+  }
+
+  function checkInputFile(elem){
+    if(('files' in elem[0]) && elem[0].files.length > 0){
+      return true
+    }else {
+      return false
+    }
+  }
+
+  function removeExtension(filename){
+    return filename.substring(0, filename.lastIndexOf('.')) || filename;
+}
+
+  function addPicture(elem){
+    let inputFile = $('#photo_input_file_container .photo_input_file');
+    let catPhotoInput = $(elem).closest('.box-body').find('.categorie_photo');
+    let catPhotoText = catPhotoInput.val();
+
+    if (checkInputFile(inputFile) && catPhotoText != 0 && catPhotoText != null) {
+      let titleFileInput = $(elem).closest('.box-body').find('.titre_file');
+      let descFileInput = $(elem).closest('.box-body').find('.desc_file');
+      let titleFileText = titleFileInput.val();
+      let descFileText = descFileInput.val();
+      let defaultFileName = inputFile[0].files[0].name;
+      let sizeFile = inputFile[0].files[0].size;
+      let inputGroup = $('<div class="input-group form-group" style="display: flex;flex-wrap:wrap;justify-content: left;align-items:center;margin-top:1rem;"><p class="default_titre_file" style="margin:0;">' + defaultFileName + '</p><p class="edit" style="margin:0;margin-left:1rem;cursor: pointer;" data-toggle="modal" data-target="#modal_update_picture" onclick="openModalUpdate(this)"><i class="fa fa-edit"></i></p><p class="trash" style="margin:0;margin-left:1rem;cursor: pointer;"><i class="fa fa-trash-o"></i></p><div style="width: 100%;margin:0;margin-top: 0.5rem;" class="form-group">');
+      $('<hr style="width: 70%;margin:0;margin-bottom:1rem;margin-right:30%;">').prependTo(inputGroup);
+      $('<input style="display:none;" class="titre_file" type="text" name="' + 'title_' + removeExtension(defaultFileName) + '_SIZE_' + sizeFile + '" value="' + titleFileText + '">').appendTo(inputGroup);
+      $('<input style="display:none;" class="desc_file" type="text" name="' + 'desc_' + removeExtension(defaultFileName) + '_SIZE_' + sizeFile + '" value="' + descFileText + '">').appendTo(inputGroup);
+      $('<input style="display:none;" class="categorie_photo" type="text" name="' + 'catPhoto_' + removeExtension(defaultFileName) + '_SIZE_' + sizeFile + '" value="' + catPhotoText + '">').appendTo(inputGroup);
+      inputFile.css('display', 'none');
+      inputFile.appendTo(inputGroup);
+      inputGroup.appendTo(jPhoto_voiture_list);
+
+      //RESET MODAL
+      titleFileInput.val('')
+      descFileInput.val('')
+      catPhotoInput.val('')
+      /////////////
+      $('<input type="file" class="photo_input_file" name="photo_voiture[]" />').appendTo('.modal #photo_input_file_container');
+      $(jPhoto_voiture_list).change()
+      inputGroup.find('p.trash').click(function(){
+        $(this).parent().remove()
+        $(jPhoto_voiture_list).change()
+      });
+      jAddPictureModal.modal('hide')
+    }else{
+      alert("L'image ou la catégorie de l'image n'a pas été renseigné !")
+    }
+  }
+
+  function updatePicture(elem){
+      let inputFile = $('#update_photo_input_file_container .photo_input_file');
+      let catPhotoInput = $(elem).closest('.box-body').find('.categorie_photo');
+      let catPhotoText = catPhotoInput.val();
+      let titleFileInput = $(elem).closest('.box-body').find('.titre_file');
+      let descFileInput = $(elem).closest('.box-body').find('.desc_file');
+      let defaultFileTitreP = $(elem).closest('.box-body').find('.default_titre_file');
+      let titleFileText = titleFileInput.val();
+      let descFileText = descFileInput.val();
+
+      //UPDATE
+      $(groupOpenModal).find('.titre_file').val(titleFileText)
+      $(groupOpenModal).find('.desc_file').val(descFileText)
+      $(groupOpenModal).find('.categorie_photo').val(catPhotoText)
+
+      if (checkInputFile(inputFile)) {
+        let defaultFileName = inputFile[0].files[0].name;
+        let sizeFile = inputFile[0].files[0].size;
+        $(groupOpenModal).find('.photo_input_file').replaceWith(inputFile.css('display', 'none'))
+        $(groupOpenModal).find('.default_titre_file').text(defaultFileName)
+        $(groupOpenModal).find('.titre_file').attr('name', 'title_' + removeExtension(defaultFileName) + '_SIZE_' + sizeFile)
+        $(groupOpenModal).find('.desc_file').attr('name', 'desc_' + removeExtension(defaultFileName) + '_SIZE_' + sizeFile)
+        $(groupOpenModal).find('.categorie_photo').attr('name', 'catPhoto_' + removeExtension(defaultFileName) + '_SIZE_' + sizeFile)
+      }
+
+      //RESET MODAL
+      titleFileInput.val('')
+      descFileInput.val('')
+      catPhotoInput.val('')
+      defaultFileTitreP.text('')
+      $('#update_photo_input_file_container').html('<input type="file" class="photo_input_file" name="photo_voiture[]" />')
+      /////////////
+
+      $(jPhoto_voiture_list).change()
+      jUpdatePictureModal.modal('hide')
+  }
+
+  function openModalUpdate(elem){
+    //let inputFile = $(elem).closest('.form-group').find('.photo_input_file').css('display', 'block');
+    let titleFileValue = $(elem).closest('.form-group').find('.titre_file').val();
+    let descFileValue = $(elem).closest('.form-group').find('.desc_file').val();
+    let catPhotoValue = $(elem).closest('.form-group').find('.categorie_photo').val();
+    let actual_default_file_name = $(elem).closest('.form-group').find('.default_titre_file').text();
+    jUpdatePictureModal.find('.titre_file').val(titleFileValue)
+    jUpdatePictureModal.find('.desc_file').val(descFileValue)
+    jUpdatePictureModal.find('.categorie_photo').val(catPhotoValue)//change();
+    //$('#update_photo_input_file_container').html(inputFile)
+    jUpdatePictureModal.find('.actual_default_file_name').text(actual_default_file_name)
+    groupOpenModal = $(elem).closest('.form-group')
+  }
+</script>
+
+{% endblock %}

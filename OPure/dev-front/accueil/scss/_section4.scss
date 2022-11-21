@@ -1,0 +1,275 @@
+@import '_var.scss';
+
+.section4{
+  @include md{
+    width: $max-size-md;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: $margin-y-medium-size-md;
+  }
+  @include lg{
+    width: $max-size-lg;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: $margin-y-medium-size-md;
+  }
+  @include xl{
+    width: $max-size-xl;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: $margin-y-medium-size-md;
+  }
+  .article{
+    margin-top: $margin-y-medium-size-xs;
+
+    &:last-child{
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      padding-bottom: 14rem;
+
+      @include sm{
+        padding-bottom: 24rem;
+      }
+      @include md{
+        display: grid;
+        padding-bottom: inherit;
+      }
+      @include lg{
+        display: grid;
+        padding-bottom: inherit;
+      }
+      @include xl{
+        display: grid;
+        padding-bottom: inherit;
+      }
+      .article__container{
+        z-index: 10;
+        position: relative;
+        order: 1;
+        margin-top: 0;
+      }
+      img.article__img{
+        z-index: -5;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        order: 2;
+        height: 18rem;
+        width: auto;
+
+        @include sm{
+          height: 36rem;
+          top: 18%;
+        }
+        @include md{
+          z-index: -5;
+          position: inherit;
+          top: inherit;
+          right: inherit;
+          order: 2;
+          height: inherit;
+          width: 100%;
+        }
+        @include lg{
+          z-index: -5;
+          position: inherit;
+          top: inherit;
+          right: inherit;
+          order: 2;
+          height: inherit;
+          width: 100%;
+        }
+        @include xl{
+          z-index: -5;
+          position: inherit;
+          top: inherit;
+          right: inherit;
+          order: 2;
+          height: inherit;
+          width: 100%;
+        }
+      }
+    }
+    @include sm{
+      margin-top: $margin-y-medium-size-sm;
+      padding-bottom: $font-extralarge-size-sm;
+
+      &:first-child{
+        img.article__img{
+          max-height: 46rem;
+          object-fit: cover;
+          box-shadow: 5px 5px 13px 4px rgba(0,0,0,0.25);
+        }
+      }
+    }
+
+    @include md{
+      margin-top: $margin-y-medium-size-md;
+      padding-bottom: $font-extralarge-size-md;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 6vw;
+      place-items: center;
+    }
+    @include lg{
+      margin-top: $margin-y-medium-size-md;
+      padding-bottom: $font-extralarge-size-md;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 6vw;
+      place-items: center;
+    }
+    @include xl{
+      margin-top: $margin-y-medium-size-md;
+      padding-bottom: $font-extralarge-size-md;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 6vw;
+      place-items: center;
+    }
+
+    img.article__img{
+      width: 100%;
+      height: auto;
+
+      @include sm{
+        display: block;
+        width: 80%;
+        margin: 0 auto;
+      }
+      @include md{
+        display: block;
+        width: 100%;
+      }
+      @include lg{
+        display: block;
+        width: 100%;
+      }
+      @include xl{
+        display: block;
+        width: 100%;
+      }
+    }
+    .article__container{
+      z-index: 10;
+      width: 100%;
+      margin-top: $margin-y-medium-size-xs;
+      position: relative;
+
+      &:after{
+        z-index: 5;
+        content: ' ';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: $font-extralarge-size-xs / 2;
+        left: 10%;
+        background-color: rgba(#E5E5E5, .25);
+
+        @include sm{
+          top: $font-extralarge-size-sm / 2;
+          left: 5%;
+        }
+        @include md{
+          top: $font-extralarge-size-md / 2;
+          left: 5%;
+        }
+        @include lg{
+          top: $font-extralarge-size-lg / 2;
+          left: 5%;
+        }
+        @include xl{
+          top: $font-extralarge-size-lg / 2;
+          left: 5%;
+        }
+      }
+
+      @include sm{
+        margin-top: $margin-y-medium-size-sm;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 2rem;
+        width: 70%;
+      }
+      @include md{
+        margin-top: 0;
+      }
+      @include lg{
+        margin-top: 0;
+      }
+      @include xl{
+        margin-top: 0;
+      }
+      h1.title{
+        padding-left: $padding-x-medium-size-xs;
+        padding-right: $padding-x-medium-size-xs;
+        width: 100%;
+        z-index: 10;
+
+        @include sm{
+          width: inherit;
+          padding-left: inherit;
+          padding-right: inherit;
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+        @include md{
+          width: inherit;
+          padding-left: inherit;
+          padding-right: inherit;
+        }
+        @include lg{
+          width: inherit;
+          padding-left: inherit;
+          padding-right: inherit;
+        }
+        @include xl{
+          width: inherit;
+          padding-left: inherit;
+          padding-right: inherit;
+        }
+      }
+      .desc{
+        margin-top: $margin-y-medium-size-xs;
+        padding-left: $padding-x-medium-size-xs;
+        padding-right: $padding-x-medium-size-xs;
+        width: 100%;
+        font-family: $font-raleway;
+        font-weight: 500;
+        font-size: $font-medium-size-xs;
+        color: #000000;
+        z-index: 10;
+
+        @include sm{
+          margin-top: $margin-y-medium-size-sm;
+          padding-left: $padding-x-medium-size-sm;
+          padding-right: $padding-x-medium-size-sm;
+          font-size: $font-medium-size-sm;
+        }
+        @include md{
+          margin-top: $margin-y-medium-size-md / 2;
+          padding-left: 0;
+          padding-right: 0;
+          font-size: $font-medium-size-md;
+        }
+        @include lg{
+          margin-top: $margin-y-medium-size-md / 2;
+          padding-left: 0;
+          padding-right: 0;
+          font-size: $font-medium-size-lg;
+        }
+        @include xl{
+          margin-top: $margin-y-medium-size-md / 2;
+          padding-left: 0;
+          padding-right: 0;
+          font-size: $font-medium-size-lg;
+        }
+        p{
+
+        }
+      }
+    }
+  }
+}

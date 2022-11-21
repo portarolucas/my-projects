@@ -1,0 +1,250 @@
+@import "../../../MAIN/scss/config";
+
+.separation-bar-ventes{
+  text-transform: uppercase;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  color: #ffffff;
+  @include bg-linear-gradient(-90deg);
+  box-shadow: none;
+}
+
+.section_4{
+  .avantage-top{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    letter-spacing: 0.5px;
+    .left{
+      padding: 2rem;
+      background-color: #ffffff;
+      -webkit-box-shadow: -4px 5px 15px 5px rgba(0,0,0,0.65);
+      box-shadow: -4px 5px 15px 5px rgba(0,0,0,0.65);
+      border-radius: 15px;
+      display: flex;
+      justify-content: left;
+      flex-wrap: nowrap;
+      align-items: flex-end;
+      max-width: 55%;
+      .desc{
+        p{
+          font-family: 'Montserrat';
+          font-weight: 700;
+          font-size: 0.8rem;
+          color: #000000;
+          writing-mode: vertical-rl;
+          transform: rotate(180deg);
+          margin-bottom: 2rem; //TODO img (autoriko) : margin-bottom: 1rem; + height: 1 rem; = 2rem || faire une variable ?
+
+          .small{
+            font-weight: 500;
+            font-size: 0.6rem;
+          }
+        }
+      }
+      .schema-grid{
+        margin-left: 1.5rem;
+
+        .block-bar, .block-libelle{
+          display: grid;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+
+          & > *{
+            justify-self: center;
+          }
+        }
+
+        .rectangle-container{
+          height: 15rem;
+          min-width: 3rem;
+          position: relative;
+          margin: 1rem auto;
+
+          .rounded-rectangle{
+            position: absolute;
+            bottom: 0;
+            margin: 0 auto;
+            background-color: #a4a4a4;
+            width: 3rem;
+            border-radius: 5px;
+            &.colored{
+              @include bg-linear-gradient(-25deg);
+            }
+          }
+
+          &:nth-child(1) .rounded-rectangle{
+            height: 50%;
+          }
+          &:nth-child(2) .rounded-rectangle{
+            height: 65%;
+          }
+          &:nth-child(3) .rounded-rectangle{
+            height: 80%;
+          }
+          &:nth-child(4) .rounded-rectangle{
+            height: 100%;
+          }
+        }
+
+        img{
+          margin: 0;
+          width: 80%;
+          height: auto;
+          margin-bottom: 1rem;
+        }
+        h3{
+          width: 80%;
+          text-align: center;
+          margin: 0;
+          font-family: 'Montserrat';
+          font-weight: 700;
+          font-size: 0.8rem;
+          color: #000000;
+        }
+      }
+    }
+
+    .right{
+      max-width: 30%;
+      .line{
+        margin: 2rem auto;
+        img{
+          display: block;
+          height: 2.5rem;
+          margin: 1rem auto;
+        }
+        p{
+          text-align: center;
+          font-family: 'Montserrat';
+          font-weight: 600;
+          font-size: 0.7rem;
+          color: #000000;
+        }
+      }
+    }
+  }
+
+  .satisfait-rembourser{
+    margin-top: $body-margin-top;
+    margin-bottom: $body-margin-bottom;
+    p{
+      z-index: 999;
+      text-align: center;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-family: "Montserrat";
+      font-weight: 700;
+      font-size: 1.7rem;
+      @include text-linear-gradient;
+
+      .small{
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .arguments-container{
+    margin-left: 4.5rem;
+    margin-right: 4.5rem;
+    margin-bottom: 13.5rem;
+    .argument{
+      height: 20rem;
+      overflow: visible;
+      position: relative;
+      width: 100%;
+      margin-top: 20rem;
+      &:nth-child(1){
+        margin-top: 13.5rem;
+      }
+
+      &.img-text {
+        .image-argument-shadow{
+          left: 0;
+        }
+        .white-bg{
+          margin-left: 19rem;
+        }
+        .white-bg .text{
+          right: 0;
+          padding-right: 4rem;
+        }
+      }
+      &.text-img {
+        .image-argument-shadow{
+          right: 0;
+        }
+        .white-bg{
+          margin-right: 19rem;
+        }
+        .white-bg .text{
+          left: 0;
+          padding-left: 4rem;
+        }
+      }
+      .image-argument-shadow{
+        z-index: 50;
+        position: absolute;
+        top: -10rem;
+        filter: drop-shadow(0px 10px 5px rgba(0,0,0,0.4));
+
+        .image-argument{
+          //box-shadow: 0px 0px 8px 5px rgba(0,0,0,0.25);
+          height: 40rem;
+          width: 25rem;
+          -webkit-clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
+          -moz-clip-path: polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%);
+          clip-path: polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%);
+         }
+      }
+       .white-bg{
+         z-index: 1;
+         position: relative;
+         height: 20rem;
+         background-color: #ffffff;
+         box-shadow: 0px 0px 8px 5px rgba(0,0,0,0.25);
+         padding: 2rem;
+
+         .text{
+           width: 80%;
+           position: absolute;
+           top: 50%; /* poussé de la moitié de hauteur du référent */
+           transform: translateY(-50%);
+           h1.title{
+             margin: 0;
+             margin-bottom: 2rem;
+             letter-spacing: 1px;
+             text-transform: uppercase;
+             font-family: "Montserrat";
+             font-weight: 500;
+             font-size: 1.7rem;
+             width: fit-content;
+             @include text-linear-gradient;
+
+             //Fix Safari - Text linear problem
+             position: relative;
+             &::before{
+               content: '';
+               height: 2px;
+               width: 100%;
+               position: absolute;
+               top: -1px;
+               left: 0;
+               background-color: #ffffff;
+             }
+           }
+           p.desc{
+             font-family: 'Montserrat';
+             font-weight: 500;
+             font-size: 1rem;
+             color: #000000;
+           }
+         }
+       }
+    }
+  }
+}

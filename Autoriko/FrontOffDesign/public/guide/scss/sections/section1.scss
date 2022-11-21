@@ -1,0 +1,76 @@
+@import "../../../MAIN/scss/config";
+
+$margin-between-elem-y: 2rem;
+
+.section_1{
+  margin-bottom: $body-margin-top;
+  h1.title-page{
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-align: center;
+    color: #000000;
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+  p.desc-page{
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 1rem;
+    text-align: center;
+    color: #000000;
+  }
+
+  .block-guide{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin-top: $body-margin-top;
+
+    &.right{
+      justify-content: flex-end;
+      & .content-text::after{
+        left: -1.2rem;
+        right: inherit;
+      }
+      img{
+        order: 2;
+        margin-left: 1.5rem;
+        margin-right: inherit;
+      }
+    }
+
+    img{
+      width: 5%;
+      margin-right: 1.5rem;
+    }
+    .content-text{
+      position: relative;
+      width: 50%;
+      font-family: 'Montserrat';
+      &::after{
+        content: '';
+        position: absolute;
+        right: -1.2rem;
+        top: 0;
+        width: .2rem;
+        height: 100%;
+        @include bg-linear-gradient;
+      }
+      h3{
+        margin: 0;
+        margin-bottom: .5rem;
+        font-weight: 600;
+        font-size: 1.3rem;
+      }
+      p{
+        font-weight: 500;
+        font-size: 0.8rem;
+        margin: 0;
+      }
+    }
+  }
+}

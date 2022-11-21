@@ -1,0 +1,124 @@
+@import "../../../MAIN/scss/config";
+
+$margin-between-elem-y: 2rem;
+
+.section_1{
+  margin-bottom: $body-margin-bottom;
+
+  h1.title-page{
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-align: center;
+    color: #000000;
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+  p.desc-page{
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 1rem;
+    text-align: center;
+    color: #000000;
+  }
+
+  .block-contact{
+    padding: 3rem;
+    box-shadow: inset 0px 0px 8px 5px rgba(0,0,0,0.05);
+    border-radius: 34px;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: $body-margin-y-xs;
+
+    .desc{
+      font-family: 'Montserrat';
+      font-weight: 500;
+      font-size: .9rem;
+      color: #000000;
+      text-align: center;
+      margin: 0;
+      margin-bottom: 2rem;
+    }
+    .form-contact{
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      width: 100%;
+      .form-grp{
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+      .form-grp.email, .form-grp.nom, .form-grp.prenom, .form-grp.telephone{
+        width: 45%;
+      }
+      .required_fields{
+        font-family: 'Montserrat';
+        font-weight: 500;
+        font-size: .7rem;
+        color: #000000;
+        text-align: center;
+        margin: 0;
+      }
+      label{
+        font-family: 'Montserrat';
+        font-weight: 500;
+        font-size: 0.8rem;
+        color: #000000;
+        display: block;
+        width: 100%;
+        margin-bottom: .5rem;
+        padding-left: 13px;
+        position: relative;
+
+        &::before{
+          content: '';
+          position: absolute;
+          left: 0;
+          top: -25%;
+          width: 3px;
+          height: 150%;
+          @include bg-linear-gradient;
+        }
+      }
+      input[type="text"],input[type="email"],input[type="password"], textarea{
+        display: block;
+        border: 0.3px solid grey;
+        border-radius: 34px;
+        padding: 1rem;
+        font-family: 'Montserrat';
+        font-weight: 500;
+        font-size: 0.8rem;
+        outline: 0;
+        background-color: rgba(#ffffff, 0.9);
+        width: 100%;
+
+        &:hover{
+          outline: 0;
+        }
+      }
+      input[type="submit"]{
+        margin: 0 auto;
+        margin-top: 1rem;
+        display: block;
+        font-size: $button-normal-font-size;
+        width: 30%;
+        padding: 15px;
+        border: 0;
+        border-radius: 34px;
+        outline: none;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-family: 'Montserrat';
+        font-weight: 700;
+        box-shadow: 0px 0px 8px 5px rgba(0,0,0,0.05);
+        color: #ffffff;
+        @include bg-linear-gradient(-90deg);
+
+        &:hover{
+          outline: 0;
+        }
+      }
+    }
+  }
+}

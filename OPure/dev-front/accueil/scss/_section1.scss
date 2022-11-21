@@ -1,0 +1,276 @@
+@import '_var.scss';
+
+.section1{
+  margin-top: $margin-y-medium-size-xs;
+
+  @include md{
+    width: $max-size-md;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: $margin-y-medium-size-md;
+  }
+  @include lg{
+    width: $max-size-lg;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: $margin-y-medium-size-md;
+  }
+  @include xl{
+    width: $max-size-xl;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: $margin-y-medium-size-md;
+  }
+
+  .cards{
+    background-image: url('../img/section1/bg-water-drop.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: $margin-y-medium-size-xs $padding-x-medium-size-xs $margin-y-medium-size-xs $padding-x-medium-size-xs;
+    margin-left: $padding-x-medium-size-xs * -1;
+    margin-right: $padding-x-medium-size-xs * -1;
+
+    @include sm{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: nowrap;
+      padding: $margin-y-medium-size-sm $padding-x-medium-size-sm $margin-y-medium-size-sm $padding-x-medium-size-sm;
+      margin-left: $padding-x-medium-size-sm * -1;
+      margin-right: $padding-x-medium-size-sm * -1;
+    }
+
+    @include md{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: nowrap;
+      padding: $margin-y-medium-size-md 0 $margin-y-medium-size-md 0;
+      margin-left: inherit;
+      margin-right: inherit;
+      background: none;
+      position: relative;
+
+      &:before{
+        content: ' ';
+        background-image: url('../img/section1/bg-water-drop.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+        top: 0;
+        left: calc(((100vw - #{$max-size-md}) / 2) * -1);
+        width: 100vw;
+        height: 100%;
+        z-index: -5;
+      }
+    }
+    @include lg{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: nowrap;
+      padding: $margin-y-medium-size-md 0 $margin-y-medium-size-md 0;
+      margin-left: inherit;
+      margin-right: inherit;
+      background: none;
+      position: relative;
+
+      &:before{
+        content: ' ';
+        background-image: url('../img/section1/bg-water-drop.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+        top: 0;
+        left: calc(((100vw - #{$max-size-lg}) / 2) * -1);
+        width: 100vw;
+        height: 100%;
+        z-index: -5;
+      }
+    }
+    @include xl{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: nowrap;
+      padding: $margin-y-medium-size-md 0 $margin-y-medium-size-md 0;
+      margin-left: inherit;
+      margin-right: inherit;
+      background: none;
+      position: relative;
+
+      &:before{
+        content: ' ';
+        background-image: url('../img/section1/bg-water-drop.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+        top: 0;
+        left: calc(((100vw - #{$max-size-xl}) / 2) * -1);
+        width: 100vw;
+        height: 100%;
+        z-index: -5;
+      }
+    }
+
+    .card{
+      background-color: #ffffff;
+      box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.1);
+      border-radius: 13px;
+      padding: $padding-x-medium-size-xs;
+      width: 100%;
+      margin-top: $margin-y-medium-size-xs;
+
+      @include sm{
+        width: 48%;
+        padding: $padding-x-medium-size-sm;
+        margin-top: 0;
+      }
+      @include md{
+        width: 48%;
+        padding: $padding-x-medium-size-md;
+        margin-top: 0;
+      }
+      @include lg{
+        width: 48%;
+        padding: $padding-x-medium-size-md;
+        margin-top: 0;
+      }
+      @include xl{
+        width: 48%;
+        padding: $padding-x-medium-size-md;
+        margin-top: 0;
+      }
+      &:first-child{
+        margin-top: 0;
+      }
+      .card-content{
+        padding-left: 5%;
+        padding-right: 5%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        align-items: center;
+        .left{
+          width: 20%;
+          max-height: 120%;
+          .card__img{
+            width: 100%;
+          }
+        }
+        .right{
+          width: 70%;
+          .card__title{
+            margin: 0;
+            font-family: $font-raleway;
+            font-weight: 900;
+            font-size: $font-large-size-xs;
+            color: $color-primary;
+            text-transform: uppercase;
+
+            @include sm{
+              font-size: $font-large-size-sm;
+            }
+            @include md{
+              font-size: $font-large-size-md;
+            }
+            @include lg{
+              font-size: $font-large-size-lg;
+            }
+            @include xl{
+              font-size: $font-large-size-lg;
+            }
+          }
+          .card__desc{
+            margin: 0;
+            margin-top: $margin-y-medium-size-xs / 3;
+            color: #000000;
+            font-family: $font-raleway;
+            font-weight: 500;
+            font-size: $font-medium-size-xs;
+
+            @include sm{
+              margin-top: $margin-y-medium-size-sm / 3;
+              font-size: $font-medium-size-sm;
+            }
+            @include md{
+              margin-top: $margin-y-medium-size-md / 3;
+              font-size: $font-medium-size-md;
+            }
+            @include lg{
+              margin-top: $margin-y-medium-size-md / 3;
+              font-size: $font-medium-size-lg;
+            }
+            @include xl{
+              margin-top: $margin-y-medium-size-md / 3;
+              font-size: $font-medium-size-lg;
+            }
+          }
+        }
+      }
+      .card-content-more{
+        display: none;
+
+        hr{
+          width: 100%;
+        }
+
+        ul{
+          li{
+            font-family: $font-raleway;
+            font-size: $font-medium-size-md;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            &::before{
+              background-image: url('../img/section1/success.svg');
+              background-size: cover;
+              background-repeat: no-repeat;
+              background-color: inherit;
+              width: 2rem;
+              height: 2rem;
+              top: calc(50% - 1rem);
+              left: -1.5rem;
+            }
+
+          }
+        }
+
+        @include md{
+          display: inherit;
+        }
+        @include lg{
+          display: inherit;
+        }
+        @include xl{
+          display: inherit;
+        }
+      }
+      .card__btn{
+        display: block;
+        margin: $padding-x-medium-size-xs auto 0 auto;
+        width: 50%;
+
+        @include sm{
+          margin: $padding-x-medium-size-sm auto 0 auto;
+          width: 75%;
+        }
+        @include md{
+          margin: $padding-x-medium-size-md auto 0 auto;
+          width: 75%;
+        }
+        @include lg{
+          margin: $padding-x-medium-size-md auto 0 auto;
+          width: 75%;
+        }
+        @include xl{
+          margin: $padding-x-medium-size-md auto 0 auto;
+          width: 75%;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,385 @@
+html
+
+{
+
+    /*font-size: calc(8.5vw / 19.2);  1vw = 19.2px | 0.52 * 19.2 = 9.984px*/
+
+    font-size: 7px !important;
+
+}
+
+
+
+#body_loaded
+
+{
+
+    display: none;
+
+    opacity: 0;
+
+}
+
+
+
+#loaderAnim
+
+{
+
+    border: 16px solid #f3f3f3; /* Light grey */
+
+    border-top: 16px solid #1a0d00; /* Blue */
+
+    border-radius: 50%;
+
+    width: 120px;
+
+    height: 120px;
+
+    animation: spin 2s linear infinite;
+
+    margin: 0 auto;
+
+    margin-top: 15%;
+
+}
+
+
+
+@keyframes spin
+
+{
+
+    0% { transform: rotate(0deg); }
+
+    100% { transform: rotate(360deg); }
+
+}
+
+
+
+#header_center a
+
+{
+
+    text-decoration: none;
+
+    color: #efefef;
+
+}
+
+
+
+#header_center a:hover
+
+{
+
+    text-decoration: none;
+
+    color: #efefef;
+
+}
+
+
+
+strong
+
+{
+
+    font-weight: 600 !important;
+
+}
+
+
+
+a
+
+{
+
+    color: #ffc107;
+
+}
+
+
+
+a:hover
+
+{
+
+    color: #fd7e14;
+
+    opacity: 1;
+
+}
+
+
+
+body
+
+{
+
+    margin: 0 0 0 0;
+
+    font-family: 'Open Sans', 'Arial';
+
+    font-weight: 300;
+
+    color: #efefef;
+
+    background-color: #f3f3f3;
+
+}
+
+
+
+/**********/
+
+/* HEADER */
+
+/**********/
+
+/**********/
+
+
+
+header
+
+{
+
+    display: flex;
+
+    background: url("../img/bg_header2.jpg");
+
+    background-repeat: no-repeat;
+
+    background-size: cover;
+
+    background-position-y: center;
+
+}
+
+
+
+#trameHeader
+
+{
+
+    width: 100%;
+
+    height: 95rem;
+
+    z-index: 566;/*METRRE LA TRAME AU DESSUS DU TEXTE*/
+
+    pointer-events: none;
+
+}
+
+
+
+#header_center
+
+{
+
+    position: absolute;
+
+    width: -webkit-fill-available;
+
+    width: -moz-available;
+    
+    width: fill-available;
+
+    top: 8rem;
+
+    margin-right: 11rem;
+
+    margin-left: 11rem;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: space-between;
+
+    left: 0px;
+
+}
+
+
+
+#logo_head
+
+{
+
+    /*z-index: 1;*/
+
+}
+
+
+
+#logo_head h1
+
+{
+
+    margin: 0px;
+
+    font-weight: bold;
+
+    font-size: 3.6rem;/*36px*/
+
+}
+
+
+
+#bar_undername
+
+{
+
+    height: 0.5rem;
+
+    width: 8rem;
+
+    margin-left: 0.3rem;/*9px(pour une font-size de 30) / 3 = 3 / 10 = 0.3rem */
+
+    background-color: #dadada;
+
+}
+
+
+
+#logo_head h3
+
+{
+
+    font-weight: 300;
+
+    font-size: 1.8rem;/*18px*/
+
+}
+
+
+
+.makeToLight
+
+{
+
+    font-weight: 300;
+
+}
+
+
+
+#titreHeader
+
+{
+
+    margin-top: 14rem;
+
+    width: 100%;
+
+    text-align: center;
+
+    font-size: 7.2rem;;
+
+    text-transform: uppercase;
+
+}
+
+
+
+@keyframes bounce {
+
+    0%, 20%, 50%, 80%, 100% {
+
+        transform: translateY(0);
+
+    }
+
+    40% {
+
+        transform: translateY(-30px);
+
+    }
+
+    60% {
+
+        transform: translateY(-15px);
+
+    }
+
+}
+
+
+
+#downArrowImg
+
+{
+
+    height: 6.9rem;
+
+    width: 6.9rem;
+
+    border-radius: 50%;
+
+    -moz-animation: bounce 2s infinite;
+
+    -webkit-animation: bounce 2s infinite;
+
+    animation: bounce 2s infinite;
+
+}
+
+
+
+/**************/
+
+/* END HEADER */
+
+
+
+/*************/
+
+/* COPYRIGHT */
+
+/*************/
+
+/*************/
+
+
+
+footer
+
+{
+
+    position: relative;
+
+    height: 15rem;
+
+    text-align: center;
+
+    color: #181818;
+
+    font-size: 2.4rem;
+
+    margin-top: 25px;
+
+}
+
+
+
+footer p
+
+{
+
+    position: absolute;
+
+    bottom: 5rem;
+
+    width: 100%;
+
+}
+
+
+
+/*****************/
+
+/* END COPYRIGHT */

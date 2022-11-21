@@ -1,0 +1,174 @@
+/*Fontweight :
+  Thin : 100
+  Extralight : 200
+  Light : 300
+  Regular : 400
+  Medium : 500
+  SemiBold : 600
+  Bold : 700
+  ExtraBold : 800
+  Black : 900
+*/
+.nav {
+  background-color: #ffffff;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 900;
+  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.1);
+}
+.nav .container {
+  height: 6.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  .nav .container {
+    height: 8rem;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+  .nav .container {
+    height: 10rem;
+  }
+}
+@media screen and (min-width: 1920px) and (max-width: 5000px) {
+  .nav .container {
+    height: 10rem;
+  }
+}
+.nav .container .logo {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: left;
+  align-items: center;
+}
+.nav .container .logo img {
+  height: 3.3rem;
+  padding-right: 0.7rem;
+}
+.nav .container .logo h1 {
+  font-family: "Raleway", "Arial";
+  font-weight: 900;
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: #28499a;
+}
+.nav .container .logo h1 .color {
+  color: #089abe;
+}
+.nav .container .large-section {
+  display: none;
+}
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  .nav .container .large-section {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+  .nav .container .large-section {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+}
+@media screen and (min-width: 1920px) and (max-width: 5000px) {
+  .nav .container .large-section {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+}
+.nav .container .large-section .menu ul {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.nav .container .large-section .menu ul li {
+  padding: 0;
+  margin: 0;
+  margin-right: 4rem;
+  position: relative;
+  font-family: "Raleway", "Arial";
+  font-weight: 700;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.nav .container .large-section .menu ul li a {
+  text-decoration: none;
+  color: #000000;
+}
+.nav .container .large-section .menu ul li.menu--scrolling:before {
+  display: block;
+  content: " ";
+  position: absolute;
+  left: inherit;
+  background-color: inherit;
+  border-radius: inherit;
+  right: -15px;
+  top: calc(50% - 3px);
+  height: 0;
+  width: 0;
+  border-right: 3px solid transparent;
+  border-bottom: 6px solid #000000;
+  border-left: 3px solid transparent;
+  transform: rotate(180deg);
+}
+.nav .container .large-section .menu ul li:before {
+  display: none;
+}
+.nav .container .large-section .menu ul li.selected:after {
+  content: " ";
+  position: absolute;
+  bottom: -0.5rem;
+  left: -0.5rem;
+  height: 2px;
+  width: 45%;
+  background-color: #28499a;
+}
+.nav .container .large-section .phone-icon {
+  margin-left: 3rem;
+}
+.nav .container .large-section .phone-icon img {
+  height: 3.2rem;
+  width: auto;
+}
+.nav .container .menu-burger {
+  height: 2rem;
+  width: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  .nav .container .menu-burger {
+    display: none;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+  .nav .container .menu-burger {
+    display: none;
+  }
+}
+@media screen and (min-width: 1920px) and (max-width: 5000px) {
+  .nav .container .menu-burger {
+    display: none;
+  }
+}
+.nav .container .menu-burger .menu__line {
+  height: 0.3rem;
+  width: 100%;
+  background-color: #28499a;
+  border-radius: 0.3rem;
+}
+
+/*# sourceMappingURL=nav.css.map */

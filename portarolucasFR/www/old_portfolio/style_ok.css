@@ -1,0 +1,1331 @@
+html
+
+{
+
+    /*font-size: calc(8.5vw / 19.2);  1vw = 19.2px | 0.52 * 19.2 = 9.984px*/
+
+    font-size: 7px !important;
+
+}
+
+/*8.5*/
+
+
+
+.nav-link {
+
+    padding: initial;
+
+}
+
+
+
+.dropdown-menu
+
+{
+
+    width: 145px;
+
+    font-size: 1.6rem;
+
+    background-color: black;
+
+}
+
+
+
+.dropdown-item
+
+{
+
+    color: white !important;
+
+}
+
+
+
+.carousel-control-prev-icon {
+
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+
+}
+
+
+
+.carousel-control-next-icon {
+
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+
+}
+
+
+
+.carousel-control-next, .carousel-control-prev {
+
+    width: 10%;
+
+}
+
+
+
+.carousel-indicators li {
+
+    background-color: black !important;
+
+}
+
+
+
+#art_mes_experiences
+
+{
+
+    max-width: 80%;
+
+    margin: 0 auto;
+
+}
+
+
+
+strong
+
+{
+
+    font-weight: 600 !important;
+
+}
+
+
+
+a {
+
+    color: #ffc107;
+
+}
+
+
+
+a:hover {
+
+    color: #fd7e14 !important;
+
+    opacity: 1;
+
+}
+
+
+
+body
+
+{
+
+    margin: 0 0 0 0;
+
+    font-family: 'Open Sans', 'Arial';
+
+    font-weight: 300;
+
+    color: #efefef;
+
+    background-color: #f3f3f3;
+
+}
+
+
+
+#body_loaded
+
+{
+
+    display: none;
+
+    opacity: 0;
+
+}
+
+
+
+#loaderAnim
+
+{
+
+    border: 16px solid #f3f3f3; /* Light grey */
+
+    border-top: 16px solid #1a0d00; /* Blue */
+
+    border-radius: 50%;
+
+    width: 120px;
+
+    height: 120px;
+
+    -webkit-animation: spin 2s linear infinite;
+
+    animation: spin 2s linear infinite;
+
+    margin: 0 auto;
+
+    margin-top: 15%;
+
+}
+
+
+
+@-webkit-keyframes spin
+
+{
+
+    0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+
+    100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+
+}
+
+
+
+@keyframes spin
+
+{
+
+    0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+
+    100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+
+}
+
+
+
+input, textarea
+
+{
+
+    outline: none;
+
+}
+
+
+
+/**********/
+
+/* HEADER */
+
+/**********/
+
+/**********/
+
+
+
+header
+
+{
+
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
+    display: flex;
+
+    background: url("img/bg_header2.jpg");
+
+    background-repeat: no-repeat;
+
+    background-size: cover;
+
+    background-position-y: center;
+
+}
+
+
+
+#trameHeader
+
+{
+
+    width: 100%;
+
+    height: 95rem;
+
+    z-index: 566;/*METRRE LA TRAME AU DESSUS DU TEXTE*/
+
+    pointer-events: none;
+
+}
+
+
+
+#header_center
+
+{
+
+    position: absolute;
+
+    width: -webkit-fill-available;
+    width: -moz-available;
+    width: fill-available;
+
+    top: 8rem;
+
+    margin-right: 11rem;
+
+    margin-left: 11rem;
+
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
+    display: flex;
+
+    -ms-flex-wrap: wrap;
+
+    flex-wrap: wrap;
+
+    -webkit-box-pack: justify;
+
+    -ms-flex-pack: justify;
+
+    justify-content: space-between;
+
+    left: 0px;
+
+}
+
+
+
+#logo_head
+
+{
+
+    /*z-index: 1;*/
+
+}
+
+
+
+#logo_head h1
+
+{
+
+    margin: 0px;
+
+    font-weight: bold;
+
+    font-size: 3.6rem;/*36px*/
+
+}
+
+
+
+#bar_undername
+
+{
+
+    height: 0.5rem;
+
+    width: 8rem;
+
+    margin-left: 0.3rem;/*9px(pour une font-size de 30) / 3 = 3 / 10 = 0.3rem */
+
+    background-color: #dadada;
+
+}
+
+
+
+.bar_undertextnav
+
+{
+
+    height: 0.5rem;
+
+    width: 100%;
+
+    background-color: #242424;
+
+    margin-top: 0.6rem;
+
+    opacity: 0.6;
+
+}
+
+
+
+#logo_head h3
+
+{
+
+    font-weight: 300;
+
+    font-size: 1.8rem;/*18px*/
+
+}
+
+
+
+#nav_head
+
+{
+
+    z-index: 3;
+
+}
+
+
+
+#nav_head ul
+
+{
+
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
+    display: flex;
+
+    -ms-flex-wrap: wrap;
+
+    flex-wrap: wrap;
+
+    padding-left: 5px;
+
+}
+
+
+
+#nav_head li
+
+{
+
+    opacity: 0.7;
+
+    list-style-type:none;
+
+    padding-right: 6.8rem;
+
+    font-size: 2.4rem;
+
+}
+
+
+
+#nav_head a
+
+{
+
+    text-decoration: none;
+
+    color: #242424;
+
+    -webkit-transition-duration: 0.2s;
+
+    -o-transition-duration: 0.2s;
+
+    transition-duration: 0.2s;
+
+}
+
+
+
+#nav_head a:hover
+
+{
+
+    opacity: 0.6;
+
+}
+
+
+
+.makeToLight
+
+{
+
+    font-weight: 300;
+
+}
+
+
+
+#titreHeader
+
+{
+
+    margin-top: 14rem;
+
+    width: 100%;
+
+    text-align: center;
+
+    font-size: 7.2rem;;
+
+    text-transform: uppercase;
+
+}
+
+
+
+@-webkit-keyframes bounce {
+
+    0%, 20%, 50%, 80%, 100% {
+
+        -webkit-transform: translateY(0);
+
+        transform: translateY(0);
+
+    }
+
+    40% {
+
+        -webkit-transform: translateY(-30px);
+
+        transform: translateY(-30px);
+
+    }
+
+    60% {
+
+        -webkit-transform: translateY(-15px);
+
+        transform: translateY(-15px);
+
+    }
+
+}
+
+
+
+@keyframes bounce {
+
+    0%, 20%, 50%, 80%, 100% {
+
+        -webkit-transform: translateY(0);
+
+        transform: translateY(0);
+
+    }
+
+    40% {
+
+        -webkit-transform: translateY(-30px);
+
+        transform: translateY(-30px);
+
+    }
+
+    60% {
+
+        -webkit-transform: translateY(-15px);
+
+        transform: translateY(-15px);
+
+    }
+
+}
+
+
+
+#downArrowImg
+
+{
+
+    height: 6.9rem;
+
+    width: 6.9rem;
+
+    border-radius: 50%;
+
+    -webkit-animation: bounce 2s infinite;
+
+    animation: bounce 2s infinite;
+
+}
+
+
+
+/**************/
+
+/* END HEADER */
+
+
+
+/************/
+
+/* À PROPOS */
+
+/************/
+
+/************/
+
+
+
+#section_a_propos
+
+{
+
+    font-weight: 400;
+
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
+    display: flex;
+
+    -ms-flex-wrap: nowrap;
+
+    flex-wrap: nowrap;
+
+    -webkit-box-pack: justify;
+
+    -ms-flex-pack: justify;
+
+    justify-content: space-between;
+
+    -webkit-box-align: center;
+
+    -ms-flex-align: center;
+
+    align-items: center;
+
+    margin-top: 10rem;
+
+    margin-right: 12.5rem;
+
+    margin-left: 12.5rem;
+
+}
+
+
+
+.bar_underword
+
+{
+
+    height: 0.5rem;
+
+    width: 12rem;
+
+    margin-left: 0.3rem;
+
+    background-color: #d7854d;
+
+}
+
+
+
+#art_a_propos
+
+{
+
+    width: 60rem;
+
+    font-size: 2.8rem;
+
+    color: #323232;
+
+    margin-right: 30px;
+
+}
+
+
+
+#art_a_propos_first_p
+
+{
+
+    margin-top: 1.5rem;
+
+}
+
+
+
+#art_a_propos h2
+
+{
+
+    font-size: 3.6rem;
+
+    font-weight: 600;
+
+    margin-bottom: 0.6rem;
+
+    margin-top: 0px;
+
+}
+
+
+
+#info_moi
+
+{
+
+    font-weight: 600;
+
+    padding-left: 2.5rem;/*2.2 pour 10px*/
+
+}
+
+
+
+#info_moi ul
+
+{
+
+    margin: 0;padding: 0;
+
+}
+
+
+
+#info_moi li
+
+{
+
+    list-style-image: url('img/polygone_orange.png');
+
+}
+
+
+
+#section_a_propos img
+
+{
+
+    height: 400px;
+
+    width: 300px;
+
+}
+
+
+
+/****************/
+
+/* END À PROPOS */
+
+
+
+
+
+/*******************/
+
+/* MES COMPETENCES */
+
+/*******************/
+
+/*******************/
+
+
+
+#section_mes_competences
+
+{
+
+    margin-top: 10rem;
+
+    padding-right: 11rem;
+
+    padding-left: 11rem;
+
+    background-color: #232323;
+
+    /*height: 54rem*/
+
+}
+
+
+
+#art_mes_competences
+
+{
+
+    /*width: 116rem;*/
+
+    padding-top: 5rem;
+
+    text-align: center;
+
+}
+
+
+
+#art_mes_competences h2
+
+{
+
+    font-size: 4.2rem;
+
+    margin: 0px 0px 1rem 0px;
+
+}
+
+
+
+#art_mes_competences .bar_underword
+
+{
+
+    margin: 0 auto;
+
+}
+
+
+
+#art_mes_competences p
+
+{
+
+    font-size: 1.8rem;
+
+    margin-bottom: 5rem;
+
+    margin-top: 1.5rem;
+
+}
+
+
+
+#art_mes_competences table
+
+{
+
+    width: 100%;
+
+    padding-right: 1.5rem;
+
+    padding-left: 1.5rem;
+
+}
+
+
+
+table
+
+{
+
+    border-collapse: initial;
+
+}
+
+
+
+table.compTable
+
+{
+
+    padding-bottom: 5rem !important;
+
+}
+
+
+
+table.compTable tr
+
+{
+
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
+    display: flex;
+
+    -ms-flex-wrap: wrap;
+
+    flex-wrap: wrap;
+
+    -ms-flex-pack: distribute;
+
+    justify-content: space-around;
+
+}
+
+
+
+.compTd
+
+{
+
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
+    display: flex;
+
+    -ms-flex-pack: distribute;
+
+    justify-content: space-around;
+
+    width: 54rem;
+
+}
+
+
+
+.compTd h3
+
+{
+
+    margin: 0;
+
+    font-size: 7.2rem;
+
+}
+
+
+
+.compTab
+
+{
+
+    -ms-flex-item-align: center;
+
+    -ms-grid-row-align: center;
+
+    align-self: center;
+
+}
+
+
+
+.compTab h4
+
+{
+
+    margin: 0;
+
+    font-size: 2rem;
+
+}
+
+
+
+.compBar
+
+{
+
+    width: 30rem;
+
+    height: 1.8rem;
+
+    background-color: #333333;
+
+}
+
+
+
+/***********************/
+
+/* END MES COMPETENCES */
+
+
+
+
+
+/*******************/
+
+/* MES EXPERIENCES */
+
+/*******************/
+
+/*******************/
+
+
+
+#section_mes_experiences
+
+{
+
+    margin-top: 10rem;
+
+    margin-bottom: 10rem;
+
+    padding-right: 11rem;
+
+    padding-left: 11rem;
+
+    color: #222222;
+
+}
+
+
+
+#section_mes_experiences h2
+
+{
+
+    text-align: center;
+
+    font-size: 4.2rem;
+
+    margin: 0px 0px 1rem 0px;
+
+}
+
+
+
+#section_mes_experiences .bar_underword
+
+{
+
+    margin: 0 auto;
+
+}
+
+
+
+#blocs_exp
+
+{
+
+    margin-top: 5rem;
+
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
+    display: flex;
+
+    -ms-flex-wrap: wrap;
+
+    flex-wrap: wrap;
+
+    -ms-flex-pack: distribute;
+
+    justify-content: space-around;
+
+    margin-bottom: 30px;
+
+}
+
+
+
+.bloc_exp
+
+{
+
+    position: relative;
+
+    padding: 1.5rem;
+
+    margin-bottom: 5rem;
+
+    font-size: 1.8rem;/*1.5 19/05/2019*/
+
+    min-height: 25rem;
+
+    /*width: 47.5rem;*/
+
+    width: 60rem;
+
+    background-color: #282828;
+
+    color: #cbcbcb;
+
+}
+
+
+
+.bloc_exp h3
+
+{
+
+    font-size: 1.8rem;
+
+    margin: 0;
+
+}
+
+
+
+.orange_bloc
+
+{
+
+    position: absolute;
+
+    height: 5rem;
+
+    width: 15rem;
+
+    background-color: #d7854d;
+
+    color: #eae7e7;
+
+    font-size: 2.4rem;
+
+    bottom: -2rem;
+
+    right: -2rem;
+
+}
+
+
+
+.orange_bloc h4
+
+{
+
+    margin: 0;
+
+    text-align: center;
+
+    line-height: 5rem;
+
+    white-space: nowrap;
+
+    font-style: italic;
+
+}
+
+
+
+/***********************/
+
+/* END MES EXPERIENCES */
+
+
+
+
+
+/****************/
+
+/* ME CONTACTER */
+
+/****************/
+
+/****************/
+
+
+
+#section_me_contacter
+
+{
+
+    width: 100%;
+
+    margin-top: 10rem;
+
+    padding-top: 5rem;
+
+    padding-bottom: 5rem;
+
+    background-color: #232323;
+
+}
+
+
+
+#art_me_contacter
+
+{
+
+    padding-right: 11rem;
+
+    padding-left: 11rem;
+
+}
+
+
+
+#art_me_contacter h2
+
+{
+
+    text-align: center;
+
+    font-size: 4.2rem;
+
+    margin: 0px 0px 1rem 0px;
+
+}
+
+
+
+#art_me_contacter .bar_underword
+
+{
+
+    margin: 0 auto;
+
+}
+
+
+
+#art_me_contacter p
+
+{
+
+    width: 54rem;
+
+    font-size: 1.8rem;
+
+    text-align: center;
+
+    margin: 1.5rem auto;
+
+}
+
+
+
+#art_me_contacter form
+
+{
+
+    margin-top: 5rem;
+
+    text-align: center;
+
+}
+
+
+
+#art_me_contacter #uNomTB
+
+{
+
+
+
+}
+
+
+
+#uNomTB, #uEmailTB
+
+{
+
+    margin-bottom: 2rem;
+
+    height: 5rem;
+
+    width: 45rem;
+
+    padding-left: 2rem;
+
+    font-style: italic;
+
+    font-size: 1.75rem;
+
+}
+
+
+
+#uMessageTB
+
+{
+
+    height: 10rem;
+
+    width: 55rem;
+
+    padding-left: 2rem;
+
+    font-style: italic;
+
+    font-size: 1.75rem;
+
+    margin-bottom: 2rem;
+
+}
+
+
+
+#uSendButton
+
+{
+
+    margin-top: 1rem;
+
+    height: 5rem;
+
+    width: 22.5rem;
+
+    font-size: 2.2rem;
+
+    font-weight: 300;
+
+    color: #f3f3f3;
+
+    background-color: #d7854d;
+
+    border: none;
+
+    cursor: pointer;
+
+    -webkit-transition: all 0.5s;
+
+    -o-transition: all 0.5s;
+
+    transition: all 0.5s;
+
+}
+
+
+
+#uSendButton:hover
+
+{
+
+    -webkit-box-shadow: 0px 0px 2px white;
+
+    box-shadow: 0px 0px 2px white;
+
+    letter-spacing: 3px;
+
+}
+
+
+
+/********************/
+
+/* END ME CONTACTER */
+
+
+
+
+
+/*************/
+
+/* COPYRIGHT */
+
+/*************/
+
+/*************/
+
+
+
+footer
+
+{
+
+    position: relative;
+
+    height: 15rem;
+
+    text-align: center;
+
+    color: #181818;
+
+    font-size: 2.4rem;
+
+}
+
+
+
+footer p
+
+{
+
+    position: absolute;
+
+    bottom: 5rem;
+
+    width: 100%;
+
+    /*margin: 0 auto;*/
+
+}
+
+
+
+/*****************/
+
+/* END COPYRIGHT */

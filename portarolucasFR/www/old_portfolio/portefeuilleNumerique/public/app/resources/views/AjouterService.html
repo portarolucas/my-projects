@@ -1,0 +1,28 @@
+{% extends "menu.html" %}
+{% block title %}Ajouter un nouveau Compte{% endblock %}
+{% block head %}
+{{ parent() }}
+<style type="text/css">
+    .important {
+        color: #336699;
+    }
+
+    #lgn,
+    #pwd,
+    #btnCo {
+        width: 300px;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<h1><center> Ajouter un service </center></h1>
+<form method="POST" action="">
+    </br>
+    <input type="text" class="form-control" id="login" name="login" placeholder="Login" /></br>
+    <input type="password" class="form-control" id="mdp" name="mdp" placeholder="Mot de passe" /></br>
+    <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" /></br>
+    <input type="text" class="form-control" id="date" name="date" placeholder="Date" /></br>
+
+    <input type="submit" name="btnCo" class="btn btn-outline-success" value="Ajouter/">
+	
+</form>

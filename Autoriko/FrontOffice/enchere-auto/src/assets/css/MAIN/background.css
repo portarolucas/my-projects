@@ -1,0 +1,76 @@
+.bg {
+  position: relative;
+  height: inherit;
+}
+.bg:before {
+  content: "";
+  z-index: -999;
+  position: absolute;
+  width: 100%;
+  height: 80vw;
+  top: calc((80vw / 2) * -1);
+  left: 0;
+  background: linear-gradient(0.25turn, #aa1abb, #0253fd, #aa1abb);
+  transform: skewY(305deg);
+  transform-origin: top right;
+}
+
+.backgrounds-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  z-index: -999;
+}
+
+.bg-1-container {
+  position: relative;
+  margin-top: 0vw;
+  width: 100vw;
+}
+
+.bg-2-container {
+  position: relative;
+  margin-top: 180vw;
+  width: 100vw;
+}
+
+.bg-3-container {
+  position: relative;
+  margin-top: 360vw;
+  width: 100vw;
+}
+
+.bg-4-container {
+  position: relative;
+  margin-top: 540vw;
+  width: 100vw;
+}
+
+.bg-5-container {
+  position: relative;
+  margin-top: 720vw;
+  width: 100vw;
+}
+
+.bg-6-container {
+  position: relative;
+  margin-top: 900vw;
+  width: 100vw;
+}
+
+.bg-7-container {
+  position: relative;
+  margin-top: 1080vw;
+  width: 100vw;
+}
+
+.bg-8-container {
+  position: relative;
+  margin-top: 1260vw;
+  width: 100vw;
+}
+
+/*# sourceMappingURL=background.css.map */

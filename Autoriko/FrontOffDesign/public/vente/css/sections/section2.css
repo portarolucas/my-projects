@@ -1,0 +1,183 @@
+.section_2 {
+  position: relative;
+  background-color: white;
+  margin-top: 2rem;
+  padding-bottom: 4rem;
+  font-family: "Montserrat";
+  font-weight: 500;
+}
+.section_2::after {
+  content: "";
+  z-index: -99;
+  width: 100%;
+  height: 10px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  -webkit-box-shadow: 0 0px 20px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0px 16px 5px rgba(0, 0, 0, 0.25);
+}
+.section_2 h1 {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+.section_2 .block-sound-description {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.section_2 .block-sound-description .left {
+  width: 45%;
+}
+.section_2 .block-sound-description .left p {
+  margin: 0;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+.section_2 .block-sound-description .left .original-audio-bar {
+  display: none;
+}
+.section_2 .block-sound-description .right {
+  width: 45%;
+}
+.section_2 .block-sound-description .right h3 {
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+.section_2 .block-sound-description .right p {
+  font-size: 0.8rem;
+  margin-left: 2rem;
+}
+.section_2 .block-smart-info {
+  margin-top: 2rem;
+}
+.section_2 .block-smart-info ul.card {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 2rem;
+}
+.section_2 .block-smart-info ul.card li {
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  text-align: center;
+  -webkit-box-shadow: -5px 5px 8px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: -5px 5px 8px 5px rgba(0, 0, 0, 0.25);
+}
+.section_2 .block-smart-info ul.card li img {
+  display: block;
+  margin: 0 auto;
+  height: auto;
+  width: 1.6rem;
+}
+.section_2 .block-smart-info ul.card li h3 {
+  font-size: 0.7rem;
+  margin: 0.7rem 0 0.2rem 0;
+}
+.section_2 .block-smart-info ul.card li p {
+  font-size: 0.7rem;
+  margin: 0;
+}
+.section_2 .block-video-car {
+  margin-top: 2rem;
+}
+.section_2 .block-video-car p {
+  margin: 0;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+.section_2 .block-video-car .block-video-car-desc {
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+  grid-gap: 0;
+}
+.section_2 .block-video-car .block-video-car-desc .left {
+  position: relative;
+  padding: 0 10%;
+}
+.section_2 .block-video-car .block-video-car-desc .left img {
+  width: 100%;
+  height: auto;
+}
+.section_2 .block-video-car .block-video-car-desc .left .play-btn {
+  position: absolute;
+  display: block;
+  top: calc(50% - 2.5rem);
+  left: calc(50% - 2.5rem);
+  fill: url(#gradient-horizontal) gray;
+  height: 5rem;
+  cursor: pointer;
+  transition: 0.5s transform;
+}
+.section_2 .block-video-car .block-video-car-desc .left .play-btn:hover {
+  transform: scale(1.2);
+}
+.section_2 .block-video-car .block-video-car-desc .right ul {
+  width: 100%;
+  height: 100%;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+.section_2 .block-video-car .block-video-car-desc .right ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.section_2 .block-video-car .block-video-car-desc .right ul li p {
+  margin: 0;
+  font-size: 0.8rem;
+}
+.section_2 .block-video-car .block-video-car-desc .right ul li h5 {
+  margin: 0;
+  font-size: 1rem;
+}
+.section_2 .block-video-car .block-video-car-desc .right ul hr {
+  margin: 0;
+  background-color: #000000;
+}
+.section_2 .block-photo-additionnelle {
+  margin-top: 4rem;
+}
+.section_2 .block-photo-additionnelle h1 {
+  margin: 0;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+.section_2 .block-photo-additionnelle .block-galeries {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+.section_2 .block-photo-additionnelle .block-galeries .block-galerie .img {
+  display: block;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 8rem;
+  width: 13rem;
+  border: 3px solid white;
+  -webkit-box-shadow: 0 0px 8px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0px 8px 5px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+.section_2 .block-photo-additionnelle .block-galeries .block-galerie p {
+  margin: 0;
+  margin-top: 1rem;
+  display: block;
+  text-align: center;
+}
+
+/*# sourceMappingURL=section2.css.map */

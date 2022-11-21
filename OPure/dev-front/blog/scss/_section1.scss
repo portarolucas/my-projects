@@ -1,0 +1,120 @@
+@import '_var.scss';
+
+.section1{
+  margin-top: $margin-y-medium-size-xs;
+  margin-bottom: $margin-y-medium-size-xs;// COMBAK: revenir plus tard et supprimer ça - mettre le style directement sur le footer
+  @include sm{
+    margin-top: $margin-y-medium-size-sm;
+    margin-bottom: $margin-y-medium-size-sm;// COMBAK: revenir plus tard et supprimer ça - mettre le style directement sur le footer
+  }
+  @include md{
+    width: $max-size-md;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: $margin-y-medium-size-md;
+    margin-bottom: $margin-y-medium-size-md;// COMBAK: revenir plus tard et supprimer ça - mettre le style directement sur le footer
+  }
+  @include lg{
+    width: $max-size-lg;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: $margin-y-medium-size-md;
+    margin-bottom: $margin-y-medium-size-md;// COMBAK: revenir plus tard et supprimer ça - mettre le style directement sur le footer
+  }
+  @include xl{
+    width: $max-size-xl;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: $margin-y-medium-size-md;
+    margin-bottom: $margin-y-medium-size-md;// COMBAK: revenir plus tard et supprimer ça - mettre le style directement sur le footer
+  }
+
+
+  .desc{
+
+    .cards{
+      margin-top: $margin-y-medium-size-xs;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 4vw;
+
+      @include sm{
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 4vw;
+      }
+      @include md{
+        width: $max-size-md;
+        margin-left: auto;
+        margin-right: auto;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 6vw;
+      }
+      @include lg{
+        width: $max-size-lg;
+        margin-left: auto;
+        margin-right: auto;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 4vw;
+      }
+      @include xl{
+        width: $max-size-xl;
+        margin-left: auto;
+        margin-right: auto;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 4vw;
+      }
+
+      .card{
+        font-family: $font-raleway;
+        background-color: #ffffff;
+        box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.1);
+        border-radius: 13px;
+        width: 100%;
+        //margin-top: $margin-y-medium-size-xs;
+
+
+        &:first-child{
+          margin-top: 0;
+        }
+        .card__img{
+          width: 100%;
+          border-radius: 13px 13px 0 0;
+        }
+
+        .card__content{
+          padding: $padding-x-medium-size-xs;
+
+          @include sm{
+            padding: $padding-x-medium-size-sm;
+          }
+          @include md{
+            padding: $padding-x-medium-size-md;
+          }
+          @include lg{
+            padding: $padding-x-medium-size-md;
+          }
+          @include xl{
+            padding: $padding-x-medium-size-md;
+          }
+          .card__content__title{
+            font-size: $font-large-size-xs;
+            font-weight: 900;
+            color: $color-primary;
+            text-transform: uppercase;
+          }
+          .card__content__desc{
+            margin-top: $margin-y-medium-size-xs / 2;
+            font-size: $font-medium-size-xs;
+            color: #000000;
+          }
+          .card__content__btn{
+            margin-top: $margin-y-medium-size-xs;
+            margin-left: auto;
+            margin-right: auto;
+            width: 70%;
+          }
+        }
+      }
+    }
+  }
+}

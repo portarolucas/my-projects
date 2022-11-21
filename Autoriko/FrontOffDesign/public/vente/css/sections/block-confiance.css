@@ -1,0 +1,27 @@
+.block-confiance {
+  padding: 1.5rem 0;
+  background-color: #ffffff;
+}
+.block-confiance ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.block-confiance ul li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.block-confiance ul li p {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+.block-confiance ul li img {
+  height: 1.3rem;
+  margin-right: 1rem;
+}
+
+/*# sourceMappingURL=block-confiance.css.map */

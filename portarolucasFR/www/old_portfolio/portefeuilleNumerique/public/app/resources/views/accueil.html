@@ -1,0 +1,634 @@
+{% extends "layout.html" %}
+
+{% block title %}Vos comptes{% endblock %}
+{% block head %}
+  	{{ parent() }}
+  
+	<style type="text/css">
+		.important {
+			color: #336699;
+		}
+
+		#lgn,
+		#pwd,
+		#btnCo {
+			width: 300px;
+		}
+		.table td, .table th {
+			vertical-align: middle !important;
+		}
+		.passGroup
+		{
+			display: flex;
+
+		}
+		.passGroup button
+		{
+			width: 30%;
+			font-size: 14px;
+			height: auto;
+			border-radius: 0;
+		}
+		a, a:hover {
+			color: #333;
+		}
+		.fa {
+			display: inline-block;
+			font: normal normal normal 14px/1 FontAwesome;
+			font-size: inherit;
+			text-rendering: auto;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+		.input-group {
+			position: relative;
+			display: -ms-flexbox;
+			display: flex;
+			width: 100%;
+		}
+		.input-group-addon {
+			padding: .5rem .75rem;
+			margin-bottom: 0;
+			font-size: 1rem;
+			font-weight: 400;
+			line-height: 1.25;
+			color: #495057;
+			text-align: center;
+			background-color: #e9ecef;
+			border: 1px solid rgba(0,0,0,.15);
+		}
+		.input-group .form-control:not(:last-child){
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+		.form-control+.input-group-addon:not(:first-child) {
+			border-left: 0;
+		}
+		/*SECTION ARTICLE*/
+		section
+		{
+			width: 100%;
+		}
+
+		section article
+		{
+			width: 100%;
+		}
+
+		#_alignGestionArt
+		{
+			margin: 0 auto;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-evenly;
+		}
+
+		section article *
+		{
+			margin-bottom: 20px;
+		}
+
+		.btn.btn-default.btn-sm:focus
+		{
+			outline: none !important;
+			box-shadow: none !important;
+		}
+
+	</style>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		var destiListUser = [];
+		var actualModalInput;
+
+		$(document).ready(function() {
+			$(".show_hide_password a").on('click', function(event) {
+				event.stopPropagation();
+				event.preventDefault();
+				var link = $(this).parent();
+				if(link.prev().attr("type") == "text"){
+					link.prev().attr('type', 'password');
+					link.find('i').addClass( "fa-eye-slash" );
+					link.find('i').removeClass( "fa-eye" );
+				}else if(link.prev().attr("type") == "password"){
+					link.prev().attr('type', 'text');
+					link.find('i').removeClass( "fa-eye-slash" );
+					link.find('i').addClass( "fa-eye" );
+				}
+			});
+
+			$.ajax({
+				url : './app/resources/model/ajax_home_modifUser.php',
+				type : 'GET',
+				dataType : 'html',
+				success : function(code_html, statut){
+					$('#updateUserInfo').append($(code_html));
+
+				}
+			});
+		});
+
+		$(document).on('show.bs.modal', '.exampleModalClass', function (event) {
+			//var button = $(event.relatedTarget) // Button that triggered the modal
+			//var recipient = button.data('whatever') // Extract info from data-* attributes
+			// If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+			// Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+			var modal = $(this);
+			//modal.find('.modal-title').text('New message to ' + recipient)
+			actualModalInput = modal.find('.modal-body input');
+		});
+
+		$(document).on('click', '.btn', function (event){
+			document.getElementById('_personSearch').innerHTML = '';
+		});
+
+		function listUser()
+		{
+			var chaine = actualModalInput.val();
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', './app/resources/model/ajax_home.php?findSearchUser=yes&chaine=' + chaine);
+			xhr.addEventListener('readystatechange', function()
+			{
+				if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+				{
+					var valTable = JSON.parse(xhr.responseText);
+					valTable.forEach(function(elem)
+					{
+						elemOption = document.createElement('option');
+						elemOption.value = elem;
+						document.getElementById('_personSearch').append(elemOption);
+					});
+				}
+			});
+			xhr.send(null);
+			actualModalInput.removeAttr('onkeyup');
+		}
+
+		function verifIfDeletingText()
+		{
+			if(actualModalInput.val() == '')
+			{
+				document.getElementById('_personSearch').innerHTML = '';
+				actualModalInput.attr('onkeyup', 'listUser();');
+			}
+		}
+
+		function delCompte(unID, leBtn)
+		{
+			var http = new XMLHttpRequest();
+			var params =
+					'compteID=' + unID
+			;
+			http.open('POST', './app/resources/model/ajax_home.php?delCompte', true);
+
+			http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+			http.onreadystatechange = function()
+			{
+				if(http.readyState == 4 && http.status == 200)
+				{
+					if(http.responseText == '') {
+						$('#_message-info').hide();
+						$('#_message-info').html('<strong>Succès:</strong> Le compte '+ unID + ' a bien été supprimé.');
+						$('#_message-info').removeClass( "alert-danger" ).addClass( "alert-success" );
+						$('#_message-info').show("slow");
+					}
+					else {
+						$('#_message-info').hide();
+						$('#_message-info').html('<strong>Erreur:</strong> '.http.responseText);
+						$('#_message-info').removeClass( "alert-success" ).addClass( "alert-danger" );
+						$('#_message-info').show("slow");
+					}
+				}
+			}
+			http.send(params);
+			var elem = $(leBtn).closest("tr");
+			$(elem).fadeTo("slow",0, function(){
+				$(this).remove();
+			})
+		}
+
+		function updatePassCompte(unID, leBtn)
+		{
+			var http = new XMLHttpRequest();
+			var unPass = $(leBtn).prev().find('input').val();
+			var params =
+					'compteID=' + unID
+					+ '&newPass=' + unPass;
+			;
+			http.open('POST', './app/resources/model/ajax_home.php?updatePass', true);
+
+			http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+			http.onreadystatechange = function()
+			{
+				if(http.readyState == 4 && http.status == 200)
+				{
+					if(http.responseText == '') {
+						$('#_message-info').hide();
+						$('#_message-info').html('<strong>Succès:</strong> Le mot de passe a bien été mis à jour.');
+						$('#_message-info').removeClass( "alert-danger" ).addClass( "alert-success" );
+						$('#_message-info').show("slow");
+					}
+					else {
+						$('#_message-info').hide();
+						$('#_message-info').html('<strong>Erreur:</strong> '.http.responseText);
+						$('#_message-info').removeClass( "alert-success" ).addClass( "alert-danger" );
+						$('#_message-info').show("slow");
+					}
+				}
+			}
+			http.send(params);
+		}
+
+		function updateCompte(unID, leBtn)
+		{
+			var bodyModal = $(leBtn).parent().prev('.modal-body');
+			var Mail = $(bodyModal).find('.mailCompteE').val();
+			var Login = $(bodyModal).find('.loginCompteE').val();
+			var Password = $(bodyModal).find('.passCompteE').val();
+			var ServiceElem = $(bodyModal).find('.servCompteE');
+			var Service = $(bodyModal).find('.servCompteE').val();
+			var CategorieElem = $(bodyModal).find('.catCompteE');
+			var Categorie = $(bodyModal).find('.catCompteE').val();
+
+			var http = new XMLHttpRequest();
+
+			var params =
+					'compteID=' + unID
+					+ '&newMail=' + Mail
+					+ '&newLogin=' + Login
+					+ '&newPass=' + Password
+					+ '&newService=' + Service
+					+ '&newCategorie=' + Categorie;
+			http.open('POST', './app/resources/model/ajax_home.php?updateCompte', true);
+
+			http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+			http.onreadystatechange = function()
+			{
+				if(http.readyState == 4 && http.status == 200)
+				{
+					if(http.responseText == '') {
+						$('#_message-info').hide();
+						$('#_message-info').html('<strong>Succès:</strong> Le compte a bien été mis à jour.');
+						$('#_message-info').removeClass( "alert-danger" ).addClass( "alert-success" );
+						$('#_message-info').show("slow");
+					}
+					else {
+						$('#_message-info').hide();
+						$('#_message-info').html('<strong>Erreur:</strong> '.http.responseText);
+						$('#_message-info').removeClass( "alert-success" ).addClass( "alert-danger" );
+						$('#_message-info').show("slow");
+					}
+				}
+			}
+			http.send(params);
+
+			location.reload();
+			/*$(leBtn).parent().parent().find('.panel_compteMail').html(Mail);
+			$(leBtn).parent().parent().find('.panel_compteLogin').html(Login);
+			$(leBtn).parent().parent().find('.panel_compteMdp').val(Password);
+			$(leBtn).parent().parent().find('.panel_nomService').html($(ServiceElem).find('option').attr('selected').text());
+			$(leBtn).parent().parent().find('.panel_urlService').html('none');//
+			$(leBtn).parent().parent().find('.panel_portService').html('none');//
+			$(leBtn).parent().parent().find('.panel_nomCategorie').html($(CategorieElem).find('option').attr('selected').text());*/
+		}
+
+		function addCompte(leBtn)
+		{
+			var bodyModal = $(leBtn).parent().prev('.modal-body');
+			var Mail = $(bodyModal).find('.mailCompteA').val();
+			var Login = $(bodyModal).find('.loginCompteA').val();
+			var Password = $(bodyModal).find('.passCompteA').val();
+			var ServiceElem = $(bodyModal).find('.servCompteA');
+			var Service = $(bodyModal).find('.servCompteA').val();
+			var CategorieElem = $(bodyModal).find('.catCompteA');
+			var Categorie = $(bodyModal).find('.catCompteA').val();
+
+			var http = new XMLHttpRequest();
+
+			var params =
+					'newMail=' + Mail
+					+ '&newLogin=' + Login
+					+ '&newPass=' + Password
+					+ '&newService=' + Service
+					+ '&newCategorie=' + Categorie;
+			http.open('POST', './app/resources/model/ajax_home.php?addCompte', true);
+
+			http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+			http.onreadystatechange = function()
+			{
+				if(http.readyState == 4 && http.status == 200)
+				{
+					if(http.responseText == '') {
+						//location.reload();
+						window.location = location.protocol + '//' + location.host + location.pathname + '?added=compte';
+					}
+					else {
+						$('#_message-info').hide();
+						$('#_message-info').html('<strong>Erreur:</strong> '.http.responseText);
+						$('#_message-info').removeClass( "alert-success" ).addClass( "alert-danger" );
+						$('#_message-info').show("slow");
+					}
+				}
+			}
+			http.send(params);
+		}
+
+		function addService(leBtn)
+		{
+			var bodyModal = $(leBtn).parent().prev('.modal-body');
+			var Url = $(bodyModal).find('.urlService').val();
+			var Port = $(bodyModal).find('.portService').val();
+			var Nom = $(bodyModal).find('.nomService').val();
+
+			var http = new XMLHttpRequest();
+
+			var params =
+					'newUrl=' + Url
+					+ '&newPort=' + Port
+					+ '&newNom=' + Nom;
+			http.open('POST', './app/resources/model/ajax_home.php?addService', true);
+
+			http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+			http.onreadystatechange = function()
+			{
+				if(http.readyState == 4 && http.status == 200)
+				{
+					if(http.responseText == '') {
+						//location.reload();
+						window.location = location.protocol + '//' + location.host + location.pathname + '?added=service';
+					}
+					else {
+						$('#_message-info').hide();
+						$('#_message-info').html('<strong>Erreur:</strong> '.http.responseText);
+						$('#_message-info').removeClass( "alert-success" ).addClass( "alert-danger" );
+						$('#_message-info').show("slow");
+					}
+				}
+			}
+			http.send(params);
+		}
+
+		function updateUserInfo()
+		{
+			var username = $('#_usernameAccountU').val();
+			var mail = $('#_mailAccountU').val();
+			var pass = $('#_passwordAccountU').val();
+
+			var http = new XMLHttpRequest();
+
+			var params =
+					'_usernameAccountU=' + username
+					+ '&_mailAccountU=' + mail
+					+ '&_passwordAccountU=' + pass;
+			http.open('POST', './app/resources/model/ajax_home.php?updateUser', true);
+
+			http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+			http.onreadystatechange = function()
+			{
+				if(http.readyState == 4 && http.status == 200)
+				{
+					$('#updateUserInfo').modal('hide');
+					if(http.responseText == '') {
+						$('#_message-info').hide();
+						$('#_message-info').html('<strong>Succès:</strong> Votre compte utilisateur a bien été mis à jour.');
+						$('#_message-info').removeClass( "alert-danger" ).addClass( "alert-success" );
+						$('#_message-info').show("slow");
+					}
+					else {
+						$('#_message-info').hide();
+						$('#_message-info').html('<strong>Erreur:</strong> '.http.responseText);
+						$('#_message-info').removeClass( "alert-success" ).addClass( "alert-danger" );
+						$('#_message-info').show("slow");
+					}
+				}
+			}
+			http.send(params);
+		}
+	</script>
+{% endblock %}
+
+{% block title_page %}La liste de vos comptes :{% endblock %}
+
+{% block content %}
+{% if isAdmin %}
+	<div id="stats_btn" class="new_btn">
+		<form action="{{ path_for('showStats') }}" method="get">
+			<input type="submit" value="Voir statistique" class="btn btn-info">
+		</form>
+	</div>
+{% endif %}
+<datalist id="_personSearch">
+</datalist>
+
+{% if added == "compte" %}
+<div id="_message-info" class="alert alert-success">
+	<strong>Succès: </strong> Le compte a bien été ajouté.
+</div>
+{% elseif added == "service" %}
+<div id="_message-info" class="alert alert-success">
+	<strong>Succès: </strong> Le service a bien été créé.
+</div>
+{% else %}
+<div id="_message-info" class="alert" style="display: none;">
+</div>
+{% endif %}
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Date du compte </th>
+			<th>Adresse mail </th>
+			<th>Login</th>
+			<th>Mot de passe </th>
+			<th>Nom du service </th>
+			<th>Url du service </th>
+			<th>Port du service </th>
+			<th>Nom catégorie </th>
+		</tr>
+	</thead>
+
+	<tbody>
+		{% for compte in lesComptes %}
+		<tr>
+			<td class="panel_compteId">{{compte.id}}</td>
+			<td class="panel_compteDate">{{compte.date}}</td>
+			<td class="panel_compteMail">{{compte.mail}}</td>
+			<td class="panel_compteLogin">{{compte.login}}</td>
+			<td class="passGroup">
+				<div class="input-group show_hide_password">
+					<input class="form-control panel_compteMdp" value="{{compte.mdp}}" type="password">
+					<div class="input-group-addon">
+						<a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+					</div>
+				</div>
+				<button type="button" class="form-control" onclick="updatePassCompte({{compte.id}}, this)">Update</button>
+			</td>
+			<td class="panel_nomService">{{compte.nomService}}</td>
+			<td class="panel_urlService">{{compte.urlService}}</td>
+			<td class="panel_portService">{{compte.portService}}</td>
+			<td class="panel_nomCategorie">{{compte.nomCategorie}}</td>
+			<td>
+				<button type="button" id="{{compte.id}}" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal{{compte.id}}">Partager</button>
+				<div class="modal fade exampleModalClass" id="exampleModal{{compte.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModal{{compte.id}}Label">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title" id="exampleModal{{compte.id}}Label">Partager le compte <b>{{compte.nom}}</b></h4>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Fermer"><span aria-hidden="true">&times;</span></button>
+							</div>
+							<div class="modal-body">
+								<form>
+									<div class="form-group">
+										<label for="recipient-name{{compte.id}}" class="control-label">Partager le compte avec :</label>
+										<input type="text" class="form-control" id="recipient-name{{compte.id}}" list="_personSearch" onkeyup="listUser()" onkeypress="verifIfDeletingText()">
+									</div>
+								</form>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Retour</button>
+								<button type="button" class="btn btn-dark">Partager le compte</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</td>
+			<td><input type="button" value="Supprimer" class="btn btn-danger delCompteBtn" onclick="delCompte({{compte.id}}, this)" data-compte-id="{{compte.id}}"></td>
+			<td>
+				<button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#editCompte{{compte.id}}">
+					<i class="far fa-edit"></i>
+				</button>
+				<div class="modal fade exampleModalClass" id="editCompte{{compte.id}}" tabindex="-1" role="dialog" aria-labelledby="editCompteLabel{{compte.id}}">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title" id="editCompteLabel{{compte.id}}">Modifier le compte</b></h4>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Fermer"><span aria-hidden="true">&times;</span></button>
+							</div>
+							<div class="modal-body">
+								<form>
+									<div class="form-group">
+										<label class="control-label" for="_mailAccountE{{compte.id}}">Adresse mail :</label>
+										<input type="text" value="{{compte.mail}}" id="_mailAccountE{{compte.id}}" class="form-control mailCompteE"><br>
+										<label class="control-label" for="_loginAccountE{{compte.id}}">Login :</label>
+										<input type="text" value="{{compte.login}}" id="_loginAccountE{{compte.id}}" class="form-control loginCompteE"><br>
+										<label class="control-label" for="_passwordAccountE{{compte.id}}">Mot de passe :</label>
+										<input type="text" value="{{compte.mdp}}" id="_passwordAccountE{{compte.id}}" class="form-control passCompteE"><br>
+										<label class="control-label" for="_serviceAccountE{{compte.id}}">Service attribué :</label>
+										<select class="custom-select servCompteE" id="_serviceAccountE{{compte.id}}">
+											{% for service in lesServices %}
+												{% if service.idService == compte.idService %}
+													<option selected value="{{service.idService}}">{{service.nom}}</option>
+												{% else %}
+													<option value="{{service.idService}}">{{service.nom}}</option>
+												{% endif %}
+											{% endfor %}
+										</select><br><br>
+										<label class="control-label" for="_categorieAccountE{{compte.id}}">Catégorie attribuée :</label>
+										<select class="custom-select catCompteE" id="_categorieAccountE{{compte.id}}">
+											{% for categorie in lesCategories %}
+											{% if categorie.id == compte.id_categorie %}
+											<option selected value="{{categorie.id}}">{{categorie.nomCategorie}}</option>
+											{% else %}
+											<option value="{{categorie.id}}">{{categorie.nomCategorie}}</option>
+											{% endif %}
+											{% endfor %}
+										</select><br>
+									</div>
+								</form>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+								<button type="button" class="btn btn-dark" onclick="updateCompte({{compte.id}}, this)">Modifier le compte</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+<section>
+	<article id="_gestionArt">
+		<div id="_alignGestionArt">
+			<input type="button" value="Ajouter compte" class="btn btn-outline-success" data-toggle="modal" data-target="#addAccount" style="width: 40%;">
+			<div class="modal fade exampleModalClass" id="addAccount" tabindex="-1" role="dialog" aria-labelledby="addAccountLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title" id="addAccountLabel">Créer un compte</b></h4>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Fermer"><span aria-hidden="true">&times;</span></button>
+						</div>
+						<div class="modal-body">
+							<form>
+								<div class="form-group">
+									<label class="control-label" for="_mailAccount">Adresse mail :</label>
+									<input type="text" id="_mailAccount" class="form-control mailCompteA">
+									<label class="control-label" for="_loginAccount">Login :</label>
+									<input type="text" id="_loginAccount" class="form-control loginCompteA">
+									<label class="control-label" for="_passwordAccount">Mot de passe :</label>
+									<input type="text" id="_passwordAccount" class="form-control passCompteA">
+									<label class="control-label" for="_serviceAccount">Service attribué :</label>
+									<select class="custom-select servCompteA" id="_serviceAccount">
+										<option selected>Choisissez un service...</option>
+										{% for service in lesServices %}
+										<option value="{{service.idService}}">{{service.nom}}</option>
+										{% endfor %}
+									</select>
+									<label class="control-label" for="_categorieAccount">Catégorie attribuée :</label>
+									<select class="custom-select catCompteA" id="_categorieAccount">
+										<option selected>Choisissez une catégorie...</option>
+										{% for categorie in lesCategories %}
+										<option value="{{categorie.id}}">{{categorie.nomCategorie}}</option>
+										{% endfor %}
+									</select>
+								</div>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+							<button type="button" class="btn btn-dark" onclick="addCompte(this)">Ajouter le compte</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<input type="button" value="Ajouter service" class="btn btn-outline-secondary" data-toggle="modal" data-target="#addService" style="width: 40%;">
+			<div class="modal fade exampleModalClass" id="addService" tabindex="-1" role="dialog" aria-labelledby="addServiceLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title" id="addServiceLabel">Créer un service</b></h4>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Fermer"><span aria-hidden="true">&times;</span></button>
+						</div>
+						<div class="modal-body">
+							<form>
+								<div class="form-group">
+									<label class="control-label" for="_urlService">Url du service :</label>
+									<input type="text" id="_urlService" class="form-control urlService">
+									<label class="control-label" for="_portService">Port :</label>
+									<input type="text" id="_portService" class="form-control portService">
+									<label class="control-label" for="_nomService">Nom :</label>
+									<input type="text" id="_nomService" class="form-control nomService">
+								</div>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+							<button type="button" class="btn btn-dark" onclick="addService(this)">Ajouter le service</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<input type="button" value="Gestion du compte utilisateur" class="btn btn-outline-warning" data-toggle="modal" data-target="#updateUserInfo" style="width: 90%;">
+			<div class="modal fade exampleModalClass" id="updateUserInfo" tabindex="-1" role="dialog" aria-labelledby="updateUserInfoLabel">
+			</div>
+			<input type="submit" value="Gestion des utilisateurs" class="btn btn-outline-warning" style="width: 90%;">
+		</div>
+	</article>
+</section>
+{% endblock %}
+		
+

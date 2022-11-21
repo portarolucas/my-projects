@@ -1,0 +1,261 @@
+<html xmlns="http://www.w3.org/1999/html">
+
+<head>
+
+    <title>Lucas PORTARO - Réalisation</title>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <meta name="format-detection" content="telephone=no" />
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600,600i,700" rel="stylesheet">
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="style_ok.css" />
+
+    <link rel="stylesheet" type="text/css" href="style_vue.css" />
+
+    <script src="./js/verification.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.js"></script>
+
+    <script type="text/javascript">
+
+
+
+        $(document).ready(function(){
+
+
+
+            $(".slideTo").click(function(e){
+
+                e.preventDefault();
+
+                var aid = $(this).attr("href");
+
+                $('html,body').animate({scrollTop: $(aid).offset().top},'slow');
+
+            });
+
+        });
+
+
+
+        $('<img style="display: none;"/>').attr('src', '../img/bg_header2.jpg').on('load', function()
+
+        {
+
+            $(this).remove();
+
+            //$('header').css('background-image', "url('./img/banner_header.png')");
+
+            $('#body_loaded').css('display', 'block');
+
+            $('#loaderAnim').css('display', 'none');
+
+            var elem = document.getElementById('body_loaded');
+
+            var actually = 0;
+
+            function transition()
+
+            {
+
+                if(actually < 1)
+
+                {
+
+                    actually += 0.1;
+
+                    elem.style.opacity = actually;
+
+                    setTimeout(transition, 50);
+
+                }
+
+            }
+
+            transition();
+
+        });
+
+    </script>
+
+</head>
+
+
+
+<body>
+
+<div id="loaderAnim"></div>
+
+<div id="body_loaded">
+
+    <header id="goToTop">
+
+        <img src="../img/trameFULL.png" alt="" id="trameHeader" />
+
+        <div id="header_center">
+
+            <a href="../index.html">
+
+                <div id="logo_head">
+
+                    <h1>PORTARO <span style="font-weight: 400;">Lucas</span></h1>
+
+                    <div id="bar_undername"></div>
+
+                    <h3>Developpeur c#, Web, MySql</h3>
+
+                </div>
+
+            </a>
+
+            <h1 id="titreHeader">{{ titre }}</h1>
+
+            <a class="slideTo" href="#section_introduction" style="display: block; margin: 50px auto; border-radius: 50%;">
+
+                <img src="../img/downArrow.svg" alt="Down arrow" id="downArrowImg" />
+
+            </a>
+
+        </div>
+
+    </header>
+
+
+
+    <section id="section_introduction">
+
+        <img src="../img/vuejs/vuejs.svg" alt="Image de VueJS"/>
+
+        <h1><b style="color: #006307">Q</b>u'est-ce que Vue.js ?</h1>
+
+        <br>
+
+        <iframe src="https://player.vimeo.com/video/247494684" style="width:70%; height: 800px;" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" data-vimeo-tracked="true" data-ready="true"></iframe>
+
+        <br>
+
+        <h2><b style="color: #006307">I</b>ntroduction à Vue :</h2>
+
+        <p>VueJS est une librairie qui permet de créer des interfaces web interactives en se reposant sur le principe des composants webs. Il propose un système réactif capable de détecter automatiquement les changements d'états du composant et ainsi de les mettre automatiquement à jour.</p>
+
+    </section>
+
+
+
+    <section id="section_exemple">
+
+        <h2><u><b style="color: #006307">Q</b>uelques exemples d'utilisation :</u></h2>
+
+        <br>
+
+        <h2 class="title_ex">Notre page web est composé de composant VueJS :</h2>
+        <p>VueJS est utilisé sur notre page pour le titre dans le header, Vue fait appel à la donnée 'titre' :</p>
+        <p><i>Déclaration d'une nouvelle Vue puis définition de la donnée 'titre' avec comme valeur 'Veille technologique: VueJS' :</i></p>
+
+        <br>
+
+        <img src="../img/vuejs/exampl.png" alt="Exemple de Vue"/>
+
+        <br><br>
+
+        <p><i>Utilisation de la data 'titre' :</i></p>
+
+        <br>
+
+        <img src="../img/vuejs/exampl2.png" alt="Exemple de Vue"/>
+
+        <br>
+
+        <h2 class="title_ex">Exemple avec un textbox :</h2>
+        <p><i>Saisissez un texte dans la box et Vue mettra à jour automatiquement ce texte :</i> <b style="color: #006307;">{{ message }}</b></p>
+        <input v-model="message" />
+
+        <br><br>
+
+        <img src="../img/vuejs/1.png" alt="Exemple de Vue"/>
+
+        <br><br>
+
+        <img src="../img/vuejs/declar_vue.png" alt="Exemple de Vue"/>
+
+        <br>
+
+        <h2 class="title_ex">Exemple avec une liste de voitures :</h2>
+        <p><i>Si on a par exemple une liste avec 5 voitures de base, cliquez sur les voitures pour les supprimer :</i></p>
+        <ul id="listVoitureID">
+            <li v-for="(voiture, key) in Voitures">
+               <p style="color: #006307;" @click="$delete(Voitures, key)"> {{ voiture.nom }}</p>
+           </li>
+        </ul>
+
+        <br>
+
+        <img src="../img/vuejs/2.png" alt="Exemple de Vue"/>
+
+        <br><br>
+
+        <img src="../img/vuejs/declar_vue.png" alt="Exemple de Vue"/>
+
+        <br>
+
+        <br>
+
+
+
+    </section>
+
+
+
+    <footer>
+
+        <p>Copyright PORTARO Lucas - All right reserved</p>
+
+    </footer>
+
+
+
+    <script type="text/javascript">
+
+        var app = new Vue({
+
+            el: '#header_center',
+
+            data: {
+
+                titre: 'Veille technologique: VueJS'
+
+            }
+
+        });
+
+        var exemple = new Vue({
+          el: '#section_exemple',
+          data: {
+            message: 'Modifiez le texte',
+            Voitures: [
+              { nom: 'Audi RS3' },
+              { nom: 'Polo 5' },
+              { nom: 'Twingo' },
+              { nom: 'Clio 4' },
+              { nom: 'Clio 3' }
+            ]
+          }
+        });
+
+
+
+    </script>
+
+</div>
+
+</body>

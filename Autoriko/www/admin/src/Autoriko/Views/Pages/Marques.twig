@@ -1,0 +1,207 @@
+{% extends "Layout.twig" %}
+
+{% block style %}
+<style>
+    .notification {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div id="notification_block" class="notification" style="z-index: 999;display: none;">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="hideNotification()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <p></p>
+</div>
+
+<div class="box">
+    <div class="box-header">
+        <h2>Gestion des marques</h2>
+        <small>Possiblité de modifier ou de supprmier des marques</small>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered m-0">
+            <thead>
+                <tr>
+                    <th style="width: 30%;">Nom</th>
+                    <th style="width: 30%;">Logo</th>
+                    <th style="width: 10%;"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for marque in marques %}
+                <tr>
+                    <td class="panel_nommarque"><span class="editable">{{ marque.nom }}</span></td>
+                    <td class="panel_lienmarque"><span class="editable">{{ marque.lien }}</span></td>
+                    <td class="panel_update">
+                        <button type="button" class="btn btn-default btn-sm" data-toggle="modal"
+                            data-target="#editUser_{{ marque.id_marque }}">
+                            <i class="far fa-edit"></i>
+                        </button>
+                        <div class="modal fade exampleModalClass" id="editUser_{{ marque.id_marque  }}" tabindex="-1"
+                            role="dialog" aria-labelledby="editUserLabel_{{ marque.id_marque  }}">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <form ui-jp="parsley">
+                                                <div class="box">
+                                                    <div class="box-header">
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title"
+                                                                id="editconversationLabel_{{ voiture.id_marque}}">
+                                                                Modifier la
+                                                                marque
+                                                            </h4>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Fermer"><span
+                                                                    aria-hidden="true">×</span></button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="box-body">
+                                                        <div class="modal-body">
+                                                            <div class="form-group">
+                                                                <label class="control-label">nom de la marque:</label>
+                                                                <input type="text" value="{{ marque.nom }}"
+                                                                    class="form-control update_nomMarque">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="control-label">Logo de la marque:</label>
+                                                                <input type="text" value="{{ marque.lien }}"
+                                                                    class="form-control update_lienMarque">
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="dker p-a text-right">
+                                                            <button type="button" class="btn btn-default"
+                                                                data-dismiss="modal">Annuler</button>
+                                                            <button type="button" class="btn info"
+                                                                onclick="marqueUpdate({{ marque.id_marque }}, this)">Modifier
+                                                                la marque</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="panel_delete">
+                        <input type="button" value="Supprimer" class="btn btn-danger delCompteBtn" data-toggle="modal"
+                            data-target="#marqueDelete{{ marque.id_marque }}">
+                        <div class="modal fade" id="marqueDelete{{ marque.id_marque }}" tabindex="-1" role="dialog"
+                            aria-labelledby="marqueDeleteLabel_{{ marque.id_marque }}" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="deleteUserLabel_{{ marque.id_marque }}">Supprimer
+                                            une marque :</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Êtes-vous sûr de vouloir supprimer la marque : {{ marque.nom }} ?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default"
+                                            data-dismiss="modal">Annuler</button>
+                                        <button type="button" class="btn btn-danger btn-ok"
+                                            onclick="marqueDelete({{ marque.id_marque }}, this)">Supprimer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    
+        {% endblock %}
+
+        {% block script %}
+
+        <script>
+            function hideNotification() {
+                $('#notification_block').fadeOut('500', () => {
+                    $('#notification_block').removeClass();
+                });
+            }
+
+            function showNotification(libelle_bootstrap, message) {
+                hideNotification();
+                $('#notification_block p').text(message)
+                $('#notification_block').addClass("notification")
+                $('#notification_block').addClass('alert alert-' + libelle_bootstrap)
+                $('#notification_block').fadeIn('500');
+            }
+
+            function marqueDelete(id, leBtn) {
+                let model = $(leBtn).parents().closest('.modal');
+                let lineDelet = $(leBtn).parents().closest('tr');
+
+                let http = new XMLHttpRequest();
+                let params =
+                    'id_marque=' + id;
+                http.open('POST', '{{ path_for('marqueDelete') }}', true);
+
+                http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                http.onreadystatechange = function () {
+                    if (http.readyState == 4 && http.status == 200) {
+                        if (http.responseText == 'success') {
+                            $(model).modal('hide');
+                            showNotification('success', "La marque a bien été supprimé.");
+                            $(lineDelet).hide('slow', function () {
+                                $(lineDelet).remove();
+                            });
+                        } else {
+                            showNotification('danger', 'Erreur : ' + http.responseText);
+                        }
+                    }
+                }
+                http.send(params);
+            }
+            function marqueUpdate(id, leBtn) {
+                let bodyModal = $(leBtn).parent().prev('.modal-body');
+                let nom = $(bodyModal).find('.update_nomMarque').val();
+                let lien = $(bodyModal).find('.update_lienMarque').val();
+
+                if (id, nom, lien) {
+                    let model = $(leBtn).parents().closest('.modal');
+                    let lineUpdate = $(leBtn).parents().closest('tr');
+                    let http = new XMLHttpRequest();
+
+                    let params =
+                        'id_marque=' + id +
+                        '&nom=' + nom +
+                        '&lien=' + lien;
+                    http.open('POST', '{{ path_for('marqueUpdate') }}', true);
+
+                    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                    http.onreadystatechange = function () {
+                        if (http.readyState == 4 && http.status == 200) {
+                            console.log(http.responseText);
+                            if (http.responseText == 'success') {
+                                $(lineUpdate).find('.panel_nommarque').text(nom);
+                                $(lineUpdate).find('.panel_lienmarque').text(lien);
+
+                                $(model).modal('hide');
+                                showNotification('success', "Succès : La marque " + nom + " a bien été modifié.");
+                            } else {
+                                showNotification('danger', 'Erreur : ', http.responseText);
+                            }
+                        }
+                    }
+                    http.send(params);
+                } else {
+                    alert("Une erreur est survenue : des champs sont manquants, introuvable, ou incomplet \n\rSi le problème persiste actualisez la page ou contactez-nous");
+                }
+            }
+
+        </script>
+        {% endblock %}

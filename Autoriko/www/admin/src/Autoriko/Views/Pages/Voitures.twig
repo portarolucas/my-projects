@@ -1,0 +1,517 @@
+{% extends "Layout.twig" %}
+
+{% block style %}
+<style>
+    .notification {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div id="notification_block" class="notification" style="z-index: 999;display: none;">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="hideNotification()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <p></p>
+</div>
+
+<div class="box">
+    <div class="box-header">
+        <h2>Liste des voitures</h2>
+        <small>Possiblité de modifier ou de supprmier des voitures</small>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered m-0">
+            <thead>
+                <tr>
+                    <th style="width: 25%;">Modele</th>
+                    <th style="width: 25%;">Description</th>
+                    <th style="width: 25%;">Prix_argus</th>
+                    <th style="width: 25%;">Couleur</th>
+                    <th style="width: 25%;">kilometrage</th>
+                    <th style="width: 25%;">Puissance</th>
+                    <th style="width: 25%;">Energie</th>
+                    <th style="width: 25%;">Annee</th>
+                    <th style="width: 25%;">Transmission</th>
+                    <th style="width: 25%;">Mise en circulation</th>
+                    <th style="width: 25%;">Numero identification</th>
+                    <th style="width: 25%;">Co2</th>
+                    <th style="width: 25%;">Nombre de clés</th>
+                    <th style="width: 25%;">Nombre de sièges</th>
+                    <th style="width: 25%;">Nombre de porte</th>
+                    <th style="width: 25%;">Bruit du moteur</th>
+                    <th style="width: 25%;">Nombre de propriétaires</th>
+                    <th style="width: 25%;">Moteur</th>
+                    <th style="width: 25%;">Description interieur</th>
+                    <th style="width: 25%;">Marque</th>
+                    <th style="width: 25%;">Categorie</th>
+                    <th style="width: 5%;"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for voiture in voitures %}
+                <tr>
+                    <td class="panel_modelevoiture">
+                        <span class="editable">{{ voiture.modele }}</span>
+                    </td>
+                    <td class="panel_date_descriptionvoiture">
+                        <span class="editable">{{ voiture.description }}</span>
+                    </td>
+                    <td class="panel_prix_argusvoiture">
+                        <span class="editable">{{ voiture.prix_argus }}</span>
+                    </td>
+                    <td class="panel_couleurvoiture">
+                        <span class="editable">{{ voiture.couleur }}</span>
+                    </td>
+                    <td class="panel_kilometragevoiture">
+                        <span class="editable">{{ voiture.kilometrage }}</span>
+                    </td>
+                    <td class="panel_puissancevoiture">
+                        <span class="editable">{{ voiture.puissance }}</span>
+                    </td>
+                    <td class="panel_energievoiture">
+                        <span class="editable">{{ voiture.energie }}</span>
+                    </td>
+                    <td class="panel_anneevoiture">
+                        <span class="editable">{{ voiture.annee }}</span>
+                    </td>
+                    <td class="panel_transmissionvoiture">
+                        <span class="editable">{{ voiture.transmission }}</span>
+                    </td>
+                    <td class="panel_mise_en_circulationvoiture">
+                        <span class="editable">{{ voiture.mise_en_circulation }}</span>
+                    </td>
+                    <td class="panel_numero_identificationvoiture">
+                        <span class="editable">{{ voiture.numero_identification }}</span>
+                    </td>
+                    <td class="panel_co2voiture">
+                        <span class="editable">{{ voiture.co2 }}</span>
+                    </td>
+                    <td class="panel_nombre_de_clevoiture">
+                        <span class="editable">{{ voiture.nombre_de_cle }}</span>
+                    </td>
+                    <td class="panel_nombre_siegevoiture">
+                        <span class="editable">{{ voiture.nombre_siege }}</span>
+                    </td>
+                    <td class="panel_nombre_portevoiture">
+                        <span class="editable">{{ voiture.nombre_porte }}</span>
+                    </td>
+                    <td class="panel_bruit_moteurvoiture">
+                        <span class="editable">{{ voiture.bruit_moteur }}</span>
+                    </td>
+                    <td class="panel_nombre_proprietairevoiture">
+                        <span class="editable">{{ voiture.nombre_proprietaire }}</span>
+                    </td>
+                    <td class="panel_moteurvoiture">
+                        <span class="editable">{{ voiture.moteur }}</span>
+                    </td>
+                    <td class="panel_description_interieurvoiture">
+                        <span class="editable">{{ voiture.description_interieur }}</span>
+                    </td>
+                    <td class="panel_id_marque">
+                        <span class="editable">{{ voiture.marque.nom }}</span>
+                    </td>
+                    <td class="panel_id_categorie">
+                        <span class="editable">{{ voiture.id_categorie}}</span>
+                    </td>
+                    <td class="panel_update">
+                        <button type="button" class="btn btn-default btn-sm" data-toggle="modal"
+                            data-target="#editUser_{{ voiture.id_voiture }}">
+                            <i class="far fa-edit"></i>
+                        </button>
+                        <div class="modal fade exampleModalClass" id="editUser_{{ voiture.id_voiture  }}" tabindex="-1"
+                            role="dialog" aria-labelledby="editUserLabel_{{ voiture.id_voiture  }}">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <form ui-jp="parsley">
+                                                <div class="box">
+                                                    <div class="box-header">
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title"
+                                                                id="editconversationLabel_{{ voiture.id_voiture}}">
+                                                                Modifier la
+                                                                voiture</h4>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Fermer">
+                                                                <span aria-hidden="true">×</span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="box-body">
+                                                        <div class="modal-body">
+                                                            <div class="form-group">
+                                                                <label
+                                                                    class="col-sm-3 form-control-label">modele</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" value="{{ voiture.modele }}"
+                                                                        class="form-control update_modeleVoiture">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label
+                                                                    class="col-sm-3 form-control-label">description</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" value="{{ voiture.description }}"
+                                                                        class="form-control update_descriptionVoiture">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-sm-3 form-control-label">prix
+                                                                    argus</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" value="{{ voiture.prix_argus }}"
+                                                                        class="form-control update_prix_argusVoiture">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label
+                                                                    class="col-sm-3 form-control-label">couleur</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" value="{{ voiture.couleur }}"
+                                                                        class="form-control update_couleurVoiture">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label
+                                                                    class="col-sm-3 form-control-label">kilometrage</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" value="{{ voiture.kilometrage }}"
+                                                                        class="form-control update_kilometrageVoiture">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label
+                                                                    class="col-sm-3 form-control-label">puissance</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" value="{{ voiture.puissance }}"
+                                                                        class="form-control update_puissanceVoiture">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label
+                                                                    class="col-sm-3 form-control-label">energie</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" value="{{ voiture.energie }}"
+                                                                        class="form-control update_energieVoiture">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-sm-3 form-control-label">annee</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" value="{{ voiture.annee }}"
+                                                                        class="form-control update_anneeVoiture">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label
+                                                                    class="col-sm-3 form-control-label">transmission</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text"
+                                                                        value="{{ voiture.transmission }}"
+                                                                        class="form-control update_transmissionVoiture">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-sm-3 form-control-label">mise en
+                                                                    circulation</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="datetime-local"
+                                                                        value="{{ voiture.mise_en_circulation|format_datetime(pattern="
+                                                                        Y'-'MM'-'dd'T'kk':'m") }}"
+                                                                        class="form-control update_mise_en_circulationVoiture">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-sm-3 form-control-label">numero
+                                                                    identification</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text"
+                                                                        value="{{ voiture.numero_identification }}"
+                                                                        class="form-control update_numero_identificationVoiture">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-sm-3 form-control-label">co2</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" value="{{ voiture.co2 }}"
+                                                                        class="form-control update_co2Voiture">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label
+                                                                    class="col-sm-3 form-control-label">nombre_de_cle</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text"
+                                                                        value="{{ voiture.nombre_de_cle }}"
+                                                                        class="form-control update_nombre_de_cleVoiture">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label
+                                                                    class="col-sm-3 form-control-label">nombre_siege</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text"
+                                                                        value="{{ voiture.nombre_siege }}"
+                                                                        class="form-control update_nombre_siegeVoiture">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-sm-3 form-control-label">nombre
+                                                                    porte</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text"
+                                                                        value="{{ voiture.nombre_porte }}"
+                                                                        class="form-control update_nombre_porteVoiture">
+                                                                </div>
+                                                            </div>
+                                                            {# <div class="form-group">
+                                                                <label class="col-sm-3 form-control-label">bruit
+                                                                    moteur</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text"
+                                                                        value="{{ voiture.bruit_moteur }}"
+                                                                        class="form-control update_bruit_moteurVoiture">
+                                                                </div>
+                                                            </div> #}
+                                                            <div class="form-group ">
+                                                                <label class="col-sm-2 form-control-label">bruit_moteur</label>
+                                                                <div class="col-sm-10">
+                                                                    <div class="form-file">
+                                                                    <input type="file" value="{{ voiture.bruit_moteur }}"
+                                                                        class="form-control update_bruit_moteurVoiture">
+                                                                    <button class="btn white">Choisir un fichier ...</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-sm-3 form-control-label">nombre
+                                                                    proprietaire</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text"
+                                                                        value="{{ voiture.nombre_proprietaire }}"
+                                                                        class="form-control update_nombre_proprietaireVoiture">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label
+                                                                    class="col-sm-3 form-control-label">moteur</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" value="{{ voiture.moteur }}"
+                                                                        class="form-control update_moteurVoiture">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-sm-3 form-control-label">description
+                                                                    interieur</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text"
+                                                                        value="{{ voiture.description_interieur }}"
+                                                                        class="form-control update_description_interieurVoiture">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-sm-3 form-control-label">mise en
+                                                                    circulation</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="datetime-local"
+                                                                        value="{{ voiture.mise_en_circulation|format_datetime(pattern="
+                                                                        Y'-'MM'-'dd'T'kk':'m") }}"
+                                                                        class="form-control update_mise_en_circulationVoiture">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="single"> Marque </label>
+                                                                <select  class="form-control select2 update_id_marque" ui-jp="select2" ui-options="{theme: 'bootstrap'}">
+                                                                    <optgroup>
+                                                                        {% for marque in marques  %}
+                                                                        <option  value="{{marque.id_marque }}"> {{ marque.nom }}</option>
+                                                                        {% endfor %}
+                                                                    </optgroup>
+                                                                </select>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="single"> Categorie </label>
+                                                                <select  class="form-control select2 update_id_categorie" ui-jp="select2" ui-options="{theme: 'bootstrap'}">
+                                                                    <optgroup>
+                                                                        {% for categorie in categories  %}
+                                                                        <option  value="{{categorie.id_categorie }}"> {{ categorie.libelle }}</option>
+                                                                        {% endfor %}
+                                                                    </optgroup>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="dker p-a text-right">
+                                                            <button type="button" class="btn btn-default"
+                                                                data-dismiss="modal">Annuler</button>
+                                                            <button type="button" class="btn info"
+                                                                onclick="voitureUpdate({{ voiture.id_voiture }}, this)">Submit</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="panel_delete">
+                        <input type="button" value="Supprimer" class="btn btn-danger delCompteBtn" data-toggle="modal"
+                            data-target="#voitureDelete{{ voiture.id_voiture }}">
+                        <div class="modal fade" id="voitureDelete{{ voiture.id_voiture }}" tabindex="-1" role="dialog"
+                            aria-labelledby="voitureDeleteLabel_{{ voiture.id_voiture }}" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="deleteUserLabel_{{ voiture.id_voiture }}">Supprimer
+                                            une voiture :</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Êtes-vous sûr de vouloir supprimer la voiture :
+                                            {{ voiture.modele }}
+                                            ?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default"
+                                            data-dismiss="modal">Annuler</button>
+                                        <button type="button" class="btn btn-danger btn-ok"
+                                            onclick="voitureDelete({{ voiture.id_voiture }}, this)">Supprimer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endblock %}
+
+        {% block script %}
+
+        <script>
+            function hideNotification() {
+                $('#notification_block').fadeOut('500', () => {
+                    $('#notification_block').removeClass();
+                });
+            }
+
+            function showNotification(libelle_bootstrap, message) {
+                hideNotification();
+                $('#notification_block p').text(message)
+                $('#notification_block').addClass("notification")
+                $('#notification_block').addClass('alert alert-' + libelle_bootstrap)
+                $('#notification_block').fadeIn('500');
+            }
+
+            function voitureDelete(id, leBtn) {
+                let model = $(leBtn).parents().closest('.modal');
+                let lineDelet = $(leBtn).parents().closest('tr');
+
+                let http = new XMLHttpRequest();
+                let params = 'id_voiture=' + id;
+                http.open('POST', '{{ path_for('voitureDelete') }}', true);
+
+                http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                http.onreadystatechange = function () {
+                    if (http.readyState == 4 && http.status == 200) {
+                        if (http.responseText == 'success') {
+                            $(model).modal('hide');
+                            showNotification('success', "La voiture a bien été supprimé.");
+                            $(lineDelet).hide('slow', function () {
+                                $(lineDelet).remove();
+                            });
+                        } else {
+                            showNotification('danger', 'Erreur : ' + http.responseText);
+                        }
+                    }
+                }
+                http.send(params);
+            }
+
+            function voitureUpdate(id, leBtn) {
+                let bodyModal = $(leBtn).parent().prev('.modal-body');
+                let modele = $(bodyModal).find('.update_modeleVoiture').val();
+                let description = $(bodyModal).find('.update_descriptionVoiture').val();
+                let prix_argus = $(bodyModal).find('.update_prix_argusVoiture').val();
+                let couleur = $(bodyModal).find('.update_couleurVoiture').val();
+                let kilometrage = $(bodyModal).find('.update_kilometrageVoiture').val();
+                let puissance = $(bodyModal).find('.update_puissanceVoiture').val();
+                let energie = $(bodyModal).find('.update_energieVoiture').val();
+                let annee = $(bodyModal).find('.update_anneeVoiture').val();
+                let transmission = $(bodyModal).find('.update_transmissionVoiture').val();
+                let mise_en_circulation = $(bodyModal).find('.update_mise_en_circulationVoiture').val();
+                let numero_identification = $(bodyModal).find('.update_numero_identificationVoiture').val();
+                let co2 = $(bodyModal).find('.update_co2Voiture').val();
+                let nombre_de_cle = $(bodyModal).find('.update_nombre_de_cleVoiture').val();
+                let nombre_siege = $(bodyModal).find('.update_nombre_siegeVoiture').val();
+                let nombre_porte = $(bodyModal).find('.update_nombre_porteVoiture').val();
+                let bruit_moteur = $(bodyModal).find('.update_bruit_moteurVoiture').val();
+                let nombre_proprietaire = $(bodyModal).find('.update_nombre_proprietaireVoiture').val();
+                let moteur = $(bodyModal).find('.update_moteurVoiture').val();
+                let description_interieur = $(bodyModal).find('.update_description_interieurVoiture').val();
+                let id_marque = $(bodyModal).find('.update_id_marque').val();
+                let id_categorie = $(bodyModal).find('.update_id_categorie').val();
+
+
+                if (id, modele, description, prix_argus, couleur, kilometrage, puissance, energie, annee, transmission, mise_en_circulation, numero_identification, co2, nombre_de_cle, nombre_siege, nombre_porte, bruit_moteur, nombre_proprietaire, moteur, description_interieur, id_marque, id_categorie) {
+                    let model = $(leBtn).parents().closest('.modal');
+                    let lineUpdate = $(leBtn).parents().closest('tr');
+                    let http = new XMLHttpRequest();
+
+                    let params = 'id_voiture=' + id + '&modele=' + modele + '&description=' + description + '&prix_argus=' + prix_argus +
+                    '&couleur=' + couleur + '&kilometrage=' + kilometrage + '&puissance=' + puissance + '&energie=' + energie +
+                    '&annee=' + annee + '&transmission=' + transmission + '&mise_en_circulation=' + mise_en_circulation +
+                    '&numero_identification=' + numero_identification + '&co2=' + co2 + '&nombre_de_cle=' + nombre_de_cle + 
+                    '&nombre_siege=' + nombre_siege + '&nombre_porte=' + nombre_porte + '&bruit_moteur=' + bruit_moteur +
+                    '&nombre_proprietaire=' + nombre_proprietaire + '&moteur=' + moteur + '&description_interieur=' + description_interieur +
+                    '&id_marque=' + id_marque + '&id_categorie=' + id_categorie;
+                    http.open('POST', '{{ path_for('voitureUpdate') }}', true);
+
+                    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                    http.onreadystatechange = function () {
+                        if (http.readyState == 4 && http.status == 200) {
+                            console.log(http.responseText);
+                            if (http.responseText == 'success') {
+                                $(lineUpdate).find('.panel_modelevoiture').text(modele);
+                                $(lineUpdate).find('.panel_descriptionvoiture').text(description);
+                                $(lineUpdate).find('.panel_prix_argusvoiture').text(prix_argus);
+                                $(lineUpdate).find('.panel_couleurvoiture').text(couleur);
+                                $(lineUpdate).find('.panel_kilometragevoiture').text(kilometrage);
+                                $(lineUpdate).find('.panel_puissancevoiture').text(puissance);
+                                $(lineUpdate).find('.panel_energievoiture').text(energie);
+                                $(lineUpdate).find('.panel_anneevoiture').text(annee);
+                                $(lineUpdate).find('.panel_transmissionvoiture').text(transmission);
+                                $(lineUpdate).find('.panel_mise_en_circulationvoiture').text(mise_en_circulation);
+                                $(lineUpdate).find('.panel_numero_identificationvoiture').text(numero_identification);
+                                $(lineUpdate).find('.panel_co2voiture').text(co2);
+                                $(lineUpdate).find('.panel_nombre_de_clevoiture').text(nombre_de_cle);
+                                $(lineUpdate).find('.panel_nombre_siegevoiture').text(nombre_siege);
+                                $(lineUpdate).find('.panel_nombre_portevoiture').text(nombre_porte);
+                                $(lineUpdate).find('.panel_bruit_moteurvoiture').text(bruit_moteur);
+                                $(lineUpdate).find('.panel_nombre_proprietairevoiture').text(nombre_proprietaire);
+                                $(lineUpdate).find('.panel_moteurvoiture').text(moteur);
+                                $(lineUpdate).find('.panel_description_interieurvoiture').text(description_interieur);
+                                $(lineUpdate).find('.panel_id_marque').text(id_marque);
+                                $(lineUpdate).find('.panel_id_categorie').text(id_categorie);
+
+                                $(model).modal('hide');
+                                showNotification('success', "Succès : La voiture " + modele + " a bien été modifié.");
+                            } else {
+                                showNotification('danger', 'Erreur : ', http.responseText);
+                            }
+                        }
+                    }
+                    http.send(params);
+                } else {
+                    alert("Une erreur est survenue : des champs sont manquants, introuvable, ou incomplet \n\rSi le problème persiste actualisez la page ou contactez-nous");
+                }
+            }
+        </script>
+        {% endblock %}

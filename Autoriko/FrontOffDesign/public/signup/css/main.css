@@ -1,0 +1,155 @@
+@font-face {
+  font-family: "Lemon Milk";
+  src: url("../../../fonts/lemonmilk-regular-webfont.woff2") format("woff2"), url("../../../fonts/lemonmilk-regular-webfont.woff") format("woff"), url("../../../fonts/LEMONMILK-Regular.otf") format("otf");
+  font-weight: 400;
+  font-style: normal;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin-top: 4rem;
+  width: 100%;
+}
+
+.main-content {
+  padding-top: 3.5rem;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.align-center {
+  padding-left: 9rem;
+  padding-right: 9rem;
+}
+
+.align-center-small {
+  padding-left: 13.5rem;
+  padding-right: 13.5rem;
+}
+
+.separation-bar {
+  width: 100vw;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.25);
+  margin-top: 3.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.align-center .separation-bar {
+  margin-right: -150px;
+  margin-left: -150px;
+}
+
+.text-linear-gradient {
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#0552fa", endColorstr="#aa1abb", GradientType=1 );
+  background: -moz-linear-gradient(135deg, #0552fa, #aa1abb);
+  background: -webkit-gradient(135deg, #0552fa, #aa1abb);
+  background: -webkit-linear-gradient(135deg, #0552fa, #aa1abb);
+  background: -o-linear-gradient(135deg, #0552fa, #aa1abb);
+  background: -ms-linear-gradient(135deg, #0552fa, #aa1abb);
+  background: linear-gradient(135deg, #0552fa, #aa1abb);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-lg-center {
+  margin: 0 auto;
+}
+
+.section_1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  text-align: center;
+  padding: 3.5rem;
+}
+.section_1 h1 {
+  font-family: "Montserrat";
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 auto 1rem auto;
+}
+.section_1 hr {
+  margin: 1rem auto;
+}
+.section_1 .block-login {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 3rem;
+}
+.section_1 .block-login input[type=text], .section_1 .block-login input[type=password] {
+  display: block;
+  margin: 1rem auto;
+  width: 20vw;
+  border: 0;
+  padding: 1rem;
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 0.8rem;
+  outline: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+.section_1 .block-login input[type=text]:hover, .section_1 .block-login input[type=password]:hover {
+  outline: 0;
+}
+.section_1 .block-login .se-connecter {
+  display: block;
+  font-size: 0.8rem;
+  width: 100%;
+  padding: 20px;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  font-weight: 700;
+  box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.05);
+  color: #ffffff;
+  background: linear-gradient(90deg, #aa1abb, #0552fa);
+}
+.section_1 .block-login .se-connecter:hover {
+  outline: 0;
+}
+.section_1 .block-login a {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 0.8rem;
+  color: #ffffff;
+  text-decoration: underline;
+  margin: 0;
+}
+
+.main-content {
+  background-image: url("../img/BG/background.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  display: grid;
+}
+
+html, body {
+  font-size: 100%;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (min-width: 1800px) {
+  html {
+    font-size: 120%;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

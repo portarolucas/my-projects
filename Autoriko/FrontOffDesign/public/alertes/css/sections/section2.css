@@ -1,0 +1,47 @@
+.section_2 {
+  margin-top: 3.5rem;
+}
+.section_2 .navigation-page {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.section_2 .navigation-page button {
+  display: block;
+  padding: 16px;
+  border: 0;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.15);
+  color: #ffffff;
+  background: linear-gradient(-135deg, #aa1abb, #de2ef3);
+  margin: 0 1rem 0 1rem;
+}
+.section_2 .navigation-page button:hover {
+  outline: none;
+}
+.section_2 p.number-of-page {
+  text-align: center;
+  font-family: "Montserrat";
+  font-weight: 500;
+  color: #000000;
+  font-size: 0.8rem;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+.section_2 p.number-of-page .separate-bar-p {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+.section_2 p.number-of-page a {
+  text-decoration: underline;
+}
+
+/*# sourceMappingURL=section2.css.map */

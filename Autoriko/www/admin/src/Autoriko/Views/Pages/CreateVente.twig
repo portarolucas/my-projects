@@ -1,0 +1,108 @@
+{% extends "Layout.twig" %}
+
+{% block style %}{% endblock %}
+
+{% block content %}
+
+{% if flash.success %}
+<div class="alert alert-success" role="alert">
+  {{ flash.success }}
+</div>
+{% endif %}
+
+{% if flash.error %}
+<div class="alert alert-danger" role="alert">
+  {{ flash.error }}
+</div>
+{% endif %}
+
+<div class="col-sm-6">
+  <form ui-jp="parsley" action="{{ path_for('createVente') }}" method="post">
+    <div class="box">
+      <div class="box-header">
+        <h2>Créer une vente</h2>
+      </div>
+      <div class="box-body">
+        <p class="text-muted">Tous les champs sont obligatoires.</p>
+        <div class="row m-b">
+          <div class="col-sm-6">
+            <label>Titre</label>
+            <input type="text" placeholder="Entrer le titre " class="form-control" placeholder="Entrer le titre" id="titre_vente" name="titre_vente"
+              required>
+          </div>
+          <div class="col-sm-6">
+            <label>Prix</label>
+            <input type="text" placeholder="Entrer le prix " class="form-control" placeholder="99.99" id="prix_vente" name="prix_vente" required>
+          </div>
+          <div class="col-sm-6">
+            <label for="date_debut" class="form-label">Début des ventes</label>
+            <input type="date" class="form-control" id="date_debut" name="date_debut" required>
+          </div>
+          <div class="col-sm-6">
+            <label for="date_fin" class="form-label">Fin des ventes</label>
+            <input type="date" class="form-control" id="date_fin" name="date_fin" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="single">Voiture</label>
+          <select required onchange="updateVignette(this)" id="id_voiture" name="id_voiture" class="form-control select2" ui-jp="select2"
+            ui-options="{theme: 'bootstrap'}">
+            <option disabled selected value></option>
+            {% for voiture in voitures %}
+            <option value="{{voiture.id_voiture}}">{{voiture.id_voiture }} - {{ voiture.marque.nom }} - {{
+              voiture.modele }} - {{ voiture.created_at|date('Y-m-d H:i:s') }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="single">Vignette</label>
+          <select disabled required id="id_vignette" name="id_vignette" class="form-control select2" ui-jp="select2"
+            ui-options="{theme: 'bootstrap'}">
+          </select>
+        </div>
+        <div class="dker p-a text-right">
+          <button type="submit" class="btn info">Valider</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script type="text/javascript">
+  const myArray = {{ voitures|json_encode|raw }}
+  const jVignette = $('#id_vignette')
+  const jChooseVoiture = $('#id_voiture');
+
+  function updateVignette(elem){
+    let selectedValue = $(elem).val()
+    if(selectedValue != null){
+      jVignette.empty().append($('<option disabled selected value></option>'))
+      jVignette.prop("disabled", false)
+
+      let voiture = myArray.find(element => element.id_voiture == selectedValue);
+      voiture['photo_voiture'].forEach(function(photo){
+        let opt = $("<option></option>").attr("value",photo.id_photo).text(photo.categorie_photo.libelle + ' - ' + photo.titre)
+        jVignette.append(opt)
+      });
+
+    }
+  }
+
+  $(document).ready(function() {
+
+    updateVignette(jChooseVoiture[0])
+
+    $('form button[type=submit]').on('click', function(e) {
+      //alert('Problème')
+      //var isValid = $(e.target).parents('form').isValid();
+      //isValid = false
+      //if(!isValid) {
+      //  e.preventDefault(); //prevent the default action
+      //}
+    });
+  });
+
+</script>
+
+
+{% endblock %}

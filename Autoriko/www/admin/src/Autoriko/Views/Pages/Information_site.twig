@@ -1,0 +1,175 @@
+{% extends "Layout.twig" %}
+
+{% block style %}
+<style>
+	.notification {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+	}
+</style>
+{% endblock %}
+
+{% block content %}
+<div id="notification_block" class="notification" style="z-index: 999;display: none;">
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="hideNotification()">
+		<span aria-hidden="true">&times;</span>
+	</button>
+	<p></p>
+</div>
+
+<div class="box">
+	<div class="box-header">
+		<h2>Modifier les informations du site</h2>
+		<small>Modifier le contenu de la page</small>
+	</div>
+	<div class="box-body">
+		<p class="text-muted">Tous les champs sont obligatoires.</p>
+		<div class="row m-b">
+			<div class="col-sm-6">
+				<label>Nom de la page</label>
+				<input type="text" value="{{ informationsite.nom }}" class="form-control"
+					 id="nom" required />
+			</div>
+			<div class="col-sm-6">
+				<label>Prix de l'entrer des enchères</label>
+				<input type="text" value="{{ informationsite.prix_entrer_vente }}" class="form-control"
+					 id="prix_entrer_vente" required />
+			</div>
+            <div class="col-sm-6">
+				<label>Mail</label>
+				<input type="text" value="{{ informationsite.mail }}" class="form-control"
+					 id="mail" required />
+			</div>
+            <div class="col-sm-6">
+				<label>Numero de telephone</label>
+				<input type="text" value="{{ informationsite.numero_tel }}" class="form-control"
+					 id="numero_tel" required />
+			</div>
+            <div class="col-sm-6">
+				<label>Les horaires</label>
+				<input type="text" value="{{ informationsite.horaire_hotline }}" class="form-control"
+					 id="horaire_hotline" required />
+			</div>
+            <div class="col-sm-6">
+				<label>Code postal de l'agence</label>
+				<input type="text" value="{{ informationsite.code_postale_agence }}" class="form-control"
+					 id="code_postale_agence" required />
+			</div>
+            <div class="col-sm-6">
+				<label>La ville de l'agence</label>
+				<input type="text" value="{{ informationsite.ville_agence }}" class="form-control"
+					 id="ville_agence" required />
+			</div>
+            <div class="col-sm-6">
+				<label>Adresse de l'agence</label>
+				<input type="text" value="{{ informationsite.adresse_agence }}" class="form-control"
+					 id="adresse_agence" required />
+			</div>
+            <div class="col-sm-6">
+				<label>Adrese complémentaire</label>
+				<input type="text" value="{{ informationsite.comp_adresse_agence }}" class="form-control"
+					 id="comp_adresse_agence" required />
+			</div>
+            <div class="col-sm-6">
+				<label>Lien youtube</label>
+				<input type="text" value="{{ informationsite.lien_youtube }}" class="form-control"
+					 id="lien_youtube" required />
+			</div>
+            <div class="col-sm-6">
+				<label>Lien instagram</label>
+				<input type="text" value="{{ informationsite.lien_instagram }}" class="form-control"
+					 id="lien_instagram" required />
+			</div>
+            <div class="col-sm-6">
+				<label>Lien facebook</label>
+				<input type="text" value="{{ informationsite.lien_facebook }}" class="form-control"
+					 id="lien_facebook" required />
+			</div>
+            <div class="col-sm-6">
+				<label>Lien twitter</label>
+				<input type="text" value="{{ informationsite.lien_twitter }}" class="form-control"
+					 id="lien_twitter" required />
+			</div>
+
+		</div>
+		<div class="dker p-a text-right">
+			<button type="button" class="btn info" onclick="update()">Valider</button>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+
+<script>
+
+	function hideNotification() {
+		$('#notification_block').fadeOut('500', () => {
+			$('#notification_block').removeClass();
+		});
+	}
+
+	function showNotification(libelle_bootstrap, message) {
+		hideNotification();
+		$('#notification_block p').text(message)
+		$('#notification_block').addClass("notification")
+		$('#notification_block').addClass('alert alert-' + libelle_bootstrap)
+		$('#notification_block').fadeIn('500');
+	}
+	
+    function update(leBtn) {
+    let nom = $('#nom').val();
+    let prix_entrer_vente = $('#prix_entrer_vente').val();
+    let mail = $('#mail').val();
+    let numero_tel = $('#numero_tel').val();
+    let horaire_hotline = $('#horaire_hotline').val();
+    let code_postale_agence = $('#code_postale_agence').val();
+    let ville_agence = $('#ville_agence').val();
+    let adresse_agence = $('#adresse_agence').val();
+    let comp_adresse_agence = $('#comp_adresse_agence').val();
+    let lien_youtube = $('#lien_youtube').val();
+    let lien_instagram = $('#lien_instagram').val();
+    let lien_facebook = $('#lien_facebook').val();
+    let lien_twitter = $('#lien_twitter').val();
+
+    if (nom, prix_entrer_vente, mail, numero_tel, horaire_hotline, code_postale_agence, ville_agence, adresse_agence, comp_adresse_agence, lien_youtube, lien_instagram, lien_facebook, lien_twitter) {
+        let http = new XMLHttpRequest();
+
+        let params =
+            '&nom=' + nom +
+            '&prix_entrer_vente=' + prix_entrer_vente +
+            '&mail=' + mail +
+            '&numero_tel=' + numero_tel +
+            '&horaire_hotline=' + horaire_hotline +
+            '&code_postale_agence=' + code_postale_agence +
+            '&ville_agence=' + ville_agence +
+            '&adresse_agence=' + adresse_agence +
+            '&comp_adresse_agence=' + comp_adresse_agence +
+            '&lien_youtube=' + lien_youtube +
+            '&lien_instagram=' + lien_instagram +
+            '&lien_facebook=' + lien_facebook +
+            '&lien_twitter=' + lien_twitter;
+        http.open('POST', '{{ path_for('informationSiteUpdate') }}', true);
+
+        http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        http.onreadystatechange = function () {
+            if (http.readyState == 4 && http.status == 200) {
+                  console.log(http.responseText);
+                if (http.responseText == 'success') {
+                    showNotification('success', "Succès : La page a bien été modifié.");
+                } else {
+                    showNotification('danger', 'Erreur : ', http.responseText);
+                }
+            }
+        }
+        http.send(params);
+    } else {
+        alert("Une erreur est survenue : des champs sont manquants, introuvable, ou incomplet \n\rSi le problème persiste actualisez la page ou contactez-nous");
+    }
+}
+	
+</script>
+{% endblock %}

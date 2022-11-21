@@ -1,0 +1,74 @@
+.section_1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  text-align: center;
+  padding: 3.5rem;
+  padding-top: 0;
+}
+.section_1 h1 {
+  font-family: "Montserrat";
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 auto 1rem auto;
+}
+.section_1 hr {
+  margin: 1rem auto;
+}
+.section_1 .block-login {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 3rem;
+}
+.section_1 .block-login input[type=text], .section_1 .block-login input[type=email], .section_1 .block-login input[type=password] {
+  display: block;
+  margin: 1rem auto;
+  width: 20vw;
+  border: 0;
+  padding: 1rem;
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 0.8rem;
+  outline: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+.section_1 .block-login input[type=text]:hover, .section_1 .block-login input[type=email]:hover, .section_1 .block-login input[type=password]:hover {
+  outline: 0;
+}
+.section_1 .block-login .se-connecter {
+  display: block;
+  font-size: 0.8rem;
+  width: 100%;
+  padding: 20px;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  font-weight: 700;
+  box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.05);
+  color: #ffffff;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#0552fa", endColorstr="#aa1abb", GradientType=1 );
+  background: -moz-linear-gradient(-90deg, #0552fa, #aa1abb);
+  background: -webkit-gradient(-90deg, #0552fa, #aa1abb);
+  background: -webkit-linear-gradient(-90deg, #0552fa, #aa1abb);
+  background: -o-linear-gradient(-90deg, #0552fa, #aa1abb);
+  background: -ms-linear-gradient(-90deg, #0552fa, #aa1abb);
+  background: linear-gradient(-90deg, #0552fa, #aa1abb);
+}
+.section_1 .block-login .se-connecter:hover {
+  outline: 0;
+}
+.section_1 .block-login a {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 0.8rem;
+  color: #ffffff;
+  text-decoration: underline;
+  margin: 0;
+  margin-top: 1rem;
+  display: block;
+}
+
+/*# sourceMappingURL=section1.css.map */

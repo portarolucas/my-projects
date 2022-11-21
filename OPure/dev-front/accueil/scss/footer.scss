@@ -1,0 +1,291 @@
+@import '_var.scss';
+@import '_media-queries.scss';
+
+footer.footer{
+  background-color: $color-primary;
+  padding-left: $padding-x-medium-size-xs;
+  padding-right: $padding-x-medium-size-xs;
+  padding-top: $margin-y-medium-size-xs;
+  padding-bottom: $margin-y-medium-size-xs;
+
+  @include sm{
+    padding-left: $padding-x-medium-size-sm;
+    padding-right: $padding-x-medium-size-sm;
+    padding-top: $margin-y-medium-size-sm;
+    padding-bottom: $margin-y-medium-size-sm;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  @include md{
+    padding-left: $padding-x-medium-size-md;
+    padding-right: $padding-x-medium-size-md;
+    padding-top: $margin-y-medium-size-md;
+    padding-bottom: $margin-y-medium-size-md;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  @include lg{
+    padding-left: $padding-x-medium-size-md;
+    padding-right: $padding-x-medium-size-md;
+    padding-top: $margin-y-medium-size-md;
+    padding-bottom: $margin-y-medium-size-md;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  @include xl{
+    padding-left: $padding-x-medium-size-md;
+    padding-right: $padding-x-medium-size-md;
+    padding-top: $margin-y-medium-size-md;
+    padding-bottom: $margin-y-medium-size-md;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+
+  @include sm{
+    & > :nth-child(1){
+      order: 5;
+    }
+    & > :nth-child(2){
+      order: 2;
+    }
+    & > :nth-child(3){
+      order: 3;
+    }
+    & > :nth-child(4){
+      order: 4;
+    }
+    & > :nth-child(5){
+      order: 1;
+    }
+
+    hr{
+      display: none;
+    }
+  }
+  @include md{
+    & > :nth-child(1){
+      order: 5;
+    }
+    & > :nth-child(2){
+      order: 2;
+    }
+    & > :nth-child(3){
+      order: 3;
+    }
+    & > :nth-child(4){
+      order: 4;
+    }
+    & > :nth-child(5){
+      order: 1;
+    }
+
+    hr{
+      display: none;
+    }
+  }
+  @include lg{
+    & > :nth-child(1){
+      order: 5;
+    }
+    & > :nth-child(2){
+      order: 2;
+    }
+    & > :nth-child(3){
+      order: 3;
+    }
+    & > :nth-child(4){
+      order: 4;
+    }
+    & > :nth-child(5){
+      order: 1;
+    }
+
+    hr{
+      display: none;
+    }
+  }
+  @include xl{
+    & > :nth-child(1){
+      order: 5;
+    }
+    & > :nth-child(2){
+      order: 2;
+    }
+    & > :nth-child(3){
+      order: 3;
+    }
+    & > :nth-child(4){
+      order: 4;
+    }
+    & > :nth-child(5){
+      order: 1;
+    }
+
+    hr{
+      display: none;
+    }
+  }
+
+  .footer__section{
+    @include sm{
+      width: 32%;
+    }
+    @include md{
+      width: 32%;
+    }
+    @include lg{
+      width: 32%;
+    }
+    @include xl{
+      width: 32%;
+    }
+    h3, p, li, a{
+      font-family: $font-raleway;
+      font-weight: 500;
+      font-size: $font-medium-size-xs;
+      color: #ffffff;
+      text-align: center;
+
+      @include sm{
+        text-align: left;
+        font-size: $font-medium-size-sm;
+      }
+      @include md{
+        text-align: left;
+        font-size: $font-medium-size-md;
+      }
+      @include lg{
+        text-align: left;
+        font-size: $font-medium-size-lg;
+      }
+      @include xl{
+        text-align: left;
+        font-size: $font-medium-size-lg;
+      }
+    }
+    h3{
+      text-transform: uppercase;
+      text-decoration: underline;
+    }
+    a{
+      text-decoration: underline;
+    }
+    ul{
+      padding-top: .2rem;
+      li{
+        text-transform: uppercase;
+        margin-bottom: 0;
+        &:before{
+          display: none;
+        }
+        @include sm{
+          margin-bottom: .2rem;
+          padding-left: 1rem;
+          &:before{
+            display: block;
+            background-color: #ffffff;
+            height: .4rem;
+            width: .4rem;
+            top: .6rem;
+          }
+        }
+        @include md{
+          margin-bottom: .2rem;
+          padding-left: 1rem;
+          &:before{
+            display: block;
+            background-color: #ffffff;
+            height: .4rem;
+            width: .4rem;
+            top: .6rem;
+          }
+        }
+        @include lg{
+          margin-bottom: .2rem;
+          padding-left: 1rem;
+          &:before{
+            display: block;
+            background-color: #ffffff;
+            height: .4rem;
+            width: .4rem;
+            top: .6rem;
+          }
+        }
+        @include xl{
+          margin-bottom: .2rem;
+          padding-left: 1rem;
+          &:before{
+            display: block;
+            background-color: #ffffff;
+            height: .4rem;
+            width: .4rem;
+            top: .6rem;
+          }
+        }
+        a{
+          text-decoration: none;
+        }
+      }
+    }
+    .logo{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: nowrap;
+      margin-bottom: $margin-y-medium-size-xs / 3;
+
+      @include sm{
+        justify-content: flex-start;
+        margin-bottom: $margin-y-medium-size-sm / 3;
+      }
+      @include md{
+        justify-content: flex-start;
+        margin-bottom: $margin-y-medium-size-md / 3;
+      }
+      @include lg{
+        justify-content: flex-start;
+        margin-bottom: $margin-y-medium-size-md / 3;
+      }
+      @include xl{
+        justify-content: flex-start;
+        margin-bottom: $margin-y-medium-size-md / 3;
+      }
+      h1{
+        font-family: $font-raleway;
+        font-weight: 900;
+        font-size: $font-extralarge-size-xs;
+        text-transform: uppercase;
+        color: #ffffff;
+        .color{
+          color: $color-secondary;
+        }
+
+        @include sm{
+          font-size: $font-extralarge-size-sm;
+        }
+        @include md{
+          font-size: $font-extralarge-size-md;
+        }
+        @include lg{
+          font-size: $font-extralarge-size-lg;
+        }
+        @include xl{
+          font-size: $font-extralarge-size-lg;
+        }
+      }
+      img{
+        height: 6rem;
+        width: auto;
+        padding-right: 1.2rem;
+      }
+    }
+  }
+}
