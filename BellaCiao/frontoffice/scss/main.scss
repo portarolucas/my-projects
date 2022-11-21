@@ -1,0 +1,280 @@
+@import '_base.scss';
+@import '_variables.scss';
+@import 'media-queries.scss';
+
+//SECTIONS
+@import '_section1.scss';
+@import '_section2.scss';
+@import '_section3.scss';
+@import '_section4.scss';
+
+@import '_footer.scss';
+
+//TODO refaire les images des petits triangles en haut et en bas du backgournd de la section 1
+
+*, html{
+  margin: 0;
+  padding: 0;
+}
+
+html, body{
+  overflow-x: hidden;
+}
+
+body{
+  color: black;
+  background-image: $background-img;
+  background-repeat: repeat;
+  @include xs {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+body{
+  padding-top: 15vh;
+  transition: padding-top .4s;
+  @include xs{
+    padding-top: 10vh;
+  }
+
+  @include sm {
+    padding-top: 10vh;
+  }
+}
+
+.nav{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  box-shadow: 0px 5px 20px 0px rgb(0 0 0 / 50%);
+
+  @include xs {
+    box-shadow: 0px 4px 20px 0px rgb(0 0 0 / 50%);
+  }
+}
+
+.nav__container{
+  position: relative;
+  height: calc(15vh - 7.5px);
+  background-color: white;
+  padding-top: 7.5px;
+  padding-left: $margin-x;
+  padding-right: $margin-x;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+
+  font-size: 1rem;
+  font-family: $font-pt-sans-narrow;
+  text-transform: uppercase;
+  transition: height .4s;
+
+  @include xs{
+    height: calc(10vh - 5px);
+    padding-top: 5px;
+    padding-left: $margin-x / 2;
+    padding-right: $margin-x / 2;
+  }
+
+  @include sm {
+    height: calc(10vh - 5px);
+    padding-top: 5px;
+    padding-left: $margin-x / 2;
+    padding-right: $margin-x / 2;
+  }
+
+  &::after{
+    content: ' ';
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    background-image: url('../img/section1/rognage-top.png');
+    background-size: cover;
+    width: 100%;
+    height: 15px;
+    z-index: 999;
+
+    @include xs{
+      height: 10px;
+      bottom: -10px;
+    }
+    @include sm{
+      height: 10px;
+      bottom: -10px;
+    }
+  }
+
+  img.nav__logo{
+    position: absolute;
+    left: calc(50% - 4rem);
+    width: 8rem;
+    transition: width .4s, left .4s;
+
+    @include xs{
+      left: calc(50% - 2.5rem);
+      width: 5rem;
+    }
+
+    @include sm {
+      position: inherit;
+      left: inherit;
+      width: auto;
+      height: 3rem;
+    }
+  }
+
+  ul.nav__menu{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    transition: background-color .2s;
+
+    @include xs{
+      cursor: pointer;
+      z-index: 9999;
+      width: 3rem;
+
+      &:before{
+        content: ' ';
+        background-image: url('../img/header/menu.svg');
+        background-repeat: no-repeat;
+        background-size: 1.5rem;
+        background-position: center;
+        background-color: #FF9A62;
+        border-radius: 3rem;
+        width: 3rem;
+        height: 3rem;
+        transition: content .5s, background-image .5s;
+      }
+      li{
+        display: none;
+      }
+    }
+
+    @include sm {
+      width: inherit;
+    }
+
+    li{
+      list-style-type: none;
+      margin: 0;
+      margin-right: 2rem;
+
+      a{
+        color: #000000;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .nav__more{
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    a{
+      color: #000000;
+      text-decoration: none;
+    }
+
+    @include xs{
+      z-index: 9999;
+      .phone{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 3rem;
+        height: 3rem;
+        background-color: #FF9A62;
+        border-radius: 3rem;
+        outline: inherit;
+        svg{
+          min-height: inherit;
+          height: 2rem;
+          fill: #fff;
+        }
+        &:focus, &:hover, &:active{
+          background-color: none;
+          outline: none;
+        }
+      }
+      .info{
+        display: none;
+      }
+    }
+
+    @include sm {
+      display: none;
+    }
+
+    svg{
+      fill: #000;
+      min-height: 3.5rem;
+    }
+
+    .info{
+      margin-left: 1rem;
+      p{
+        margin-bottom: .1rem;
+      }
+      .info__hours-day, .info__hours-night{
+        font-size: .8rem;
+      }
+    }
+  }
+}
+
+//NAVIGATION MENU
+//PLATFORM : PHONE (mediascreen <= 599px)
+.nav__container.menu--open{
+
+  .nav__menu{
+    position: fixed;
+    top: 0;left: 0;
+    height: 100vh;
+    min-height: 100px;
+    width: 100%;
+    background-image: none;
+    background-color: #ffffff;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    li{
+      display: block;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      letter-spacing: .1rem;
+      padding: .5rem 0 .5rem 0;
+      border-top: 1px solid #fd9a63;
+      border-bottom: 1px solid #fd9a63;
+    }
+
+    &::before{
+      position: absolute;
+      top: 5vw;
+      left: 5vw;
+      background-image: none;
+      content: "X";
+      font-family: $font-pt-sans-narrow;
+      font-size: 1.5rem;
+      color: #ffffff;
+      line-height: 3rem;
+      text-align: center;
+    }
+  }
+
+  .nav__more, .nav__logo{
+    display: none;
+  }
+}

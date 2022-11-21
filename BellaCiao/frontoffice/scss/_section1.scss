@@ -1,0 +1,409 @@
+@import '_variables.scss';
+@import 'media-queries.scss';
+
+//GLOBAL
+.section1{
+  position: relative;
+  width: 100%;
+  min-height: calc(85vh - 5px);//+20px = height de la ligne des triangles au dessus et en dessous du bg TODO
+  background-image: url('../img/section1/background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  box-shadow: inset 0px -20px 20px 0px rgb(0 0 0 / 50%);
+
+  p::selection, h1::selection, h2::selection, h3::selection, h4::selection, h5::selection, h6::selection, img::selection, br::selection {
+      color: none;
+      background: none;
+  }
+  /* For Mozilla Firefox */
+  p::-moz-selection, h1::selection, h2::selection, h3::selection, h4::selection, h5::selection, h6::selection, img::selection, br::selection {
+      color: none;
+      background: none;
+  }
+
+  @include xs {
+    min-height: calc(90vh - 3px);//+20px = height de la ligne des triangles au dessus et en dessous du bg TODO
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @include sm {
+    min-height: calc(90vh - 3px);//+20px = height de la ligne des triangles au dessus et en dessous du bg TODO
+    flex-wrap: wrap;
+    align-content: center;
+  }
+
+  &::after{
+    content: ' ';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-image: url('../img/section1/rognage-bottom.png');
+    background-size: cover;
+    width: 100%;
+    height: 15px;
+
+    @include xs{
+      height: 10px;
+    }
+    @include sm{
+      height: 10px;
+    }
+  }
+
+  .slides__container{
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 4.5rem;
+    padding-right: 4.5rem;
+    width: calc(100% - ((#{$margin-x} + 4.5rem)) * 2);
+
+    @include xs {
+      padding-left: 0;
+      padding-right: 0;
+      width: 100%;
+    }
+
+    @include sm {
+      padding-left: 0;
+      padding-right: 0;
+      width: 100%;
+    }
+
+  }
+  article.slide{
+    width: 100%;
+    @include xs {
+      margin-left: $margin-x / 2;
+      margin-right: $margin-x / 2;
+      width: calc(100% - ((#{$margin-x} / 2) * 2));
+    }
+    @include sm {
+      margin-left: $margin-x / 2;
+      margin-right: $margin-x / 2;
+      width: calc(100% - ((#{$margin-x} / 2) * 2));
+    }
+  }
+
+  .btn-slide{
+    background-color: black;
+    font-family: $font-pt-sans-narrow;
+    font-weight: 200;
+    font-size: 2rem;
+    color: #ffffff;
+    background-color: rgba(#000000, 0.3);
+    height: 4rem;
+    width: 4rem;
+    border-radius: 90px;
+    border: 0;
+    cursor: pointer;
+    position: absolute;
+    top: calc(50% - 1.5rem);
+
+    @include xs {
+      display: none;
+    }
+    @include sm {
+      display: none;
+    }
+    &.btn-left{
+      left: $margin-x;
+      margin-left: -2rem;
+    }
+    &.btn-right{
+      right: $margin-x;
+      margin-right: -2rem;
+    }
+  }
+
+  .pagination{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    //margin-top: 2rem;
+    position: absolute;
+    bottom: 10vh;
+    margin: 0 auto;
+    @include xs {
+      display: flex;
+    }
+    @include sm {
+      display: flex;
+      width: 100%;
+    }
+    button.pagination__btn{
+      height: 1.5rem;
+      width: 1.5rem;
+      background: rgba(#000, .1);
+    	border: 1px solid #D7D7D7;
+      border-radius: 1.5rem;
+    	padding: 0;
+    	font: inherit;
+    	cursor: pointer;
+      outline: inherit;
+      margin: 0 .5rem;
+
+      &:focus, &:hover, &:active{
+        background-color: none;
+        outline: none;
+      }
+      &.active{
+        background-color: rgba(#FF9A62, .8);
+      }
+    }
+  }
+}
+
+//SECTION 1 - SLIDE 1
+.section1 .slide-1{
+
+  .slide__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    color: #ffffff;
+    width: 100%;
+    @include xs {
+      flex-direction: column;
+    }
+    .left{
+      width: 45%;
+      @include xs {
+        width: 100%;
+      }
+      h1{
+        font-size: 3.5rem;
+        letter-spacing: .2rem;
+        margin-bottom: 2rem;
+        margin-top: 0;
+        font-family: $font-simonetta;
+
+        @include xs {
+          font-size: 2.8rem;
+          letter-spacing: .1rem;
+          margin-bottom: 1.5rem;
+        }
+        @include sm {
+          font-size: 2.4rem;
+          letter-spacing: .1rem;
+          margin-bottom: 1.5rem;
+        }
+      }
+      h3{
+        font-family: $font-pt-sans-narrow;
+        font-size: 1.5rem;
+        font-weight: 400;
+
+        @include xs {
+          font-size: 1.2rem;
+        }
+        @include sm {
+          font-size: 1.2rem;
+        }
+      }
+      p{
+        font-family: $font-pt-sans-narrow;
+        font-size: 1.2rem;
+        letter-spacing: .05rem;
+        @include xs {
+          font-size: 1rem;
+        }
+        @include sm {
+          font-size: 1rem;
+        }
+      }
+      hr{
+        width: 100%;
+        background-color: #ffffff;
+        margin-top: 1.3rem;
+        margin-bottom: 1.3rem;
+
+        @include xs {
+          margin-top: 1rem;
+          margin-bottom: 1rem;
+          width: 90%;
+        }
+        @include sm {
+          margin-top: 1rem;
+          margin-bottom: 1rem;
+        }
+      }
+    }
+    .right{
+      width: 45%;
+      position: relative;
+      @include xs {
+        width: 70%;
+        margin-top: 2rem;
+      }
+      img{
+        z-index: 50;
+        width: 100%;
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+//SECTION 1 - SLIDE 2
+.section1 .slide-2{
+  display: none;
+  .left, .right{ opacity: 0; }
+  .slide__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    color: #ffffff;
+
+    @include xs{
+      flex-direction: column;
+    }
+    .left{
+      width: 45%;
+
+      @include xs{
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10vw;
+      }
+      @include sm {
+        width: 65%;
+      }
+      h3{
+        font-family: $font-pt-sans-narrow;
+        letter-spacing: .1rem;
+        font-size: 1.5rem;
+        font-weight: 400;
+        margin-bottom: 2rem;
+        margin-top: 0;
+        line-height: 2.5rem;
+        @include xs {
+          font-size: 1.2rem;
+          margin-bottom: 1.4rem;
+        }
+        @include sm {
+          font-size: 1.3rem;
+          margin-bottom: 1.6rem;
+        }
+      }
+      button.btn-voir-carte{
+        font-family: $font-pt-sans-narrow;
+        letter-spacing: .1rem;
+        text-transform: uppercase;
+        font-size: 1.2rem;
+        padding: 1rem;
+        border: 2px solid #B4B13C;
+        background-color: inherit;
+        color: #fff;
+        cursor: pointer;
+        transition: background-color .5s, color .5s, border-color .5s;
+
+        @include xs{
+          font-size: 1rem;
+          padding: .8rem;
+        }
+        @include sm {
+          font-size: 1rem;
+          padding: .8rem;
+        }
+        &:hover{
+          background-color: rgba(#B4B13C, .4);
+          border-color: #fff;
+        }
+      }
+    }
+    .right{
+      width: 45%;
+      height: 100%;
+      position: relative;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+
+      animation: rotateInfinit 15s linear infinite;
+
+      @include xs{
+        width: 60%;
+      }
+      @include sm {
+        width: 35%;
+      }
+
+      @keyframes rotateInfinit {
+        from {
+          -webkit-transform: rotate(0deg);
+          -o-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        to {
+          -webkit-transform: rotate(360deg);
+          -o-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes rotateInfinitInverse {
+        from {
+          -webkit-transform: rotate(0deg);
+          -o-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        to {
+          -webkit-transform: rotate(-360deg);
+          -o-transform: rotate(-360deg);
+          transform: rotate(-360deg);
+        }
+      }
+      @keyframes scaleInfinit {
+        0% {
+          -webkit-transform: scale(1);
+          -o-transform: scale(1);
+          transform: scale(1);
+        }
+        50% {
+          -webkit-transform: scale(1.2);
+          -o-transform: scale(1.2);
+          transform: scale(1.2);
+        }
+        100% {
+          -webkit-transform: scale(1);
+          -o-transform: scale(1);
+          transform: scale(1);
+        }
+      }
+
+      a{
+        width: 35%;
+        //animation: rotateInfinit 8s linear infinite;
+        transition: transform 1s, left 1s, right 1s;
+        //animation: rotateInfinitInverse 10s linear infinite;
+        cursor: pointer;
+
+        img{
+          width: 100%;
+        }
+
+        &:hover{
+          transform: scale(1.2);
+        }
+
+        &:nth-child(1){
+
+        }
+        &:nth-child(2){
+
+        }
+        &:nth-child(3){
+          margin-left: 30%;
+          margin-right: 30%;
+        }
+      }
+    }
+  }
+}
